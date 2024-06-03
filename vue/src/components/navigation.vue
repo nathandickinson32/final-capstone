@@ -2,7 +2,7 @@
 
 <div class="home">
     <h1>MEAL PLANNER OF DOOM</h1>
-    <p>Both guests and registered users can access HomeView</p>
+    <p>Both guests and registered users can access this static display</p>
   </div>
   <nav class="static">
 
@@ -35,13 +35,15 @@
 
 .home-link {
   display: flex;
+  border: none;
+  color: red;
   text-align: left;
   padding-left: 10px;
   height: 30px;
   text-decoration: none;
-  border: 1px solid;
   margin-top: auto;
-  margin-bottom: auto
+  margin-bottom: auto;
+
 }
 
 </style>

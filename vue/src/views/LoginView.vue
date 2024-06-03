@@ -1,4 +1,5 @@
 <template>
+  <Navigation />
   <div id="login">
     <form v-on:submit.prevent="login">
       <h1 >Please Sign In</h1>
@@ -25,9 +26,10 @@
 
 <script>
 import authService from "../services/AuthService";
+import Navigation from "../components/navigation.vue";
 
 export default {
-  components: {},
+  components: { Navigation },
   data() {
     return {
       user: {
