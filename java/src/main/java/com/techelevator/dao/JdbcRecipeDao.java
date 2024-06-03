@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.IdDTO;
 import com.techelevator.model.Recipe;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -10,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcRecipeDao implements RecipeDao{
+public class JdbcRecipeDao implements RecipeDao {
 
-private JdbcTemplate template;
+    private JdbcTemplate template;
 
-    public JdbcRecipeDao(DataSource ds)  {
-       template = new JdbcTemplate(ds);
+    public JdbcRecipeDao(DataSource ds) {
+        template = new JdbcTemplate(ds);
     }
 
     private Recipe mapRowToRecipe(SqlRowSet rowSet) {
@@ -35,15 +36,26 @@ private JdbcTemplate template;
 
         SqlRowSet results = template.queryForRowSet(sql);
 
-        while(results.next()) {
+        while (results.next()) {
             Recipe recipe = mapRowToRecipe(results);
             recipes.add(recipe);
         }
         return recipes;
     }
 
+    @Override
+    public List<Recipe> getRecipesByCategoryId(IdDTO idDTO) {
+        List<Recipe> recipes = new ArrayList<>();
+        String sql = "SELECT * FROM recipe WHERE category_id = ?;";
 
+        SqlRowSet results = template.queryForRowSet(sql, idDTO.getId());
 
+        while (results.next()) {
+            Recipe recipe = mapRowToRecipe(results);
+            recipes.add(recipe);
+        }
+        return recipes;
+    }
 
 
 }
