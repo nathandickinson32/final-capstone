@@ -1,12 +1,14 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You are authenticated if you can see this.</p>
+    <Navigation />
   </div>
 </template>
 
 <script>
+import Navigation from '../components/navigation.vue';
+
 export default {
+    components: { Navigation }
 };
 </script>
 
