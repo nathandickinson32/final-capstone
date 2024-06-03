@@ -1,10 +1,9 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.RecipeDao;
-import com.techelevator.model.IdDTO;
+import com.techelevator.model.IdDto;
 import com.techelevator.model.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +21,8 @@ public class AppController {
         return recipeDao.getRecipes();
     }
 
-    @RequestMapping(path="get-recipes-by-category-id/{idDTO}", method = RequestMethod.POST)
-    public List<Recipe> getRecipesByCategoryId(@PathVariable IdDTO idDTO) {
-        return recipeDao.getRecipesByCategoryId(idDTO);
+    @RequestMapping(path="get-recipes-by-category-id/{idDto}", method = RequestMethod.GET)
+    public List<Recipe> getRecipesByCategoryId(@PathVariable("id") IdDto idDto) {
+        return recipeDao.getRecipesByCategoryId(idDto);
     }
 }

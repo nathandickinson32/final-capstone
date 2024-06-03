@@ -1,6 +1,6 @@
 package com.techelevator.model;
 
-public class IdDTO {
+public class IdDto {
     private int id;
 
     public int getId() {
