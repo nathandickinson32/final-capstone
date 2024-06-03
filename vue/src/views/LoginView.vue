@@ -67,4 +67,8 @@ export default {
 label {
   margin-right: 0.5rem;
 }
+
+#login {
+  text-align: center;
+}
 </style>

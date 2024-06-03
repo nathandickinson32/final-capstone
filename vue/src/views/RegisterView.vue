@@ -80,4 +80,8 @@ label {
   margin-right: 0.5rem;
 }
 
+#register {
+  text-align: center;
+}
+
 </style>
