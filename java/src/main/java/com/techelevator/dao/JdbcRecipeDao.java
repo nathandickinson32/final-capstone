@@ -2,6 +2,9 @@ package com.techelevator.dao;
 
 import com.techelevator.model.IdDto;
 import com.techelevator.model.Recipe;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -44,6 +47,26 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
+    public Recipe getRecipe(IdDto idDto) {
+        Recipe recipe =null;
+
+        String sql = "SELECT * FROM recipe WHERE recipe_id = ?";
+
+        try {
+            SqlRowSet results = template.queryForRowSet(sql, idDto.getId());
+
+            if(results.next()) {
+                recipe = mapRowToRecipe(results);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+        return recipe;
+    }
+
+    @Override
     public List<Recipe> getRecipesByCategoryId(IdDto idDto) {
         List<Recipe> recipes = new ArrayList<>();
         String sql = "SELECT * FROM recipe WHERE category_id = ?;";
@@ -55,6 +78,31 @@ public class JdbcRecipeDao implements RecipeDao {
             recipes.add(recipe);
         }
         return recipes;
+    }
+
+    @Override
+    public Recipe addRecipe(Recipe recipeToSave) {
+
+        String sql = "INSERT INTO recipe(recipe_name, description, category_id) VALUES (?, ?, ?) RETURNING recipe_id";
+
+        int newRecipeId = -1;
+        IdDto idDto = new IdDto();
+
+        try {
+            newRecipeId = template.queryForObject(sql, Integer.class,
+                    recipeToSave.getRecipeName(),
+                    recipeToSave.getDescription(),
+                    recipeToSave.getCategoryId()
+
+                    );
+        } catch(CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+        idDto.setId(newRecipeId);
+        return getRecipe(idDto);
     }
 
 
