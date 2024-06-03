@@ -21,8 +21,8 @@ public class AppController {
         return recipeDao.getRecipes();
     }
 
-    @RequestMapping(path="get-recipes-by-category-id/{idDto}", method = RequestMethod.GET)
-    public List<Recipe> getRecipesByCategoryId(@PathVariable("id") IdDto idDto) {
+    @RequestMapping(path="get-recipes-by-category-id", method = RequestMethod.POST)
+    public List<Recipe> getRecipesByCategoryId(@RequestBody IdDto idDto) {
         return recipeDao.getRecipesByCategoryId(idDto);
     }
 }
