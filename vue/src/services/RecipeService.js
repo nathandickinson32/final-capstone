@@ -18,8 +18,8 @@ export default {
         return axios.post('/get-recipes-by-category-id', categoryId);
     },
 
-    getRecipeById(recipeId) {
-        return axios.post('/get-recipe-by-id', recipeId);
-    }
+    // getRecipeById(recipeId) {
+    //     return axios.post('/get-recipe-by-id', recipeId);
+    // }
 
 }
