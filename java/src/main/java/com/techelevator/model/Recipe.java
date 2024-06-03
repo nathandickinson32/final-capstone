@@ -10,6 +10,9 @@ private int categoryId;
         return recipeId;
     }
 
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
+    }
 
     public String getRecipeName() {
         return recipeName;

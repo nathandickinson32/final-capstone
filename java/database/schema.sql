@@ -49,4 +49,7 @@ CONSTRAINT FK_ingredient_id FOREIGN KEY(ingredient_id) REFERENCES ingredients(in
 
 );
 
+
+
+
 COMMIT TRANSACTION;
