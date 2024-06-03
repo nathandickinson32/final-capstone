@@ -2,9 +2,11 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Recipe;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -16,10 +18,32 @@ private JdbcTemplate template;
        template = new JdbcTemplate(ds);
     }
 
+    private Recipe mapRowToRecipe(SqlRowSet rowSet) {
+        Recipe recipe = new Recipe();
+        recipe.setRecipeId(rowSet.getInt("recipe_id"));
+        recipe.setRecipeName(rowSet.getString("recipe_name"));
+        recipe.setDescription(rowSet.getString("description"));
+        recipe.setCategoryId(rowSet.getInt("category_id"));
+        return recipe;
+    }
+
     @Override
     public List<Recipe> getRecipes() {
-        return null;
+
+        List<Recipe> recipes = new ArrayList<>();
+        String sql = "SELECT * FROM recipe;";
+
+        SqlRowSet results = template.queryForRowSet(sql);
+
+        while(results.next()) {
+            Recipe recipe = mapRowToRecipe(results);
+            recipes.add(recipe);
+        }
+        return recipes;
     }
+
+
+
 
 
 }
