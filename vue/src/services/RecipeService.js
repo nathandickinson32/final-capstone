@@ -7,11 +7,14 @@ export default {
     },
 
     getRecipesByCategoryId(categoryId) {
-        return axios.post(`/get-recipes-by-category-id/${categoryId}`);
+        return axios.post(`/get-recipes-by-category-id/`, categoryId);
     },
 
-    getRecipeById(recipeId) {
-        return axios.get(`/get-recipe-by-id/${recipeId}`);
-    }
+    getRecipeByRecipeId(recipeId) {
+        return axios.post(`/get-recipe-by-recipe-id/`, recipeId);
+    },
 
+    addRecipe(recipe) {
+        return axios.post('/add-recipe', recipe);
+    }
 }

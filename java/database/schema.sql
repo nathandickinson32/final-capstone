@@ -13,8 +13,6 @@ CREATE TABLE users (
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
-
-
 );
 
 CREATE TABLE categories (
@@ -33,8 +31,6 @@ CONSTRAINT PK_recipe_id PRIMARY KEY(recipe_id),
 CONSTRAINT FK_category_id FOREIGN KEY(category_id) REFERENCES categories(category_id)
 );
 
-
-
 CREATE TABLE ingredients (
 ingredient_id SERIAL,
 ingredient_name varchar NOT NULL,
@@ -46,10 +42,6 @@ recipe_id int NOT NULL,
 ingredient_id int NOT NULL,
 CONSTRAINT FK_recipe_id FOREIGN KEY(recipe_id) REFERENCES recipe(recipe_id),
 CONSTRAINT FK_ingredient_id FOREIGN KEY(ingredient_id) REFERENCES ingredients(ingredient_id)
-
 );
-
-
-
 
 COMMIT TRANSACTION;
