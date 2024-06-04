@@ -1,8 +1,9 @@
 <template>
 <div>
 <div class="home">
+  <!--<img src="public/pexels-monicore-1391487.jpg"/>-->
     <h1>MEAL PLANNER OF DOOM</h1>
-    <p>Both guests and registered users can access this static display</p>
+    <p>Both guests and registered users can access this static display and navigation</p>
   </div>
   <nav class="static">
 
@@ -76,9 +77,13 @@ mounted() {
 
 <style>
 .home {
+  background-image: url("public/pexels-monicore-1391487.jpg");
+  background-size: cover;
   text-align: center;
-  border: 2px solid;
+  color: white;
+  border: 2px solid black;
   border-radius: 25px;
+  height: 110px;
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
