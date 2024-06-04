@@ -27,7 +27,6 @@ public class JdbcRecipeDao implements RecipeDao {
         recipe.setRecipeId(rowSet.getInt("recipe_id"));
         recipe.setRecipeName(rowSet.getString("recipe_name"));
         recipe.setDescription(rowSet.getString("description"));
-        recipe.setCategoryId(rowSet.getInt("category_id"));
         return recipe;
     }
 
@@ -83,7 +82,7 @@ public class JdbcRecipeDao implements RecipeDao {
     @Override
     public Recipe addRecipe(Recipe recipeToSave) {
 
-        String sql = "INSERT INTO recipe(recipe_name, description, category_id) VALUES (?, ?, ?) RETURNING recipe_id";
+        String sql = "INSERT INTO recipe(recipe_name, description) VALUES (?, ?) RETURNING recipe_id";
 
         int newRecipeId = -1;
 
@@ -91,8 +90,7 @@ public class JdbcRecipeDao implements RecipeDao {
         try {
             newRecipeId = template.queryForObject(sql, Integer.class,
                     recipeToSave.getRecipeName(),
-                    recipeToSave.getDescription(),
-                    recipeToSave.getCategoryId()
+                    recipeToSave.getDescription()
 
                     );
         } catch(CannotGetJdbcConnectionException e) {
