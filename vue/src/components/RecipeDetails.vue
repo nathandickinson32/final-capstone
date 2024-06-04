@@ -1,11 +1,13 @@
 <template>
   <div class='container'>
-    <div>{{recipe}}
+    <!-- <div>
+     <div>{{recipe}}
     {{ ingredients }}
-    <p>picture ?</p>
-    </div>
+     <p>picture ?</p>
+    </div> -->
     <div><h1>{{recipe.recipeName}}</h1></div>
     <div>{{recipe.description}}</div>
+    <div>{{ recipe.instructions }}</div>
     <div>
       <h3>Ingredients List</h3>
       <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
@@ -54,12 +56,6 @@ div.container {
 
 div {
   margin: auto;
-}
-
-.ingredientCard {
-  overflow: scroll;
-  width: 300px;
-  height: 100px;
 }
 
 </style>
