@@ -1,9 +1,10 @@
 <template>
-  <div>
-    {{recipe}}
+  <div class='container'>
+    <div>{{recipe}}
     {{ ingredients }}
     <p>picture ?</p>
-    <h1>{{recipe.recipeName}}</h1>
+    </div>
+    <div><h1>{{recipe.recipeName}}</h1></div>
     <div>{{recipe.description}}</div>
     <div>
       <h3>Ingredients List</h3>
@@ -46,5 +47,19 @@ export default {
 </script>
 
 <style>
+div.container {
+  display: grid;
+  justify-content: center;
+}
+
+div {
+  margin: auto;
+}
+
+.ingredientCard {
+  overflow: scroll;
+  width: 300px;
+  height: 100px;
+}
 
 </style>
