@@ -152,10 +152,12 @@ nav {
 }
 
 .ham-menu {
+  display: flex;
   height: 50px;
   width: 50px;
-  margin-left: auto;
+  margin-right: 10px;
   position: relative;
+  top: -25px;
 }
 
 .ham-menu span {
@@ -165,9 +167,11 @@ nav {
   border-radius: 25px;
   position: absolute;
   top: 50%;
-  left: 50%;
+  right: 20%;
+  bottom: 50%;
   transform: translate (-50%, -50%);
   transition: .3s ease;
+
 }
 
 .ham-menu span:nth-child(1) {
