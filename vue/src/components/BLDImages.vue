@@ -26,9 +26,11 @@
 <style>
 img {
     float: left;
-    width:  65vh;
-    height: 65vh;
+    width:  33%;
+    height: 45vh;
     object-fit: cover;
+    margin-top: 10px;
+    border: solid 1px black;
     
     
 }</style>
