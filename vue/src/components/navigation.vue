@@ -11,7 +11,7 @@
     <div class="dropdown">
       <label for="categories">Choose a category:</label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
-          <option>-Select-</option>
+          <option value="">-Select-</option>
           <option value="/breakfast">Breakfast</option>
           <option value="">Lunch</option>
           <option value="">Dinner</option>
