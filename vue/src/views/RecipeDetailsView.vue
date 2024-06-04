@@ -7,7 +7,6 @@ import RecipeDetails from '../components/RecipeDetails.vue';
 
 export default {
   components: { RecipeDetails },
-
 }
 </script>
 

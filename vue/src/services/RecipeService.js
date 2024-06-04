@@ -10,12 +10,12 @@ export default {
         return axios.post(`/get-recipes-by-category-id/`, categoryId);
     },
 
-    getRecipeByRecipeId(recipeId) {
-        return axios.post(`/get-recipe-by-recipe-id/`, recipeId);
+    getRecipeByRecipeId(id) {
+        return axios.get(`/get-recipe-by-recipe-id/${id}`);
     },
 
     addRecipe(recipe) {
         return axios.post('/add-recipe', recipe);
     }
-    
+
 }
