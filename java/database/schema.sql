@@ -27,6 +27,7 @@ CREATE TABLE recipe (
 recipe_id SERIAL,
 recipe_name varchar NOT NULL,
 description varchar NOT NULL,
+instructions varchar NOT NULL,
 CONSTRAINT PK_recipe_id PRIMARY KEY(recipe_id)
 );
 CREATE TABLE recipe_categories (
@@ -63,10 +64,10 @@ VALUES
 ('Flavor', 'Mexican'),
 ('Flavor', 'Middle-Eastern');
 
-INSERT INTO recipe(recipe_name, description)
+INSERT INTO recipe(recipe_name, description, instructions)
 VALUES
-('Stir-Fry', 'Stir & Fry'),
-('Frys', 'fry em');
+('Stir-Fry', 'Stir & Fry', 'Stir veggies, Fry veggies'),
+('Fries', 'fry em', 'Fry the fries');
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
