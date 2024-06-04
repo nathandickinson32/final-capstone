@@ -2,7 +2,7 @@
   <div>
     {{recipe}}
     <p>picture ?</p>
-    <h1>{{recipe.name}}</h1>
+    <h1>{{recipe.recipeName}}</h1>
     <div>{{recipe.description}}</div>
     <div>
       Ingredients List (v-for, maybe)
@@ -24,11 +24,13 @@ export default {
         }
       }
     );
-    // IngredientsService.getIngredientsByRecipeId(this.$route.params.id).then(
-    //   (response) => {
-    //     this.ingredients = response.data;
-    //   }
-    // );
+    IngredientsService.getIngredientsByRecipeId(this.$route.params.id).then(
+      (response) => {
+        if(response.status === 200) {
+          this.ingredients = response.data;
+        }
+      }
+    );
   },
   data() {
     return {
