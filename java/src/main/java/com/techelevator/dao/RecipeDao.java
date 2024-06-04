@@ -7,8 +7,8 @@ import java.util.List;
 public interface RecipeDao {
 
     public List<Recipe> getRecipes();
-    public Recipe getRecipe(IdDto idDto);
-    public List<Recipe> getRecipesByCategoryId(IdDto idDto);
+    public Recipe getRecipe(int recipeId);
+    public List<Recipe> getRecipesByCategoryId(int categoryId);
     public Recipe addRecipe( Recipe recipe);
 
 }

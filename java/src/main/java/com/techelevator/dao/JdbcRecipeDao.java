@@ -47,13 +47,13 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
-    public Recipe getRecipe(IdDto idDto) {
+    public Recipe getRecipe(int recipeId) {
         Recipe recipe =null;
 
         String sql = "SELECT * FROM recipe WHERE recipe_id = ?";
 
         try {
-            SqlRowSet results = template.queryForRowSet(sql, idDto.getId());
+            SqlRowSet results = template.queryForRowSet(sql, recipeId);
 
             if(results.next()) {
                 recipe = mapRowToRecipe(results);
@@ -67,11 +67,11 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
-    public List<Recipe> getRecipesByCategoryId(IdDto idDto) {
+    public List<Recipe> getRecipesByCategoryId(int categoryId) {
         List<Recipe> recipes = new ArrayList<>();
         String sql = "SELECT * FROM recipe WHERE category_id = ?;";
 
-        SqlRowSet results = template.queryForRowSet(sql, idDto.getId());
+        SqlRowSet results = template.queryForRowSet(sql, categoryId);
 
         while (results.next()) {
             Recipe recipe = mapRowToRecipe(results);
@@ -86,7 +86,7 @@ public class JdbcRecipeDao implements RecipeDao {
         String sql = "INSERT INTO recipe(recipe_name, description, category_id) VALUES (?, ?, ?) RETURNING recipe_id";
 
         int newRecipeId = -1;
-        IdDto idDto = new IdDto();
+
 
         try {
             newRecipeId = template.queryForObject(sql, Integer.class,
@@ -101,8 +101,8 @@ public class JdbcRecipeDao implements RecipeDao {
             System.out.println("Data problems");
         }
 
-        idDto.setId(newRecipeId);
-        return getRecipe(idDto);
+
+        return getRecipe(newRecipeId);
     }
 
 

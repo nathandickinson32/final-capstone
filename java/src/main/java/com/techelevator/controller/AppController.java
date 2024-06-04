@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+
 @RestController
+@CrossOrigin
 //@PreAuthorize("isAuthenticated()")
 public class AppController {
 
@@ -22,14 +23,14 @@ public class AppController {
         return recipeDao.getRecipes();
     }
 
-    @RequestMapping(path="get-recipe-by-recipe-id", method = RequestMethod.POST)
-    public Recipe getRecipeByRecipeId(@RequestBody IdDto idDto) {
-        return recipeDao.getRecipe(idDto);
+    @RequestMapping(path="get-recipe-by-recipe-id/{id}", method = RequestMethod.GET)
+    public Recipe getRecipeByRecipeId(@PathVariable int id) {
+        return recipeDao.getRecipe(id);
     }
 
-    @RequestMapping(path="get-recipes-by-category-id", method = RequestMethod.POST)
-    public List<Recipe> getRecipesByCategoryId(@RequestBody IdDto idDto) {
-        return recipeDao.getRecipesByCategoryId(idDto);
+    @RequestMapping(path="get-recipes-by-category-id/{id}", method = RequestMethod.GET)
+    public List<Recipe> getRecipesByCategoryId(@PathVariable int id ) {
+        return recipeDao.getRecipesByCategoryId(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
