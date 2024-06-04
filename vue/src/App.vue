@@ -1,6 +1,6 @@
 <template>
   <div id="capstone-app">
-    <header> <navigation /> </header>
+    <header> <Navigation /> </header>
     <div id="nav">
       
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;-->
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import navigation from './components/navigation.vue';
+import Navigation from './components/navigation.vue';
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-
+<div>
 <div class="home">
     <h1>MEAL PLANNER OF DOOM</h1>
     <p>Both guests and registered users can access this static display</p>
@@ -10,7 +10,7 @@
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>
     </button>
   </nav>
-    
+</div>
 </template>
 
 <style>
