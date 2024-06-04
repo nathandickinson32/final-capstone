@@ -44,4 +44,9 @@ CONSTRAINT FK_recipe_id FOREIGN KEY(recipe_id) REFERENCES recipe(recipe_id),
 CONSTRAINT FK_ingredient_id FOREIGN KEY(ingredient_id) REFERENCES ingredients(ingredient_id)
 );
 
+INSERT INTO categories(category_type, category_name)
+VALUES
+('Entree', 'Breakfast'),
+('Entree', 'Lunch');
+
 COMMIT TRANSACTION;
