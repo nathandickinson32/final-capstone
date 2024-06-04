@@ -7,13 +7,21 @@
   <nav class="static">
 
     <a class="home-btn" href="/">Home</a>
+    
     <div class="dropdown">
       <label for="categories">Choose a category:</label>
         <select name="categories" id="categories">
-          <option value="">Favorite Meals</option>
-          <option value="">Favorite Recipes</option>
-          <option value="">Grocery List</option>
-          <option value="">Custom Recipes</option>
+          <option>-Select-</option>
+          <option value="">Breakfast</option>
+          <option value="">Lunch</option>
+          <option value="">Dinner</option>
+          <option value="">High Protein</option>
+          <option value="">Low-Carb</option>
+          <option value="">Vegetarian/Vegan</option>
+          <option value="">Asian</option>
+          <option value="">Mexican</option>
+          <option value="">Italian</option>
+          <option value="">Middle-Eastern</option>
         </select>
       </div>
     
