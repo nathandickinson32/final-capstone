@@ -77,7 +77,7 @@ mounted() {
 
 <style>
 .home {
-  background-image: url("public/pexels-monicore-1391487.jpg");
+  background-image: url("/pexels-monicore-1391487.jpg");
   background-size: cover;
   text-align: center;
   color: white;
