@@ -6,9 +6,26 @@
   </div>
   <nav class="static">
 
-    <button class="home-link">
-    <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-    </button>
+    <a class="home-btn" href="/">Home</a>
+    
+    <div class="dropdown">
+      <label for="categories">Choose a category:</label>
+        <select name="categories" id="categories">
+          <option>-Select-</option>
+          <option value="">Breakfast</option>
+          <option value="">Lunch</option>
+          <option value="">Dinner</option>
+          <option value="">High Protein</option>
+          <option value="">Low-Carb</option>
+          <option value="">Vegetarian/Vegan</option>
+          <option value="">Asian</option>
+          <option value="">Mexican</option>
+          <option value="">Italian</option>
+          <option value="">Middle-Eastern</option>
+        </select>
+      </div>
+    
+
   </nav>
 </div>
 </template>
@@ -24,26 +41,44 @@
 }
 
 .static {
+  display: flex;
   text-align: center;
   border: 2px solid;
   border-radius: 25px;
+  border-top: 1px;
   width: 80vw;
   height: 30px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.home-link {
-  display: flex;
-  border: none;
-  color: red;
-  text-align: left;
-  padding-left: 10px;
-  height: 30px;
-  text-decoration: none;
+.home-btn {
+  text-align: center;
+  top:50%;
+  background-color:pink;
+  color: black;
+  height: 20px;
+  width: 60px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
+}
 
+.dropdown{
+display: flex;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+margin-bottom: auto;
+
+}
+
+#categories {
+  text-align: left;
+  background-color: pink;
 }
 
 </style>
