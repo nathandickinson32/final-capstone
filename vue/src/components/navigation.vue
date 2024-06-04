@@ -181,6 +181,7 @@ nav {
 .ham-menu.active span:nth-child(1) {
   top: 50%;
   transform: translate (-50%, -50%) rotate(45deg);
+  opacity: 0;
 }
 
 .ham-menu.active span:nth-child(2) {
@@ -188,7 +189,8 @@ nav {
 }
 .ham-menu.active span:nth-child(3) {
   top: 50%;
-  transform: translate(-50%, 50%) rotate(-45deg);
+  transform: translate(50%, -50%) rotate(90deg);
+  
 }
 
 </style>
