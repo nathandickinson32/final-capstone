@@ -24,7 +24,7 @@
 
     
 <style>
-img{
+img {
     float: left;
     width:  65vh;
     height: 65vh;
