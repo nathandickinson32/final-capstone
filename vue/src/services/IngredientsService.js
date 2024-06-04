@@ -17,5 +17,4 @@ export default {
     addIngredient(ingredient) {
         return axios.post('/add-ingredient', ingredient);
     }
-    
 }
