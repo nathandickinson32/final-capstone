@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navigation />
+    
   </div>
   <div>
     <BLDImages /> 
@@ -9,10 +9,11 @@
 </template>
 
 <script>
-import Navigation from '../components/navigation.vue';
+
 import BLDImages from '../components/BLDImages.vue';
+
 export default {
-    components: { Navigation, BLDImages }
+    components: { BLDImages }
 
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <Navigation />
+  
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
@@ -26,7 +26,7 @@
 
 <script>
 import authService from '../services/AuthService';
-import Navigation from '../components/navigation.vue';
+
 
 export default {
     data() {
@@ -72,7 +72,7 @@ export default {
             this.registrationErrorMsg = 'There were problems registering this user.';
         },
     },
-    components: { Navigation }
+    
 };
 </script>
 

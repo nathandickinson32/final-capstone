@@ -1,6 +1,6 @@
 <template>
   <div id="capstone-app">
-    <header> <Navigation /> </header>
+    <header>  </header>
     <div id="nav">
       
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;-->
@@ -10,12 +10,19 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token != ''">Logout</router-link>
 
     </div>
+    <Navigation />
     <router-view />
   </div>
 </template>
 
 <script>
 import Navigation from './components/navigation.vue';
+
+export default {
+    components: { Navigation }
+
+};
+
 </script>
 
 <style>

@@ -2,7 +2,7 @@
 <template>
     <div>
     <!--add images and turn them into links -->
-    <a href=""> 
+    <a href="/breakfast"> 
         <img src=
         "omelet.jpg"
              alt=""> 

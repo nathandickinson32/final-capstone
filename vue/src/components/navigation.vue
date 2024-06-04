@@ -10,9 +10,9 @@
 
     <div class="dropdown">
       <label for="categories">Choose a category:</label>
-        <select name="categories" id="categories">
+        <select name="categories" id="categories" v-on:change="changeRoute($event)">
           <option>-Select-</option>
-          <option value="">Breakfast</option>
+          <option value="/breakfast">Breakfast</option>
           <option value="">Lunch</option>
           <option value="">Dinner</option>
           <option value="">High Protein</option>
@@ -47,17 +47,28 @@
 
 <script>
 export default {
-created() {
-const hamMenu = document.querySelector('.ham-menu');
-const offScreenMenu = document.querySelector('.off-screen-menu');
-if(hamMenu){
-hamMenu.addEventListener('click', () => {
-  hamMenu.classList.toggle('active');
-  offScreenMenu.classList.toggle('active');
-})
-}
-}
+mounted() {
+  const hamMenu = document.querySelector('.ham-menu');
+  const offScreenMenu = document.querySelector('.off-screen-menu');
+  console.log(hamMenu);
+  
+    hamMenu.addEventListener('click', () => {
+    hamMenu.classList.toggle('active');
+    offScreenMenu.classList.toggle('active');
+    })
+  
+  },
+
+  methods : {
+    changeRoute(e) {
+      this.$router.push(e.target.value);
+    }
+  }
 };
+
+
+
+
 
 
 </script>
