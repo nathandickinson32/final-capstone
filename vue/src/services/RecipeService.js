@@ -17,4 +17,5 @@ export default {
     addRecipe(recipe) {
         return axios.post('/add-recipe', recipe);
     }
+    
 }
