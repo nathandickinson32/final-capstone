@@ -8,11 +8,11 @@
              alt=""> 
     </a>
  
-  <a href=""> 
+  <router-link v-bind:to="{name: 'category', params: {id: 2}}"> 
         <img src=
         "cheeseburger_stock.jpg"
              alt=""> 
-    </a>
+  </router-link>
 
     <a href=""> 
         <img src="Chicken-Parmesan-1.jpg"

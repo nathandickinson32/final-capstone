@@ -7,7 +7,7 @@ export default {
     },
 
     getRecipesByCategoryId(categoryId) {
-        return axios.post(`/get-recipes-by-category-id/`, categoryId);
+        return axios.get(`/get-recipes-by-category-id/${categoryId}`);
     },
 
     getRecipeByRecipeId(id) {

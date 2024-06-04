@@ -69,7 +69,7 @@ public class JdbcRecipeDao implements RecipeDao {
     public List<Recipe> getRecipesByCategoryId(int categoryId) {
         List<Recipe> recipes = new ArrayList<>();
         String sql = "SELECT * FROM recipe JOIN recipe_categories ON recipe.recipe_id = recipe_categories.recipe_id " +
-        "WHERE  recipe_categories.category_id = ?;";;
+        "WHERE  recipe_categories.category_id = ?;";
 
         SqlRowSet results = template.queryForRowSet(sql, categoryId);
 
