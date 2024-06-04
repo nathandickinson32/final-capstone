@@ -1,13 +1,14 @@
 <template>
   <div>
     {{recipe}}
+    {{ ingredients }}
     <p>picture ?</p>
     <h1>{{recipe.recipeName}}</h1>
     <div>{{recipe.description}}</div>
     <div>
       <h3>Ingredients List</h3>
       <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
-        <p>{{ ingredient.ingredient_name }}</p>
+        <p>{{ ingredient.ingredientName }}</p>
       </div>
     </div>
   </div>
@@ -41,6 +42,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>
