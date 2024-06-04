@@ -5,8 +5,10 @@
     <h1>{{recipe.recipeName}}</h1>
     <div>{{recipe.description}}</div>
     <div>
-      Ingredients List (v-for, maybe)
-      <p>v-for ingredient in ingredients</p>
+      <h3>Ingredients List</h3>
+      <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
+        <p>{{ ingredient.ingredient_name }}</p>
+      </div>
     </div>
   </div>
 </template>

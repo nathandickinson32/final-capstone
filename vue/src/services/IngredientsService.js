@@ -7,11 +7,11 @@ export default {
     },
 
     getIngredientsByRecipeId(recipeId) {
-        return axios.post(`/get-recipes-by-recipe-id/`, recipeId);
+        return axios.get(`/get-recipes-by-recipe-id/${recipeId}`);
     },
 
     getIngredientByIngredientId(ingredientId) {
-        return axios.post(`/get-ingredient-by-ingredient-id/`, ingredientId);
+        return axios.get(`/get-ingredient-by-ingredient-id/${ingredientId}`);
     },
 
     addIngredient(ingredient) {
