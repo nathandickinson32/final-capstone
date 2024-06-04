@@ -7,6 +7,17 @@
   <nav class="static">
 
     <a class="home-btn" href="/">Home</a>
+    <div class="dropdown">
+      <label for="categories">Choose a category:</label>
+        <select name="categories" id="categories">
+          <option value="">Favorite Meals</option>
+          <option value="">Favorite Recipes</option>
+          <option value="">Grocery List</option>
+          <option value="">Custom Recipes</option>
+        </select>
+      </div>
+    
+
   </nav>
 </div>
 </template>
@@ -46,6 +57,20 @@
   margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.dropdown{
+display: flex;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+margin-bottom: auto;
+
+}
+
+#categories {
+  text-align: left;
+  background-color: pink;
 }
 
 </style>
