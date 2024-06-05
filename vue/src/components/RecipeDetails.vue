@@ -45,7 +45,13 @@ export default {
       recipe : {},
       ingredients: []
     }
+  },
+
+  components: {
+    Instructions
   }
+
+
 }
 
 </script>
