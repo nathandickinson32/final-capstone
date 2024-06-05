@@ -5,7 +5,7 @@
     <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
       <div><h1>{{ recipe.recipeName }}</h1></div>
       <div>{{ recipe.description }}</div>
-      <div><button><router-link v-bind:to="{name: 'recipe', params: {id: recipe.id}}">View Details</router-link></button></div>
+      <div><button class='btn'><router-link v-bind:to="{name: 'recipe', params: {id: recipe.id}}">View Details</router-link></button></div>
     </div>
   </div>
 </template>
@@ -53,6 +53,21 @@ export default {
 
 h1 {
   text-align: center;
+}
+
+.btn {
+  text-align: center;
+  top:50%;
+  background-color:pink;
+  color: black;
+  height: 20px;
+  width: 90px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 </style>
