@@ -1,7 +1,9 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.AccountDao;
 import com.techelevator.dao.IngredientDao;
 import com.techelevator.dao.RecipeDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.IdDto;
 import com.techelevator.model.Ingredient;
 import com.techelevator.model.Recipe;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 
@@ -23,6 +26,12 @@ public class AppController {
 
     @Autowired
     private IngredientDao ingredientDao;
+
+    @Autowired
+    private AccountDao accountDao;
+
+    @Autowired
+    private UserDao userDao;
 
     @RequestMapping(path="get-recipes", method = RequestMethod.GET)
     public List<Recipe> getRecipes() {
@@ -62,14 +71,24 @@ public class AppController {
     public List<RecipeInstruction> getRecipeInstructionsByRecipeId(@PathVariable int id){
         return recipeDao.getRecipeInstructionsByRecipeId(id);
     }
-    @RequestMapping(path="get-recipe-instruction-by-instruction-id/{id}", method = RequestMethod.GET)
-    public RecipeInstruction getRecipeInstructionByInstructionId(@PathVariable int id) {
-        return recipeDao.getRecipeInstruction(id);
-    }
+
+//    @RequestMapping(path="get-recipe-instruction-by-instruction-id/{id}", method = RequestMethod.GET)
+//    public RecipeInstruction getRecipeInstructionByInstructionId(@PathVariable int id) {
+//        return recipeDao.getRecipeInstruction(id);
+//    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="add-instruction", method = RequestMethod.POST)
     public RecipeInstruction addRecipeInstruction(@RequestBody RecipeInstruction recipeInstruction) {
         return recipeDao.addRecipeInstruction(recipeInstruction);
+    }
+
+    /* USER FUNCTIONS */
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="save-recipe/{id}", method = RequestMethod.POST)
+    public boolean addRecipeToLibrary(@PathVariable int id, Principal principal) {
+        return accountDao.addRecipeToLibrary(id, userDao.getUserIdByUsername(principal.getName()));
     }
 
 }
