@@ -114,7 +114,7 @@ mounted() {
 .home-btn {
   text-align: center;
   top:50%;
-  background-color:pink;
+  background-color:rgb(255, 192, 203);
   color: black;
   height: 20px;
   width: 60px;
