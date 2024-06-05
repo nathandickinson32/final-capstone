@@ -4,7 +4,7 @@
     <!--add images and turn them into links -->
     <a href="/breakfast"> 
         <img src=
-        "omelet.jpg"
+        "public/oatmeal2-1-of-1.webp"
              alt=""> 
     </a>
  
@@ -29,7 +29,7 @@ img {
     width:  33%;
     height: 45vh;
     object-fit: cover;
-    margin-top: 10px;
+    margin-top: 10%;
     border: solid 1px black;
     
     

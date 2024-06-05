@@ -131,7 +131,7 @@ margin-bottom: auto;
 }
 
 .off-screen-menu {
-  background-color: black;
+  background-color: pink;
   height: 100vh;
   width: 100%;
   max-width: 450px;
