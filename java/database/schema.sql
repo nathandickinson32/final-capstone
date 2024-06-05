@@ -1,6 +1,7 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS recipe_instructions;
 DROP TABLE IF EXISTS recipe_categories;
 DROP TABLE IF EXISTS recipe_ingredients;
 DROP TABLE IF EXISTS ingredients;
@@ -27,9 +28,13 @@ CREATE TABLE recipe (
 recipe_id SERIAL,
 recipe_name varchar NOT NULL,
 description varchar NOT NULL,
-instructions varchar NOT NULL,
+author_id int NOT NULL,
 CONSTRAINT PK_recipe_id PRIMARY KEY(recipe_id)
+
 );
+
+
+
 CREATE TABLE recipe_categories (
 recipe_id int NOT NULL,
 category_id int NOT NULL,
@@ -51,6 +56,15 @@ CONSTRAINT FK_recipe_id FOREIGN KEY(recipe_id) REFERENCES recipe(recipe_id),
 CONSTRAINT FK_ingredient_id FOREIGN KEY(ingredient_id) REFERENCES ingredients(ingredient_id)
 );
 
+CREATE TABLE recipe_instructions(
+instructions_id SERIAL,
+step int NOT NULL,
+instruction varchar NOT NULL,
+recipe_id int NOT NULL,
+CONSTRAINT PK_instructions_id PRIMARY KEY(instructions_id),
+CONSTRAINT FK_recipe_id FOREIGN KEY(recipe_id) REFERENCES recipe(recipe_id)
+);
+
 INSERT INTO categories(category_type, category_name)
 VALUES
 ('Time', 'Breakfast'),
@@ -64,10 +78,10 @@ VALUES
 ('Flavor', 'Mexican'),
 ('Flavor', 'Middle-Eastern');
 
-INSERT INTO recipe(recipe_name, description, instructions)
+INSERT INTO recipe(recipe_name, description, author_id)
 VALUES
-('Stir-Fry', 'Stir & Fry', 'Stir veggies, Fry veggies'),
-('Fries', 'fry em', 'Fry the fries');
+('Stir-Fry', 'Stir & Fry', 1),
+('Fries', 'fry em', 2);
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
@@ -206,5 +220,13 @@ VALUES
 (1,1),
 (2,2),
 (2,5);
+
+INSERT INTO recipe_instructions(step, instruction, recipe_id)
+VALUES
+(1,'get fries', 2),
+(2,'fyr em', 2),
+(3,'eat them while they are hot!', 2);
+
+
 
 COMMIT TRANSACTION;

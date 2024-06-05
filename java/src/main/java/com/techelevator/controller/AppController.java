@@ -5,6 +5,7 @@ import com.techelevator.dao.RecipeDao;
 import com.techelevator.model.IdDto;
 import com.techelevator.model.Ingredient;
 import com.techelevator.model.Recipe;
+import com.techelevator.model.RecipeInstruction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -52,4 +53,23 @@ public class AppController {
     public Ingredient getIngredientByIngredientId(@PathVariable int id) {
         return ingredientDao.getIngredientByIngredientId(id);
     }
+    @RequestMapping(path="/update-recipe", method = RequestMethod.PUT)
+    public void updateRecipe(@RequestBody Recipe recipe) {
+        recipeDao.updateRecipe(recipe);
+    }
+
+    @RequestMapping(path="/get-recipe-instructions-by-recipe-id/{id}", method = RequestMethod.GET)
+    public List<RecipeInstruction> getRecipeInstructionsByRecipeId(@PathVariable int id){
+        return recipeDao.getRecipeInstructionsByRecipeId(id);
+    }
+    @RequestMapping(path="get-recipe-instruction-by-instruction-id/{id}", method = RequestMethod.GET)
+    public RecipeInstruction getRecipeInstructionByInstructionId(@PathVariable int id) {
+        return recipeDao.getRecipeInstruction(id);
+    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="add-instruction", method = RequestMethod.POST)
+    public RecipeInstruction addRecipeInstruction(@RequestBody RecipeInstruction recipeInstruction) {
+        return recipeDao.addRecipeInstruction(recipeInstruction);
+    }
+
 }

@@ -4,7 +4,8 @@ public class Recipe {
 private int recipeId;
 private String recipeName;
 private String description;
-private String instructions;
+private int authorId;
+
 
 
     public int getRecipeId() {
@@ -31,11 +32,11 @@ private String instructions;
         this.description = description;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 }

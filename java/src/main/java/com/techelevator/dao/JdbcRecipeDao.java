@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.IdDto;
 import com.techelevator.model.Recipe;
+import com.techelevator.model.RecipeInstruction;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -27,7 +28,7 @@ public class JdbcRecipeDao implements RecipeDao {
         recipe.setRecipeId(rowSet.getInt("recipe_id"));
         recipe.setRecipeName(rowSet.getString("recipe_name"));
         recipe.setDescription(rowSet.getString("description"));
-        recipe.setInstructions(rowSet.getString("instructions"));
+        recipe.setAuthorId(rowSet.getInt("author_id"));
         return recipe;
     }
 
@@ -84,7 +85,7 @@ public class JdbcRecipeDao implements RecipeDao {
     @Override
     public Recipe addRecipe(Recipe recipeToSave) {
 
-        String sql = "INSERT INTO recipe(recipe_name, description, instructions) VALUES (?, ?, ?) RETURNING recipe_id";
+        String sql = "INSERT INTO recipe(recipe_name, description, author_id) VALUES (?, ?, ?) RETURNING recipe_id";
 
         int newRecipeId = -1;
 
@@ -93,7 +94,7 @@ public class JdbcRecipeDao implements RecipeDao {
             newRecipeId = template.queryForObject(sql, Integer.class,
                     recipeToSave.getRecipeName(),
                     recipeToSave.getDescription(),
-                    recipeToSave.getInstructions()
+                    recipeToSave.getAuthorId()
 
                     );
         } catch(CannotGetJdbcConnectionException e) {
@@ -106,5 +107,94 @@ public class JdbcRecipeDao implements RecipeDao {
         return getRecipe(newRecipeId);
     }
 
+    @Override
+    public void updateRecipe(Recipe recipeToUpdate) {
+        String sql = "UPDATE recipe SET recipe_name=?, description=?, author_id=? WHERE recipe_id = ?";
+        try {
+            template.update(sql, recipeToUpdate.getRecipeName(), recipeToUpdate.getDescription(), recipeToUpdate.getAuthorId() );
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+    }
+
+    @Override
+    public List<RecipeInstruction> getRecipeInstructionsByRecipeId(int recipeId) {
+        List<RecipeInstruction> recipeInstructions = new ArrayList<>();
+        String sql = "SELECT * FROM recipe_instructions " +
+                "INNER JOIN recipe ON recipe_instructions.recipe_id = recipe.recipe_id " +
+                "WHERE recipe_instructions.recipe_id = ?;";
+
+
+        try {
+            SqlRowSet results = template.queryForRowSet(sql, recipeId);
+
+            while (results.next()) {
+                RecipeInstruction recipeInstruction = new RecipeInstruction();
+                recipeInstruction.setInstructionsId(results.getInt("instructions_id"));
+                recipeInstruction.setStep(results.getInt("step"));
+                recipeInstruction.setInstruction(results.getString("instruction"));
+                recipeInstruction.setRecipeId(results.getInt("recipe_id"));
+                recipeInstructions.add(recipeInstruction);
+
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+        return recipeInstructions;
+    }
+
+    @Override
+    public RecipeInstruction getRecipeInstruction(int instructionsId) {
+        RecipeInstruction recipeInstruction = null;
+
+        String sql = "SELECT * FROM recipe_instructions WHERE instructions_id = ?";
+
+        try {
+            SqlRowSet results = template.queryForRowSet(sql, instructionsId);
+
+            if(results.next()) {
+                recipeInstruction = new RecipeInstruction();
+                recipeInstruction.setInstructionsId(results.getInt("instructions_id"));
+                recipeInstruction.setStep(results.getInt("step"));
+                recipeInstruction.setInstruction(results.getString("instruction"));
+                recipeInstruction.setRecipeId(results.getInt("recipe_id"));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+        return recipeInstruction;
+    }
+
+    @Override
+    public RecipeInstruction addRecipeInstruction( RecipeInstruction recipeInstructionToSave){
+        String sql = "INSERT INTO recipe_instructions(step, instruction, recipe_id) VALUES (?, ?, ?) RETURNING instructions_id";
+
+        int newInstructionsId = -1;
+
+
+        try {
+            newInstructionsId = template.queryForObject(sql, Integer.class,
+                    recipeInstructionToSave.getStep(),
+                    recipeInstructionToSave.getInstruction(),
+                    recipeInstructionToSave.getRecipeId()
+
+            );
+        } catch(CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+
+        return getRecipeInstruction(newInstructionsId);
+    }
 
 }
+
