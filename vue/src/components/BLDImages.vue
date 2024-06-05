@@ -44,6 +44,7 @@
     object-fit: cover;
     margin-top: 10%;
     border: solid 1px black;
+    border-radius: 10px;
 }
 
 .burger{
@@ -57,6 +58,7 @@
     z-index: 1;
   position: absolute;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: pink;
   padding: 5px;
   top: 45%;
@@ -70,6 +72,7 @@
     z-index: 1;
   position: absolute;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: pink;
   padding: 5px;
   top: 45%;
@@ -82,6 +85,7 @@
     z-index: 1;
   position: absolute;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: pink;
   padding: 5px;
   top: 45%;
