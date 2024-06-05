@@ -54,6 +54,7 @@ img {
 }
 
 .top-center-text{
+    z-index: 1;
   position: absolute;
   top: 45%;
   left: 17%;
@@ -63,6 +64,7 @@ img {
 }
 
 .top-center-lunch{
+    z-index: 1;
   position: absolute;
   top: 45%;
   left: 50%;
@@ -71,6 +73,7 @@ img {
   color:hotpink;
 }
 .top-center-dinner{
+    z-index: 1;
   position: absolute;
   top: 45%;
   left: 83%;
