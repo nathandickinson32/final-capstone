@@ -88,6 +88,24 @@ public class JdbcUserDao implements UserDao {
         return newUser;
     }
 
+    @Override
+    public int getUserIdByUsername(String username) {
+        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+        int result = -1;
+        String sql = "SELECT user_id FROM users WHERE username = ?";
+
+        try {
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, username);
+            if (rowSet.next()) {
+                result = rowSet.getInt("user_id");
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+
+        return result;
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
