@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-<div><h3>{{ instruction }}</h3></div>
+
+<ul v-for="instruction in instructions" v-bind:key="instruction.id" class ='instructionCard'>
+<li>{{instruction.step  }} <br> {{ instruction.instruction }}</li>
+</ul>
 
   </div>
 </template>
@@ -13,7 +16,7 @@ export default {
         InstructionService.getInstructionsByRecipeId(this.$route.params.id).then(
       (response) => {
         if(response.status === 200) {
-          this.instruction = response.data;
+          this.instructions = response.data;
         }
       }
     );
@@ -22,7 +25,7 @@ export default {
 
     data() {
         return {
-            instruction : {}
+            instructions : []
         }
     }
 
