@@ -9,6 +9,7 @@ import RegisterView from '../views/RegisterView.vue';
 import RecipeDetailsView from '../views/RecipeDetailsView.vue';
 import BreakfastView from '../views/BreakfastView.vue';
 import CategoryView from '../views/CategoryView.vue';
+import Instructions from '../components/Instructions.vue'
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component

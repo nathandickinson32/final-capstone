@@ -14,13 +14,15 @@
         <p>{{ ingredient.ingredientName }}</p>
       </div>
     </div>
+    <instructions/>
+
   </div>
 </template>
 
 <script>
 import RecipeService from '../services/RecipeService';
 import IngredientsService from '../services/IngredientsService';
-
+import Instructions from './Instructions.vue';
 export default {
   created() {
     RecipeService.getRecipeByRecipeId(this.$route.params.id).then(
