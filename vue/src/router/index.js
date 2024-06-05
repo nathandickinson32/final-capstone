@@ -9,7 +9,15 @@ import RegisterView from '../views/RegisterView.vue';
 import RecipeDetailsView from '../views/RecipeDetailsView.vue';
 import BreakfastView from '../views/BreakfastView.vue';
 import CategoryView from '../views/CategoryView.vue';
+<<<<<<< HEAD
 import Instructions from '../components/Instructions.vue'
+=======
+import GroceryListView from '../views/GroceryListView.vue';
+import FavoriteMealsView from '../views/FavoriteMealsView.vue';
+import FavoriteRecipesView from '../views/FavoriteRecipesView.vue';
+import CustomRecipesView from '../views/CustomRecipesView.vue';
+
+>>>>>>> 11600713f5f5f7aa80f83a7c14694437c1f8af82
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -74,6 +82,38 @@ const routes = [
     component: CategoryView,
     meta: {
       requiresAuth: false
+    }
+  },
+  {
+    path: "/groceryList",
+    name: "groceryList",
+    component: GroceryListView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/favoriteMeals",
+    name: "favoriteMeals",
+    component: FavoriteMealsView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/favoriteRecipes",
+    name: "favoriteRecipes",
+    component: FavoriteRecipesView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/customRecipes",
+    name: "customRecipes",
+    component: CustomRecipesView,
+    meta: {
+      requiresAuth: true
     }
   }
 ];
