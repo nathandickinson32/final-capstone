@@ -2,13 +2,12 @@
 <template>
     <div>
     <!--add images and turn them into links -->
-    <a href="/breakfast"> 
-
+    <router-link v-bind:to="{name: 'category', params: {id: 1}}"> 
 
         <img src="/oatmeal2-1-of-1.webp" alt="oatmeal"> 
         <div class="top-center-text">Breakfast</div>
 
-    </a>
+    </router-link>
     
         </div>
 
@@ -24,12 +23,13 @@
 </div>
   
 
-    <div>
-    <a href=""> 
+<div>
+    <router-link v-bind:to="{name: 'category', params: {id: 3}}"> 
         <img src="Chicken-Parmesan-1.jpg" alt="chicken parm"> 
         <div class="top-center-dinner">Dinner</div>
+    </router-link>
 
-    </a>
+        
 </div>
     
 

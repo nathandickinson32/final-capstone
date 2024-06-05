@@ -14,15 +14,15 @@
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
           <option value="">-Select-</option>
           <option value="/breakfast">Breakfast</option>
-          <option value="/lunch">Lunch</option>
-          <option value="/dinner">Dinner</option>
-          <option value="/highprotein">High Protein</option>
-          <option value="/lowcarb">Low-Carb</option>
-          <option value="/vegetarian">Vegetarian/Vegan</option>
-          <option value="/asian">Asian</option>
-          <option value="/mexican">Mexican</option>
-          <option value="/italian">Italian</option>
-          <option value="/middleeastern">Middle-Eastern</option>
+          <option value="">Lunch</option>
+          <option value="">Dinner</option>
+          <option value="">High Protein</option>
+          <option value="">Low-Carb</option>
+          <option value="">Vegetarian/Vegan</option>
+          <option value="">Asian</option>
+          <option value="">Mexican</option>
+          <option value="">Italian</option>
+          <option value="">Middle-Eastern</option>
         </select>
       </div>
       <div class="off-screen-menu">
