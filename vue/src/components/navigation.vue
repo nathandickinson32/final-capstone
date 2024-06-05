@@ -34,7 +34,7 @@
         </ul>
       </div>
       <nav>
-        <div class="ham-menu" v-if="this.$store.state.token != ''">
+        <div class="ham-menu" v-show="this.$store.state.token != ''">
           <span></span>
           <span></span>
           <span></span>
@@ -51,12 +51,14 @@ export default {
 mounted() {
   const hamMenu = document.querySelector('.ham-menu');
   const offScreenMenu = document.querySelector('.off-screen-menu');
-  console.log(hamMenu);
+  
+  
   
     hamMenu.addEventListener('click', () => {
     hamMenu.classList.toggle('active');
     offScreenMenu.classList.toggle('active');
     })
+  
   
   },
 
