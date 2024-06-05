@@ -3,21 +3,18 @@
     <div>
     <!--add images and turn them into links -->
     <a href="/breakfast"> 
-        <img src=
-        "/oatmeal2-1-of-1.webp"
-             alt=""> 
+        <img src="/oatmeal2-1-of-1.webp"> 
     </a>
  
   <router-link v-bind:to="{name: 'category', params: {id: 2}}"> 
-        <img class = "burger" src="cheeseburger_stock.jpg" alt=""> 
+        <img class = "burger" src="cheeseburger_stock.jpg"> 
              
   </router-link>
   
 
 
     <a href=""> 
-        <img src="Chicken-Parmesan-1.jpg"
-             alt=""> 
+        <img src="Chicken-Parmesan-1.jpg"> 
     </a>
      </div>
 
@@ -32,11 +29,8 @@ img {
     object-fit: cover;
     margin-top: 10%;
     border: solid 1px black;
-
-
-    
-    
 }
+
 .burger{
     
     border-left: none;
