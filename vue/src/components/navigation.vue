@@ -12,7 +12,7 @@
     <div class="dropdown">
       <label for="categories">Choose a category:</label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
-          <option value="">-Select-</option>
+          <option value="">-Select-</option> <!-- keep this value empty, select can't be selected-->
           <option value="/breakfast">Breakfast</option>
           <option value="">Lunch</option>
           <option value="">Dinner</option>
@@ -20,8 +20,8 @@
           <option value="">Low-Carb</option>
           <option value="">Vegetarian/Vegan</option>
           <option value="">Asian</option>
-          <option value="">Mexican</option>
           <option value="">Italian</option>
+          <option value="">Mexican</option>
           <option value="">Middle-Eastern</option>
         </select>
       </div>
@@ -141,6 +141,7 @@ margin-bottom: auto;
 }
 
 .off-screen-menu {
+  z-index: 100;
   background-color: lavender;
   height: 100vh;
   width: 100%;
@@ -176,6 +177,7 @@ nav {
 }
 
 .ham-menu span {
+  z-index: 100;
   height: 5px;
   width: 100%;
   background-color: pink;

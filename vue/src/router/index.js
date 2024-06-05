@@ -9,14 +9,21 @@ import RegisterView from '../views/RegisterView.vue';
 import RecipeDetailsView from '../views/RecipeDetailsView.vue';
 import BreakfastView from '../views/BreakfastView.vue';
 import CategoryView from '../views/CategoryView.vue';
+<<<<<<< HEAD
 import Instructions from '../components/Instructions.vue'
+=======
+import Instructions from '../components/Instructions.vue';
+>>>>>>> 5ab7d3a5139f84c1df9de34f772f0a8fbb9466a5
 import GroceryListView from '../views/GroceryListView.vue';
 import FavoriteMealsView from '../views/FavoriteMealsView.vue';
 import FavoriteRecipesView from '../views/FavoriteRecipesView.vue';
 import CustomRecipesView from '../views/CustomRecipesView.vue';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5ab7d3a5139f84c1df9de34f772f0a8fbb9466a5
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
  * inside of App.vue depending on the URL.

@@ -4,7 +4,7 @@
 
     </div>
     <div>
-        breakfast town, USA
+        this View will no longer be used!!!
     </div>
 
 </template>
