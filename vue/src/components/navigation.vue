@@ -131,7 +131,7 @@ margin-bottom: auto;
 }
 
 .off-screen-menu {
-  background-color: pink;
+  background-color: lavender;
   height: 100vh;
   width: 100%;
   max-width: 450px;
@@ -142,9 +142,9 @@ margin-bottom: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font-size: 3rem;
-  transition: .3s ease;
+  text-align: left;
+  font-size: 2.5rem;
+  transition: .7s ease;
 }
 
 .off-screen-menu.active{
@@ -175,7 +175,7 @@ nav {
   right: 20%;
   bottom: 50%;
   transform: translate (-50%, -50%);
-  transition: .3s ease;
+  transition: .7s ease;
 
 }
 
@@ -189,8 +189,8 @@ nav {
 
 .ham-menu.active span:nth-child(1) {
   top: 50%;
-  transform: translate (-50%, -50%) rotate(45deg);
-  opacity: 0;
+  transform: translate (50%, -50%) rotate(90deg);
+  
 }
 
 .ham-menu.active span:nth-child(2) {

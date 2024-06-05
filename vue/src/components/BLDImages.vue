@@ -9,10 +9,11 @@
     </a>
  
   <router-link v-bind:to="{name: 'category', params: {id: 2}}"> 
-        <img class = "burger" src=
-        "cheeseburger_stock.jpg"
-             alt=""> 
+        <img class = "burger" src="cheeseburger_stock.jpg" alt=""> 
+             
   </router-link>
+  
+
 
     <a href=""> 
         <img src="Chicken-Parmesan-1.jpg"
@@ -37,6 +38,7 @@ img {
     
 }
 .burger{
+    
     border-left: none;
     border-right: none;
 
