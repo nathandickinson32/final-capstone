@@ -16,7 +16,6 @@ import FavoriteRecipesView from '../views/FavoriteRecipesView.vue';
 import CustomRecipesView from '../views/CustomRecipesView.vue';
 
 
-
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
  * inside of App.vue depending on the URL.
