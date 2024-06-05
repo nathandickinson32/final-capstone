@@ -3,7 +3,10 @@
     <!-- <h1>TEST</h1> -->
     <!-- {{ recipes }} -->
     <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
-      <div><h1>{{ recipe.recipeName }}</h1></div>
+      <div class='recipe-head'>
+        <h1 class='recipe-head-item'>{{ recipe.recipeName }}</h1>
+        <div class='recipe-head-item'><img class='favorite' src='star_outline.png' ></div>
+      </div>
       <div>{{ recipe.description }}</div>
       <div><button class='btn'><router-link v-bind:to="{name: 'recipe', params: {id: recipe.id}}">View Details</router-link></button></div>
     </div>
@@ -53,6 +56,20 @@ export default {
 
 h1 {
   text-align: center;
+}
+
+div.recipe-head {
+  display: flex;
+  align-content: center;
+}
+
+img.favorite {
+  height: 50px;
+  border: none;
+}
+
+.recipe-head-item {
+  flex-grow: 1;
 }
 
 .btn {
