@@ -62,7 +62,7 @@ h1 {
 }
 
 img.unfavorite {
-  display: none;
+  /* display: none; */
   height: fit-content;
   width: 50px;
   border: none;
