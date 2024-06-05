@@ -4,7 +4,7 @@
     <!--add images and turn them into links -->
     <a href="/breakfast"> 
         <img src=
-        "public/oatmeal2-1-of-1.webp"
+        "/oatmeal2-1-of-1.webp"
              alt=""> 
     </a>
  
