@@ -34,7 +34,7 @@
         </ul>
       </div>
       <nav>
-        <div class="ham-menu">
+        <div class="ham-menu" v-if="this.$store.state.token != ''">
           <span></span>
           <span></span>
           <span></span>

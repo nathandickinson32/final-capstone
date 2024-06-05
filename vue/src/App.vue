@@ -4,10 +4,11 @@
     <div id="nav">
       
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;-->
-      <router-link v-bind:to="{ name: 'login'}">Login</router-link>
+      <router-link v-bind:to="{ name: 'login'}" v-if="this.$store.state.token == ''">Login</router-link>
+      <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token != ''">Logout</router-link>
       |
       <router-link v-bind:to="{ name: 'register' }">Register</router-link>
-      <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token != ''">Logout</router-link>
+      
 
     </div>
     <Navigation />
@@ -20,6 +21,7 @@ import Navigation from './components/navigation.vue';
 
 export default {
     components: { Navigation }
+    
 
 };
 
