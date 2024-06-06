@@ -13,16 +13,18 @@
       <label for="categories">Choose a category:</label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
           <option value="">-Select-</option> <!-- keep this value empty, select can't be selected-->
-          <option value="/category/1">Breakfast</option>
-          <option value="/category/2">Lunch</option>
-          <option value="/category/3">Dinner</option>
-          <option value="/category/4">High Protein</option>
-          <option value="/category/5">Low-Carb</option>
-          <option value="/category/6">Vegetarian/Vegan</option>
-          <option value="/category/7">Asian</option>
-          <option value="/category/8">Italian</option>
-          <option value="/category/9">Mexican</option>
-          <option value="/category/10">Middle-Eastern</option>
+          <option value="/category/1">Appetizers</option>
+          <option value="/category/2">Breakfast</option>
+          <option value="/category/3">Lunch</option>
+          <option value="/category/4">Dinner</option>
+          <option value="/category/5">Desserts</option>
+          <option value="/category/6">High Protein</option>
+          <option value="/category/7">Low-Carb</option>
+          <option value="/category/8">Vegetarian/Vegan</option>
+          <option value="/category/9">Asian</option>
+          <option value="/category/10">Italian</option>
+          <option value="/category/11">Mexican</option>
+          <option value="/category/12">Middle-Eastern</option>
         </select>
       </div>
       <div class="off-screen-menu">
