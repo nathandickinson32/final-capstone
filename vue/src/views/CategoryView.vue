@@ -4,7 +4,8 @@
     <!-- {{ recipes }} -->
     {{ library }}
     <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
-      <img class='recipe unfavorite' src='/star_outline.png' v-show="this.$store.state.token != ''"><img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''">
+      <img class='recipe' v-bind:class="recipe.favorited ? 'favorite' : 'unfavorite'" src='/star_outline.png' alt='/star_full.png' v-show="this.$store.state.token != ''">
+      <!-- <img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''"> -->
       <!-- <div class='recipe favorite'></div> -->
       <div class='recipe name'><h1 class='recipe-head-item'>{{ recipe.recipeName }}</h1></div>
       <div class='recipe description'>{{ recipe.description }}</div>
@@ -20,9 +21,12 @@ export default {
   props: {
     library: []
   },
+  // el: '#app',
   data() {
     return {
-      recipes: []
+      recipes: [],
+      image1 : '/star_outline.png',
+      image2 : '/star_full.png'
     }
   },
   created() {
@@ -30,9 +34,20 @@ export default {
       (response) => {
         if(response.status === 200) {
           this.recipes = response.data;
+          this.recipes.forEach(
+            (recipe) => {
+              recipe.favorited = this.library.includes(recipe.id);
+            }
+          );
         }
       }
     );
+  },
+  methods: {
+    favoriteUnfavorite() {
+      const image1 = '/star_outline.png';
+      const image2 = '/star_full.png';
+    }
   }
 }
 </script>
@@ -76,7 +91,7 @@ img.unfavorite {
 }
 
 img.favorite {
-  display: none;
+  /* display: none; */
   height: fit-content;
   width: 50px;
   border: none;
