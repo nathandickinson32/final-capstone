@@ -42,7 +42,7 @@ CONSTRAINT FK_category_id FOREIGN KEY(category_id) REFERENCES categories(categor
 
 CREATE TABLE ingredients (
 ingredient_id SERIAL,
-ingredient_name varchar NOT NULL,
+ingredient_name varchar NOT NULL UNIQUE,
 CONSTRAINT PK_ingredients PRIMARY KEY(ingredient_id)
 );
 

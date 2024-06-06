@@ -5,9 +5,11 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 INSERT INTO categories(category_type, category_name)
 VALUES
+('Time', 'Appetizers'),
 ('Time', 'Breakfast'),
 ('Time', 'Lunch'),
 ('Time', 'Dinner'),
+('Time', 'Dessert'),
 ('Diet', 'High Protein'),
 ('Diet', 'Low-Carb'),
 ('Diet', 'Vegetarian/Vegan'),
@@ -18,16 +20,24 @@ VALUES
 
 INSERT INTO recipe(recipe_name, description, author_id)
 VALUES
-('Stir-Fry', 'Stir & Fry', 1),
-('Fries', 'fry em', 2);
-
+('Sausage Balls', 'These bite-sized morsels are baked to a golden brown, offering a delightful balance of crispiness on the outside and moist, cheesy goodness on the inside.', 2),
+('Peppermint Mocha Mousse', 'Indulge in the festive flavors of Peppermint Mocha Mousse, a decadent dessert that marries rich chocolate, bold coffee, and refreshing peppermint. This airy and creamy mousse is perfect for holiday celebrations or anytime you crave a sweet treat with a hint of mint.', 2),
+('Blackberry, Fig & Prosciutto Mini “Pizzas', 'These elegant bites combine the sweetness of fresh blackberries and figs with the savory, salty flavor of prosciutto, all atop a crispy flatbread base.', 2),
+('Oven-Roasted Chicken Shawarma', 'Marinated in a blend of spices and roasted to perfection, this chicken is juicy, tender, and bursting with flavor.',2 );
 INSERT INTO recipe_users(recipe_id, user_id)
-VALUES (1,1), (2,1);
+VALUES
+(1,2),
+(2,2),
+(3,2),
+(4,2);
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
 (1,1),
-(2,2);
+(1,6),
+(2,5),
+(3,1),
+(4,4);
 
 INSERT INTO ingredients(ingredient_name)
 VALUES
@@ -109,7 +119,6 @@ VALUES
 ('Olive oil'),
 ('Vegetable oil'),
 ('Coconut oil'),
-('Butter'),
 ('Ghee'),
 ('Soy sauce'),
 ('Ketchup'),
@@ -150,18 +159,77 @@ VALUES
 ('Canned goods (tomatoes, beans, corn)'),
 ('Broth (chicken, beef, vegetable)'),
 ('Tofu'),
-('Miso paste');
+('Miso paste'),
+('naan'),
+('pancake-mix'),
+('peppermint'),
+('figs'),
+('prosciutto'),
+('blackberries'),
+('arugula'),
+('red pepper');
 
 INSERT INTO recipe_ingredients(recipe_id, ingredient_id)
 VALUES
-(1,1),
-(2,2),
-(2,5);
+(1,121),
+(1,122),
+(1,49),
+(1,45),
+(1,4),
+(1,66),
+(1,63),
+(1,64),
+(2,96),
+(2,123),
+(2,111),
+(2,107),
+(2,49),
+(2,91),
+(2,48),
+(3,120),
+(3,4),
+(3,76),
+(3,45),
+(3,123 ),
+(3, 124),
+(3, 125),
+(3, 126),
+(3, 88),
+(3, 87),
+(4, 24),
+(4, 76),
+(4, 4),
+(4, 63),
+(4, 64),
+(4, 65),
+(4, 66),
+(4, 67),
+(4, 68),
+(4, 127),
+(4, 50),
+(4, 3),
+(4, 74);
+
 
 INSERT INTO recipe_instructions(step, instruction, recipe_id)
 VALUES
-(1,'get fries', 2),
-(2,'fyr em', 2),
-(3,'eat them while they are hot!', 2);
+(1,'Preheat the oven to 350 degrees. While the oven is heating, prepare 4 medium-large baking sheets with parchment paper', 1),
+(2,'In a medium mixing bowl, combine all ingredients and mix thoroughly. You can use a stand mixture to complete this step if you don’t want to get your hands dirty', 1),
+(3,'Form into cookie-dough shaped balls and place on parchment lined baking sheets', 1),
+(4,'Bake for 20-25 minutes, until bottoms have browned and sausage is cooked completely', 1),
+(1,'Finely chop the chocolate into 1/4 inch strips on a cutting board', 2),
+(2,'Using a double-boiler (or a medium pot with a medium frying pan), bring the bottom pot to a boil. In a separate mixing bowl, whip egg yolks with 1 tsp sugar. Place egg white in a separate bowl', 2),
+(3,'Place the chocolate, peppermint extract, water, coffee, and grinds in the frying pan and let the heat from the boiling pot melt the chocolate all while stirring to prevent clumps', 2),
+(4,'Once chocolate and ingredients are smooth, remove from heat and pour into a medium mixing bowl with whipped egg yolks and and 1 tsp sugar', 2),
+(5,'Whip egg whites until they are foamy and form peaks, about 5-7 minutes, and then fold into the chocolate mixture', 2),
+(6,'Whip the heavy cream in a separate bowl until it thickens and forms soft peaks. Fold the heavy cream into the chocolate mixture and immediately pour into small ramekin dishes or small glass cups and refrigerate for 2 hours or up to 24 hours', 2),
+(1,'Preheat the oven to 400 degrees. While oven heats, slice the prosciutto, chop the figs, slice the blackberries, and in small saucepan, mix the balsamic vinegar and honey over medium heat, until mixture starts to bubble. Reduce to simmer and let the glaze reduce to 1/2 the amount. Test with a spoon to see if the glaze is thick enough', 3),
+(2,'Whisk together the garlic and olive oil and spread over each naan. Next, spread the goat cheese evenly over each naan', 3),
+(3,'Add the desired chopped figs, prosciutto, and white cheese blend. Crumble remainder of goat cheese and add blackberries. Bake on parchment paper (on baking sheet) or pizza stone for 6-8 minutes, until naan is golden brown and cheese is melting', 3),
+(4,'Serve with arugula and drizzle desired balsamic glaze', 3),
+(1,'Prepare a marinade for the chicken. Combine the lemon juice, ½ cup olive oil, garlic, salt, pepper, cumin, paprika, turmeric, cinnamon and crushed red pepper in a large bowl, then whisk to combine. Add the chicken and toss well to coat. Cover and store in refrigerator for at least 1 hour and up to 12 hours', 4),
+(2,'When ready to cook, heat oven to 425 degrees. Use the remaining tablespoon of olive oil to grease a rimmed sheet pan. Add the quartered onion to the chicken and marinade, and toss once to combine. Remove the chicken and onion from the marinade, and place on the pan, spreading everything evenly across it', 4),
+(3,'Put the chicken in the oven and roast until it is browned, crisp at the edges and cooked through, about 30 to 40 minutes. Remove from the oven, allow to rest 2 minutes, then slice into bits. (To make the chicken even more crisp, set a large pan over high heat, add a tablespoon of olive oil to the pan, then the sliced chicken, and sauté until everything curls tight in the heat.)', 4),
+(4,'Scatter the parsley over the top and serve with tomatoes, cucumbers, pita, white sauce, hot sauce, olives, fried eggplant, feta, rice — really anything you desire', 4);
 
 COMMIT TRANSACTION;

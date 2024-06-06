@@ -48,10 +48,36 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public List<Recipe> getRecipeLibraryByUserId(int userId) {
+    public List<Recipe> getAuthoredRecipesByUserId(int userId) {
         List<Recipe> recipes = new ArrayList<>();
         String sql = "SELECT recipe_id, recipe_name, description FROM recipe " +
                 "WHERE author_id = ?";
+
+        try {
+            SqlRowSet results = template.queryForRowSet(sql, userId);
+
+            while (results.next()) {
+                Recipe recipe = new Recipe();
+                recipe.setRecipeId(results.getInt("recipe_id"));
+                recipe.setRecipeName(results.getString("recipe_name"));
+                recipe.setDescription(results.getString("description"));
+                recipes.add(recipe);
+            }
+
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+        return recipes;
+    }
+
+    @Override
+    public List<Recipe> getRecipeLibraryByUserId(int userId) {
+        List<Recipe> recipes = new ArrayList<>();
+        String sql = "SELECT recipe_id, recipe_name, description FROM recipe " +
+                "WHERE recipe_id IN (SELECT recipe_id FROM recipe_users WHERE user_id = ?);";
 
         try {
             SqlRowSet results = template.queryForRowSet(sql, userId);
@@ -87,6 +113,23 @@ public class JdbcAccountDao implements AccountDao{
         try {
 
             receiptId = template.queryForObject(sql, Integer.class, id, userId);
+
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+        return receiptId != -1;
+    }
+
+    public boolean deleteRecipeFromLibraryByRecipeId(int id, int userId){
+        int receiptId = -1;
+        String sql = "DELETE FROM recipe_users WHERE recipe_id = ? AND user_id =?;";
+
+        try {
+
+            receiptId = template.update(sql, id, userId);
 
         } catch (CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");

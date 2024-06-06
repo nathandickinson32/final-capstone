@@ -26,6 +26,7 @@
 
 <script>
 import authService from "../services/AuthService";
+import RecipeService from '../services/RecipeService';
 
 
 export default {
@@ -47,6 +48,16 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
+            // this.importUserData();
+            // RecipeService.getRecipeLibraryByUser().then(
+            //   (response) => {
+            //     if (response.status === 200) {
+            //       this.library = response.data;
+            //       this.$store.commit("SET_USER_LIBRARY", this.library);
+            //       console.log("success");
+            //     }
+            //   }
+            // );
             this.$router.push("/");
           }
         })
@@ -57,7 +68,18 @@ export default {
             this.invalidCredentials = true;
           }
         });
-    }
+    },
+    // importUserData() {
+    //   // RecipeService.getRecipeLibraryByUser().then(
+    //   //   (response) => {
+    //   //     if (response.status === 200) {
+    //   //       console.log("success");
+    //   //       this.$store.commit("SET_USER_LIBRARY", response.data);
+    //   //       console.log("complete success");
+    //   //     }
+    //   //   }
+    //   // );
+    // }
   }
 };
 </script>

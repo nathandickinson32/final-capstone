@@ -1,5 +1,6 @@
 <template>
-    <div> this is the favorite meals page</div>
+    <div> this is the favorite meals page
+    </div>
   </template>
   
   <script>

@@ -16,6 +16,12 @@ export default {
 
     addRecipe(recipe) {
         return axios.post('/add-recipe', recipe);
+    },
+
+    // REGISTERED USER FUNCTIONS //
+
+    getRecipeLibraryByUser() {
+        return axios.get('/get-library');
     }
 
 }

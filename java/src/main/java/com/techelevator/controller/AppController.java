@@ -91,4 +91,14 @@ public class AppController {
         return accountDao.addRecipeToLibrary(id, userDao.getUserIdByUsername(principal.getName()));
     }
 
+    @RequestMapping(path="/get-library", method = RequestMethod.GET)
+    public List<Recipe> getRecipeLibraryByUserId(Principal principal) {
+        return accountDao.getRecipeLibraryByUserId(userDao.getUserIdByUsername(principal.getName()));
+    }
+
+    @RequestMapping(path="/remove-recipe-from-library/{id}", method = RequestMethod.DELETE)
+    public boolean deleteRecipeFromLibraryById(@PathVariable int id, Principal principal) {
+        return accountDao.deleteRecipeFromLibraryByRecipeId(id, userDao.getUserIdByUsername(principal.getName()));
+    }
+
 }

@@ -29,17 +29,20 @@
       </div>
       <div class="off-screen-menu">
         <ul>
+          <a href="/groceryList">
+            <li>Grocery List</li>
+          </a>
           <a href="/favoriteMeals">
             <li>Favorite Meals</li>
           </a>
           <a href="/favoriteRecipes">
             <li>Favorite Recipes</li>
           </a>
-          <a href="/groceryList">
-            <li>Grocery List</li>
-          </a>
           <a href="/customRecipes">
             <li>Custom Recipes</li>
+          </a>
+          <a href="">
+            <li>Add Recipe</li>
           </a>
         </ul>
       </div>
