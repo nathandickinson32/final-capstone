@@ -5,7 +5,7 @@
     <router-link v-bind:to="{name: 'category', params: {id: 1}}"> 
 
         <img id="big3" src="/oatmeal2-1-of-1.webp" alt="oatmeal"> 
-        <div class="top-center-text">Breakfast</div>
+        <div class="top-center-breakfast">Breakfast</div>
 
     </router-link>
     
@@ -54,7 +54,7 @@
 
 }
 
-.top-center-text{
+.top-center-breakfast{
     z-index: 1;
   position: absolute;
   border: 1px solid black;

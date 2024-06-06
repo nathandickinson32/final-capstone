@@ -18,7 +18,7 @@
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
-      <button type="submit">Create Account</button>
+      <button id="submit" type="submit">Create Account</button>
       <p><router-link v-bind:to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
   </div>
@@ -86,6 +86,25 @@ label {
 
 #register {
   text-align: center;
+}
+
+#username {
+  background-color: pink;
+}
+
+#password {
+  background-color: pink;
+}
+
+#confirmPassword {
+  background-color: pink;
+}
+
+#submit {
+  background-color: pink;
+  border-radius: 10px;
+  height: 45px;
+  width: 70px;
 }
 
 </style>

@@ -1,8 +1,8 @@
 <template>
 <div>
 <div class="home">
-  <!--<img src="public/pexels-monicore-1391487.jpg"/>-->
-    <h1>MEAL PLANNER OF DOOM</h1>
+  
+    <h1>My Foodie Friend</h1>
     <p>Both guests and registered users can access this static display and navigation</p>
   </div>
   <nav class="static">
