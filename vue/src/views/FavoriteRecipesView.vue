@@ -1,7 +1,6 @@
 <template>
     <div> 
       <div>this is the favorite recipes page</div>
-      {{ this.$store.state.library }}
       {{ library }}
       <category-view-vue v-bind:library="library"/>
     </div>
@@ -26,7 +25,6 @@ import CategoryViewVue from './CategoryView.vue'
         (response) => {
           if (response.status === 200) {
             this.library = response.data;
-            this.$store.commit("SET_USER_LIBRARY", response.data);
           }
         }
       );

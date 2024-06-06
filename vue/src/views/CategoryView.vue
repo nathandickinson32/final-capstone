@@ -2,6 +2,7 @@
   <div class='container'>
     <!-- <h1>TEST</h1> -->
     <!-- {{ recipes }} -->
+    {{ library }}
     <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
       <img class='recipe unfavorite' src='/star_outline.png' v-show="this.$store.state.token != ''"><img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''">
       <!-- <div class='recipe favorite'></div> -->
@@ -31,7 +32,7 @@ export default {
           this.recipes = response.data;
         }
       }
-    )
+    );
   }
 }
 </script>
