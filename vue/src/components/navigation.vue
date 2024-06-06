@@ -13,9 +13,9 @@
       <label for="categories">Choose a category:</label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
           <option value="">-Select-</option> <!-- keep this value empty, select can't be selected-->
-          <option value="/breakfast">Breakfast</option>
-          <option value="/category/2">Lunch</option>
-          <option value="">Dinner</option>
+          <option value="/category/2">Breakfast</option>
+          <option value="/category/3">Lunch</option>
+          <option value="/category/4">Dinner</option>
           <option value="">High Protein</option>
           <option value="">Low-Carb</option>
           <option value="">Vegetarian/Vegan</option>
