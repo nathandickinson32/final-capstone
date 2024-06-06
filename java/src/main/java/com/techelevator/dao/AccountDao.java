@@ -11,4 +11,5 @@ public interface AccountDao {
     public List<Recipe> getRecipeLibraryByUserId(int userId);
     public List<Ingredient> getIngredientsByUserId(int userId); //gets current ingredients
     public boolean addRecipeToLibrary(int id, int userId); //adds recipe to user library
+    public boolean deleteRecipeFromLibraryByRecipeId(int id, int userId); // deletes recipe from library
 }

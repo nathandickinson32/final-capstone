@@ -96,4 +96,9 @@ public class AppController {
         return accountDao.getRecipeLibraryByUserId(userDao.getUserIdByUsername(principal.getName()));
     }
 
+    @RequestMapping(path="/remove-recipe-from-library/{id}", method = RequestMethod.DELETE)
+    public boolean deleteRecipeFromLibraryById(@PathVariable int id, Principal principal) {
+        return accountDao.deleteRecipeFromLibraryByRecipeId(id, userDao.getUserIdByUsername(principal.getName()));
+    }
+
 }

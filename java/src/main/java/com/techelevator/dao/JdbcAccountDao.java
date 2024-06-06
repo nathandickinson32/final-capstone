@@ -122,4 +122,21 @@ public class JdbcAccountDao implements AccountDao{
 
         return receiptId != -1;
     }
+
+    public boolean deleteRecipeFromLibraryByRecipeId(int id, int userId){
+        int receiptId = -1;
+        String sql = "DELETE FROM recipe_users WHERE recipe_id = ? AND user_id =?;";
+
+        try {
+
+            receiptId = template.update(sql, id, userId);
+
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+        return receiptId != -1;
+    }
 }
