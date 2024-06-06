@@ -1,6 +1,5 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
-import RecipeService from '../services/RecipeService';
 
 export function createStore(currentToken, currentUser) {
   let store = _createStore({
@@ -18,14 +17,10 @@ export function createStore(currentToken, currentUser) {
       SET_USER(state, user) {
         state.user = user;
         localStorage.setItem('user', JSON.stringify(user));
-        RecipeService.getRecipeLibraryByUser().then(
-          (response) => {
-            if (response.status === 200) {
-              this.state.library = response.data;
-            }
-          }
-        );
       },
+      // SET_USER_LIBRARY(state, library) {
+      //   state.library = library;
+      // },
       LOGOUT(state) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -34,7 +29,7 @@ export function createStore(currentToken, currentUser) {
         state.user = {};
         axios.defaults.headers.common = {};
       }
-    },
+    }
   });
   return store;
 }

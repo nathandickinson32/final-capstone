@@ -2,13 +2,35 @@
     <div> 
       <div>this is the favorite recipes page</div>
       {{ this.$store.state.library }}
+      {{ library }}
+      <category-view-vue v-bind:library="library"/>
     </div>
 
   </template>
   
   <script>
+import RecipeService from '../services/RecipeService'
+import CategoryViewVue from './CategoryView.vue'
+
   export default {
-  
+    components: {
+      CategoryViewVue
+    },
+    data() {
+      return {
+        library: []
+      }
+    },
+    created() {
+      RecipeService.getRecipeLibraryByUser().then(
+        (response) => {
+          if (response.status === 200) {
+            this.library = response.data;
+            this.$store.commit("SET_USER_LIBRARY", response.data);
+          }
+        }
+      );
+    }
   }
   </script>
   

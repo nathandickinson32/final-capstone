@@ -16,6 +16,9 @@
 import RecipeService from '../services/RecipeService';
 
 export default {
+  props: {
+    library: []
+  },
   data() {
     return {
       recipes: []
