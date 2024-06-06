@@ -33,8 +33,9 @@ VALUES
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
-(1,5),
-(2,4),
+(1,1),
+(1,6),
+(2,5),
 (3,1),
 (4,4);
 
