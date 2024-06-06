@@ -10,6 +10,7 @@
       <div><button class='btn'><router-link v-bind:to="{name: 'recipe', params: {id: recipe.id}}">View Details</router-link></button></div>
     </div>
   </div>
+  
 </template>
 
 <script>

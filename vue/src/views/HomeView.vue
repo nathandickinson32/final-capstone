@@ -1,11 +1,13 @@
 <template>
   <div>
     
-  </div>
-  <div>
+    <div>
+    
+    </div>
+    <div>
     <BLDImages /> 
+    </div>
   </div>
-  
 </template>
 
 <script>
@@ -17,7 +19,6 @@ export default {
 
 };
 </script>
-
 
 
 

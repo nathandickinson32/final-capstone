@@ -36,7 +36,7 @@
     </template>
 
     
-<style>
+<style scoped>
 #big3 {
     float: left;
     width:  33%;
@@ -93,6 +93,11 @@
   transform: translate(-50%, -50%);
   font-size: 3rem;
   color:black;
-}</style>
+}
+
+
+
+
+</style>
 
 
