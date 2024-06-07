@@ -1,60 +1,117 @@
 <template>
-  <div class='container'>
+  <div class="container">
+    <back-button/>
     <!-- <h1>TEST</h1> -->
     <!-- {{ recipes }} -->
     {{ library }}
-    <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
-      <img class='recipe' v-bind:class="recipe.favorited ? 'favorite' : 'unfavorite'" src='/star_outline.png' alt='/star_full.png' v-show="this.$store.state.token != ''">
+    <div v-for="recipe in recipes" v-bind:key="recipe.id" class="recipeCard">
+      <div class="recipe icon-holder">
+        <div
+          v-on:click="favoriteUnfavorite(currentRecipe)"
+          class="recipe icon"
+          v-bind:class="checkFavorite(recipe) ? 'favorite' : 'unfavorite'"
+          v-show="this.$store.state.token != ''"
+        ></div>
+      </div>
       <!-- <img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''"> -->
       <!-- <div class='recipe favorite'></div> -->
-      <div class='recipe name'><h1 class='recipe-head-item'>{{ recipe.recipeName }}</h1></div>
-      <div class='recipe description'>{{ recipe.description }}</div>
-      <div><button class='btn'><router-link v-bind:to="{name: 'recipe', params: {id: recipe.id}}">View Details</router-link></button></div>
+      <div class="recipe text-boxes">
+        <div class="recipe name">
+          <h1 class="recipe-head-item">{{ recipe.recipeName }}</h1>
+        </div>
+        <div class="recipe description">{{ recipe.description }}</div>
+      </div>
+      <div>
+        <button class="btn">
+          <router-link v-bind:to="{ name: 'recipe', params: { id: recipe.id } }"
+            >View Details</router-link
+          >
+        </button>
+      </div>
     </div>
   </div>
-  
 </template>
 
 <script>
-import RecipeService from '../services/RecipeService';
+import BackButton from '../components/BackButton.vue';
+import RecipeService from "../services/RecipeService";
 
 export default {
-  props: {
-    library: []
+  components: {
+    BackButton
   },
-  // el: '#app',
   data() {
     return {
       recipes: [],
-      image1 : '/star_outline.png',
-      image2 : '/star_full.png'
-    }
+      library: [],
+      image1: "/star_outline.png",
+      image2: "/star_full.png",
+    };
   },
   created() {
     RecipeService.getRecipesByCategoryId(this.$route.params.id).then(
       (response) => {
-        if(response.status === 200) {
+        if (response.status === 200) {
           this.recipes = response.data;
-          this.recipes.forEach(
-            (recipe) => {
-              recipe.favorited = this.library.includes(recipe.id);
-            }
-          );
         }
       }
-    );
+    ).catch(error => {
+          if (error.response) {
+            if (error.response.status == 404) {
+              this.$router.push({name: 'NotFoundView'});
+            } else {
+              this.$store.commit('SET_NOTIFICATION',
+              `Error getting message. Response received was "${error.response.statusText}".`);
+            }
+          } else if (error.request) {
+            this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
+          } else {
+            this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
+          }
+        });
+    RecipeService.getRecipeLibraryByUser().then((response) => {
+      if (response.status === 200) {
+        this.library = response.data;
+      }
+    });
   },
   methods: {
-    favoriteUnfavorite() {
-      const image1 = '/star_outline.png';
-      const image2 = '/star_full.png';
-    }
-  }
-}
+    favoriteUnfavorite(currentRecipe) {
+      // const image1 = '/star_outline.png';
+      // const image2 = '/star_full.png';
+      if (this.library.includes(currentRecipe)) {
+       
+        // this.library = this.library.filter(
+        //   (recipe) => {
+        //   return recipe != currentRecipe;
+        // });
+
+          RecipeService.deleteRecipeFromLibrary(currentRecipe.id).then(
+            (response) => {
+              if(response.status === 200){
+                console.log('success');
+              }
+            }
+            )
+
+      }else {
+          RecipeService.addRecipeToLibrary(currentRecipe.id).then(
+            (response) => {
+              if(response.status === 201) {
+                console.log('success');
+              }
+            }
+          )
+      }
+    },
+    checkFavorite(recipe) {
+      return this.library.includes(recipe);
+    },
+  },
+};
 </script>
 
 <style>
-
 .container {
   display: grid;
   justify-content: center;
@@ -82,27 +139,33 @@ h1 {
   height: auto;
 }
 
-img.unfavorite {
-  /* display: none; */
-  height: fit-content;
-  width: 50px;
-  border: none;
-  float:right;
-  margin: 0;
+div.icon-holder {
+  display: grid;
+  height: 40px;
+  justify-content: end;
 }
 
-img.favorite {
-  /* display: none; */
-  height: fit-content;
+div.icon {
   width: 50px;
+  height: 50px;
   border: none;
-  float:right;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
+div.unfavorite {
+  background-image: url(/star_outline.png);
+}
+
+div.favorite {
+  background-image: url(/star_full.png);
 }
 
 .btn {
   text-align: center;
-  top:50%;
-  background-color:pink;
+  top: 50%;
+  background-color: pink;
   color: black;
   height: 20px;
   width: 90px;
@@ -113,5 +176,4 @@ img.favorite {
   margin-top: auto;
   margin-bottom: auto;
 }
-
 </style>

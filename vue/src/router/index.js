@@ -14,6 +14,7 @@ import GroceryListView from '../views/GroceryListView.vue';
 import FavoriteMealsView from '../views/FavoriteMealsView.vue';
 import FavoriteRecipesView from '../views/FavoriteRecipesView.vue';
 import CustomRecipesView from '../views/CustomRecipesView.vue';
+import NotFoundView from '../views/NotFoundView.vue';
 
 
 /**
@@ -25,6 +26,15 @@ import CustomRecipesView from '../views/CustomRecipesView.vue';
  * If they have (or don't need to) they're allowed to go about their way.
  */
 const routes = [
+
+  {
+    path: "/not-found",
+    name: "NotFoundView",
+    component: NotFoundView,
+    meta: {
+      requiresAuth: false
+    }
+  },
   {
     path: '/',
     name: 'home',
