@@ -87,6 +87,9 @@ div {
 .instructions {
   flex: 1;
   margin-left: 20px;
+  /** frontend 002 test */
 }
+
+
 
 </style>
