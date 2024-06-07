@@ -1,4 +1,7 @@
 <template>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 <div>
 <div class="home">
   
@@ -134,11 +137,11 @@ mounted() {
 }
 
 .dropdown{
-display: flex;
-margin-left: auto;
-margin-right: auto;
-margin-top: auto;
-margin-bottom: auto;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 
 }
 
@@ -219,6 +222,37 @@ nav {
   top: 50%;
   transform: translate(50%, -50%) rotate(90deg);
   
+}
+
+@media only screen and (max-width: 600px) {
+  .home-btn {
+  text-align: center;
+  top:50%;
+  background-color:rgb(255, 192, 203);
+  color: black;
+  height: 20px;
+  width: 80px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.home >p {
+  color: transparent;
+}
+
+.ham-menu {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  position: relative;
+  top: -25px;
+}
+
+
 }
 
 </style>
