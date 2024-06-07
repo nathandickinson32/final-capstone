@@ -17,7 +17,7 @@
 
     </div>
     <Navigation />
-    <router-view />
+    <router-view v-bind:key="$route.fullPath"/> <!--This refreshed page so dropdown works appropriately-->
   </div>
 </template>
 

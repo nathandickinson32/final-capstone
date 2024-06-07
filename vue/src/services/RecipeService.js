@@ -22,6 +22,14 @@ export default {
 
     getRecipeLibraryByUser() {
         return axios.get('/get-library');
+    },
+
+    addRecipeToLibrary(id) {
+        return axios.post(`/save-recipe/${id}`);
+    },
+     
+    deleteRecipeFromLibrary(id) {
+        return axios.delete(`/remove-recipe-from-library/${id}`);
     }
 
 }

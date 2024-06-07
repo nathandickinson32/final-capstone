@@ -38,12 +38,14 @@ export default {
   margin:40px 10px 20px 40px;
  
   list-style: none;
+  padding-top: 10px;
+  border-top: 2px dotted pink;
 }
 
 .instructionCard li{
- margin-bottom: 10px;
+  margin-bottom: 10px;
   background-image: url(../images/knife-and-fork.png);
-  background-repeat:no-repeat ;
+  background-repeat:no-repeat;
   background-size:40px 40px ;
   padding-left: 48px;
   background-position: 0 10px;
