@@ -3,8 +3,13 @@
     <!-- <h1>TEST</h1> -->
     <!-- {{ recipes }} -->
     {{ library }}
-    <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
-      <div class='recipe icon-holder'><div class='recipe icon' v-bind:class="checkFavorite(recipe) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''"></div></div>
+    {{ idLibrary }}
+    <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
+      <div class='recipe icon-holder'>
+        <div class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
+          {{ recipe.favorite }}
+        </div>
+      </div>
       <!-- <img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''"> -->
       <!-- <div class='recipe favorite'></div> -->
       <div class='recipe text-boxes'>
@@ -25,6 +30,7 @@ export default {
     return {
       recipes: [],
       library: [],
+      idLibrary: [],
       image1 : '/star_outline.png',
       image2 : '/star_full.png'
     }
@@ -41,17 +47,56 @@ export default {
       (response) => {
         if (response.status === 200) {
           this.library = response.data;
+          this.library.forEach(
+            (recipe) => {
+              console.log('almost there!');
+              this.idLibrary.push(recipe.recipeId);
+              console.log('pushed');
+            }
+          );
         }
       }
     );
   },
   methods: {
-    favoriteUnfavorite() {
-      const image1 = '/star_outline.png';
-      const image2 = '/star_full.png';
-    },
-    checkFavorite(recipe) {
-      return this.library.includes(recipe);
+    // favoriteUnfavorite() {
+    //   const image1 = '/star_outline.png';
+    //   const image2 = '/star_full.png';
+    // },
+    // checkFavorite(recipe) {
+    //   return this.library.includes(recipe);
+    // },
+    checkFavorites() {
+      console.log('reached function');
+      // this.recipes.forEach(
+      //   (recipe) => {
+      //     this.library.forEach(
+      //       (favorite) => {
+      //         if (favorite.id === recipe.id) {
+      //           recipe.favorite = true;
+      //           console.log("it's true");
+      //         } else {
+      //           recipe.favorite = false;
+      //           console.log("it's false");
+      //         }
+      //       }
+      //     );
+
+      //     // if (this.library.includes(recipe)) {
+      //     //   recipe.favorite = true;
+      //     //   console.log("it's true");
+      //     // } else {
+      //     //   console.log("it's false");
+      //     // }
+      //   }
+      // );
+      this.library.forEach(
+        (recipe) => {
+          console.log('almost there!');
+          // this.idLibrary.push(recipe.recipeId);
+          console.log('pushed');
+        }
+      );
     }
   }
 }
