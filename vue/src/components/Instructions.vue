@@ -34,4 +34,18 @@ export default {
 
 <style>
 
+.instructionCard{
+  margin:200px 10px 20px 100px;
+ 
+  list-style: none;
+}
+
+.instructionCard li{
+ margin-bottom: 10px;
+  background-image: url(../images/knife-and-fork.png);
+  background-repeat:no-repeat ;
+  background-size:40px 40px ;
+  padding-left: 48px;
+  background-position: 0 10px;
+}
 </style>
