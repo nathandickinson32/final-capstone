@@ -7,14 +7,22 @@
     </div> -->
     <div><h1>{{recipe.recipeName}}</h1></div>
     <div>{{recipe.description}}</div>
-    <div>{{ recipe.instructions }}</div>
-    <div>
-      <h3>Ingredients List</h3>
-      <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
+    <div class="details">
+      <div class="instructions">
+        <instructions/>
+      </div>
+    
+
+      <div class="ingredients">
+        <h3>Ingredients List</h3>
+        <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
         <p>{{ ingredient.ingredientName }}</p>
+        </div>
+      
       </div>
     </div>
-    <instructions/>
+   
+   
 
   </div>
 </template>
@@ -64,6 +72,21 @@ div.container {
 
 div {
   margin: auto;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredients {
+  flex: 1;
+  margin-right: 20px
+}
+
+.instructions {
+  flex: 1;
+  margin-left: 20px;
 }
 
 </style>

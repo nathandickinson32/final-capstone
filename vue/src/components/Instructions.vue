@@ -35,7 +35,7 @@ export default {
 <style>
 
 .instructionCard{
-  margin:200px 10px 20px 100px;
+  margin:40px 10px 20px 40px;
  
   list-style: none;
 }
