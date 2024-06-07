@@ -4,11 +4,13 @@
     <!-- {{ recipes }} -->
     {{ library }}
     <div v-for='recipe in recipes' v-bind:key='recipe.id' class='recipeCard'>
-      <img class='recipe' v-bind:class="recipe.favorited ? 'favorite' : 'unfavorite'" src='/star_outline.png' alt='/star_full.png' v-show="this.$store.state.token != ''">
+      <div class='recipe icon-holder'><div class='recipe icon' v-bind:class="checkFavorite(recipe) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''"></div></div>
       <!-- <img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''"> -->
       <!-- <div class='recipe favorite'></div> -->
-      <div class='recipe name'><h1 class='recipe-head-item'>{{ recipe.recipeName }}</h1></div>
+      <div class='recipe text-boxes'>
+        <div class='recipe name'><h1 class='recipe-head-item'>{{ recipe.recipeName }}</h1></div>
       <div class='recipe description'>{{ recipe.description }}</div>
+      </div>
       <div><button class='btn'><router-link v-bind:to="{name: 'recipe', params: {id: recipe.id}}">View Details</router-link></button></div>
     </div>
   </div>
@@ -19,13 +21,10 @@
 import RecipeService from '../services/RecipeService';
 
 export default {
-  props: {
-    library: []
-  },
-  // el: '#app',
   data() {
     return {
       recipes: [],
+      library: [],
       image1 : '/star_outline.png',
       image2 : '/star_full.png'
     }
@@ -35,11 +34,13 @@ export default {
       (response) => {
         if(response.status === 200) {
           this.recipes = response.data;
-          this.recipes.forEach(
-            (recipe) => {
-              recipe.favorited = this.library.includes(recipe.id);
-            }
-          );
+        }
+      }
+    );
+    RecipeService.getRecipeLibraryByUser().then(
+      (response) => {
+        if (response.status === 200) {
+          this.library = response.data;
         }
       }
     );
@@ -48,6 +49,9 @@ export default {
     favoriteUnfavorite() {
       const image1 = '/star_outline.png';
       const image2 = '/star_full.png';
+    },
+    checkFavorite(recipe) {
+      return this.library.includes(recipe);
     }
   }
 }
@@ -82,21 +86,27 @@ h1 {
   height: auto;
 }
 
-img.unfavorite {
-  /* display: none; */
-  height: fit-content;
-  width: 50px;
-  border: none;
-  float:right;
-  margin: 0;
+div.icon-holder {
+  display: grid;
+  height: 40px;
+  justify-content: end;
 }
 
-img.favorite {
-  /* display: none; */
-  height: fit-content;
+div.icon {
   width: 50px;
+  height: 50px;
   border: none;
-  float:right;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
+div.unfavorite {
+  background-image: url(/star_outline.png);
+}
+
+div.favorite {
+  background-image: url(/star_full.png);
 }
 
 .btn {
