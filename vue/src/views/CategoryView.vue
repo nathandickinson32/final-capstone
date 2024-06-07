@@ -20,7 +20,7 @@
       </div>
       <div>
         <button class="btn">
-          <router-link v-bind:to="{ name: 'recipe', params: { id: recipe.id } }"
+          <router-link v-bind:to="{ name: 'recipe', params: { id: recipe.recipeId } }"
             >View Details</router-link
           >
         </button>
