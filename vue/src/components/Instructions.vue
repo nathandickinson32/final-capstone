@@ -38,6 +38,8 @@ export default {
   margin:40px 10px 20px 40px;
  
   list-style: none;
+  padding-top: 10px;
+  border-top: 2px dotted pink;
 }
 
 .instructionCard li{

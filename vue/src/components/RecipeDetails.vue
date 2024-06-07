@@ -81,7 +81,13 @@ div {
 
 .ingredients {
   flex: 1;
-  margin-right: 20px
+  margin-right: 20px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: none;
+  
+
+
 }
 
 .instructions {
