@@ -1,8 +1,8 @@
 <template>
 <div>
 <div class="home">
-  <!--<img src="public/pexels-monicore-1391487.jpg"/>-->
-    <h1>MEAL PLANNER OF DOOM</h1>
+  
+    <h1>My Foodie Friend</h1>
     <p>Both guests and registered users can access this static display and navigation</p>
   </div>
   <nav class="static">
@@ -13,31 +13,36 @@
       <label for="categories">Choose a category:</label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
           <option value="">-Select-</option> <!-- keep this value empty, select can't be selected-->
+          <option value="/category/1">Appetizers</option>
           <option value="/category/2">Breakfast</option>
           <option value="/category/3">Lunch</option>
           <option value="/category/4">Dinner</option>
-          <option value="">High Protein</option>
-          <option value="">Low-Carb</option>
-          <option value="">Vegetarian/Vegan</option>
-          <option value="">Asian</option>
-          <option value="">Italian</option>
-          <option value="">Mexican</option>
-          <option value="">Middle-Eastern</option>
+          <option value="/category/5">Desserts</option>
+          <option value="/category/6">High Protein</option>
+          <option value="/category/7">Low-Carb</option>
+          <option value="/category/8">Vegetarian/Vegan</option>
+          <option value="/category/9">Asian</option>
+          <option value="/category/10">Italian</option>
+          <option value="/category/11">Mexican</option>
+          <option value="/category/12">Middle-Eastern</option>
         </select>
       </div>
       <div class="off-screen-menu">
         <ul>
+          <a href="/groceryList">
+            <li>Grocery List</li>
+          </a>
           <a href="/favoriteMeals">
             <li>Favorite Meals</li>
           </a>
           <a href="/favoriteRecipes">
             <li>Favorite Recipes</li>
           </a>
-          <a href="/groceryList">
-            <li>Grocery List</li>
-          </a>
           <a href="/customRecipes">
             <li>Custom Recipes</li>
+          </a>
+          <a href="">
+            <li>Add Recipe</li>
           </a>
         </ul>
       </div>
@@ -73,7 +78,9 @@ mounted() {
   methods : {
     changeRoute(e) {
       this.$router.push(e.target.value);
-    }
+    },
+
+  
   }
 };
 
