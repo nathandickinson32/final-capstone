@@ -1,7 +1,7 @@
 <template>
     <div class="backButtonFormat"> 
         <div class="backButton">
-            <button v-on:click="this.$router.back()">Back</button>
+            <button class='back-button' v-on:click="this.$router.back()">Back</button>
         </div>
     </div>
    
@@ -26,5 +26,20 @@ export default {
   margin: 0;
   background-repeat: no-repeat;
   background-size: 40px 40px;
+}
+
+.back-button {
+  text-align: center;
+  top:50%;
+  background-color:rgb(255, 192, 203);
+  color: black;
+  height: 20px;
+  width: 60px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 </style>
