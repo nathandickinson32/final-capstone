@@ -1,5 +1,6 @@
 <template>
   <div class='container'>
+    <back-button/>
     <!-- <div>
      <div>{{recipe}}
     {{ ingredients }}
@@ -30,8 +31,8 @@
 <script>
 import RecipeService from '../services/RecipeService';
 import IngredientsService from '../services/IngredientsService';
-import Instructions from './Instructions.vue';
-import BackButton from './BackButton.vue';
+import Instructions from '../components/Instructions.vue';
+import BackButton from '../components/BackButton.vue';
 export default {
   created() {
     RecipeService.getRecipeByRecipeId(this.$route.params.id).then(
@@ -57,8 +58,9 @@ export default {
   },
 
   components: {
-    Instructions,
-    BackButton
+    BackButton,
+    Instructions
+   
   }
 
 
