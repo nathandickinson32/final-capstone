@@ -7,7 +7,7 @@
     {{ idLibrary }}
     <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
       <div class='recipe icon-holder'>
-        <div v-on:click="favoriteUnfavorite" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
+        <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
         </div>
       </div>
       <!-- <img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''"> -->
@@ -89,10 +89,13 @@ export default {
 
 
     favoriteUnfavorite(id) {
-      RecipeService.addRecipeToLibrary(id).then(
+      if(!this.idLibrary.includes(id)){
+        RecipeService.addRecipeToLibrary(id).then(
         (response) => {
           if(response.status === 201) {
+            this.idLibrary.push(id);
             console.log('success')
+           
           }
     
         }
@@ -110,6 +113,32 @@ export default {
             this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
           }
         }); 
+           
+            }else{
+              RecipeService.deleteRecipeFromLibrary(id).then(
+                response => {
+                  if(response.status === 200) {
+                    this.idLibrary= this.idLibrary.filter((item) => item != id);
+                  }
+                }
+              ).catch(error => {
+          if (error.response) {
+            if (error.response.status == 404) {
+              this.$router.push({name: 'NotFoundView'});
+            } else {
+              this.$store.commit('SET_NOTIFICATION',
+              `Error getting message. Response received was "${error.response.statusText}".`);
+            }
+          } else if (error.request) {
+            this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
+          } else {
+            this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
+          }
+        }); 
+               
+            }
+
+   
     },
     checkFavorite(recipe) {
       return this.library.includes(recipe);

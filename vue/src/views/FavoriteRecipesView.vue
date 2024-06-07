@@ -34,8 +34,12 @@
   <script>
 
 import RecipeService from '../services/RecipeService'
+import BackButton from '../components/BackButton.vue';
 
   export default {
+    components: {
+        BackButton
+    },
     data() {
       return {
         library: [],
