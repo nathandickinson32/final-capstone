@@ -2,7 +2,7 @@
 <template>
     <div>
     <!--add images and turn them into links -->
-    <router-link v-bind:to="{name: 'category', params: {id: 1}}"> 
+    <router-link v-bind:to="{name: 'category', params: {id: 2}}"> 
 
         <img id="big3" src="/oatmeal2-1-of-1.webp" alt="oatmeal"> 
         <div class="top-center-breakfast">Breakfast</div>
@@ -12,7 +12,7 @@
         </div>
 
         <div>
-  <router-link v-bind:to="{name: 'category', params: {id: 2}}"> 
+  <router-link v-bind:to="{name: 'category', params: {id: 3}}"> 
         
         <img class = "burger" id="big3" src="cheeseburger_stock.jpg" alt="cheeseburger"> 
         <div class="top-center-lunch">Lunch</div>
@@ -24,7 +24,7 @@
   
 
 <div>
-    <router-link v-bind:to="{name: 'category', params: {id: 3}}"> 
+    <router-link v-bind:to="{name: 'category', params: {id: 4}}"> 
         <img id="big3" src="Chicken-Parmesan-1.jpg" alt="chicken parm"> 
         <div class="top-center-dinner">Dinner</div>
     </router-link>
