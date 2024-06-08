@@ -23,13 +23,31 @@ VALUES
 ('Sausage Balls', 'These bite-sized morsels are baked to a golden brown, offering a delightful balance of crispiness on the outside and moist, cheesy goodness on the inside.', 2),
 ('Peppermint Mocha Mousse', 'Indulge in the festive flavors of Peppermint Mocha Mousse, a decadent dessert that marries rich chocolate, bold coffee, and refreshing peppermint. This airy and creamy mousse is perfect for holiday celebrations or anytime you crave a sweet treat with a hint of mint.', 2),
 ('Blackberry, Fig & Prosciutto Mini “Pizzas', 'These elegant bites combine the sweetness of fresh blackberries and figs with the savory, salty flavor of prosciutto, all atop a crispy flatbread base.', 2),
-('Oven-Roasted Chicken Shawarma', 'Marinated in a blend of spices and roasted to perfection, this chicken is juicy, tender, and bursting with flavor.',2 );
+('Oven-Roasted Chicken Shawarma', 'Marinated in a blend of spices and roasted to perfection, this chicken is juicy, tender, and bursting with flavor.',2 ),
+('Sausage Breakfast Casserole', 'This savory sausage breakfast casserole with hash brown potatoes, green onions, and cheese is easy to put together and perfect for a hearty breakfast or weekend brunch.', 2),
+('Reuben Sandwich', 'A traditional reuben sandwich consists of thinly sliced corned beef, Swiss cheese, and sauerkraut on rye bread slathered with Russian or Thousand Island dressing.',2),
+('Ultimate Low-Carb Zucchini Lasagna', 'Keto lasagna made with zucchini slices instead of pasta. This low-carb, gluten-free beef lasagna is delicious and satisfying; it is a crowd-pleaser.', 2),
+('Low-Carb Spaghetti Squash Salad with Bok Choy', 'This low-calorie, low-carb, vegan salad is made with spaghetti squash, bok choy, and an Asian-inspired soy sauce dressing. Either serve salad at room temperature or chill in the fridge for later use.', 2),
+('Garlic Noodles', 'Indulge in the aromatic and flavorful delight of Garlic Noodles! This easy-to-follow recipe features tender noodles coated in a savory garlic-infused sauce, creating a dish that is both comforting and satisfying!', 2),
+('High-Fiber, High-Protein Breakfast Bars', 'Ingredients such as wheat germ, flaxseed, protein powder, peanut butter, and oats make this a healthy way to start the day!', 2);
+
+
+
+
+
+
 INSERT INTO recipe_users(recipe_id, user_id)
 VALUES
 (1,2),
 (2,2),
 (3,2),
-(4,2);
+(4,2),
+(5,2),
+(6,2),
+(7,2),
+(8,2),
+(9,2),
+(10,2);
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
@@ -37,7 +55,18 @@ VALUES
 (1,6),
 (2,5),
 (3,1),
-(4,4);
+(4,4),
+(5,2),
+(6,3),
+(7,7),
+(7,4),
+(8,8),
+(8,4),
+(8,7),
+(9,3),
+(9,9),
+(10,2),
+(10,6);
 
 INSERT INTO ingredients(ingredient_name)
 VALUES
@@ -167,8 +196,24 @@ VALUES
 ('prosciutto'),
 ('blackberries'),
 ('arugula'),
-('red pepper');
-
+('red pepper'),
+('sausage'),
+('gravy'),
+('Thousand Island dressing'),
+('sauerkraut'),
+('marinara sauce'),
+('bok choy'),
+('sesame oil'),
+('oyster sauce'),
+('Worcestershire sauce'),
+('fish sauce'),
+('cayenne pepper'),
+('Spaghetti'),
+('red pepper flakes'),
+('cooking spray'),
+('wheat germ'),
+('protein powder'),
+('peanut butter');
 INSERT INTO recipe_ingredients(recipe_id, ingredient_id)
 VALUES
 (1,121),
@@ -208,7 +253,62 @@ VALUES
 (4, 127),
 (4, 50),
 (4, 3),
-(4, 74);
+(4, 74),
+(5, 128),
+(5, 3),
+(5, 2),
+(5, 45),
+(5, 49),
+(5, 44),
+(5, 129),
+(5, 66),
+(6, 114 ),
+(6, 130),
+(6, 45),
+(6, 51),
+(6, 131),
+(6, 47),
+(7, 11),
+(7, 76),
+(7, 51),
+(7, 132),
+(7, 63),
+(7, 70),
+(7, 64),
+(7, 45),
+(7, 49),
+(7, 69),
+(8, 11),
+(8, 77),
+(8, 3),
+(8, 4),
+(8, 133),
+(8, 63),
+(8, 80),
+(8, 134),
+(8, 86),
+(9, 80),
+(9, 135),
+(9, 136),
+(9, 137),
+(9, 134),
+(9, 138),
+(9, 47),
+(9, 4),
+(9, 139),
+(9, 3),
+(9, 140),
+(10, 141),
+(10, 34),
+(10, 142),
+(10, 103),
+(10, 143),
+(10, 68),
+(10, 63),
+(10, 19),
+(10,144),
+(10, 87),
+(10, 94);
 
 
 INSERT INTO recipe_instructions(step, instruction, recipe_id)
@@ -230,6 +330,38 @@ VALUES
 (1,'Prepare a marinade for the chicken. Combine the lemon juice, ½ cup olive oil, garlic, salt, pepper, cumin, paprika, turmeric, cinnamon and crushed red pepper in a large bowl, then whisk to combine. Add the chicken and toss well to coat. Cover and store in refrigerator for at least 1 hour and up to 12 hours', 4),
 (2,'When ready to cook, heat oven to 425 degrees. Use the remaining tablespoon of olive oil to grease a rimmed sheet pan. Add the quartered onion to the chicken and marinade, and toss once to combine. Remove the chicken and onion from the marinade, and place on the pan, spreading everything evenly across it', 4),
 (3,'Put the chicken in the oven and roast until it is browned, crisp at the edges and cooked through, about 30 to 40 minutes. Remove from the oven, allow to rest 2 minutes, then slice into bits. (To make the chicken even more crisp, set a large pan over high heat, add a tablespoon of olive oil to the pan, then the sliced chicken, and sauté until everything curls tight in the heat.)', 4),
-(4,'Scatter the parsley over the top and serve with tomatoes, cucumbers, pita, white sauce, hot sauce, olives, fried eggplant, feta, rice — really anything you desire', 4);
-
+(4,'Scatter the parsley over the top and serve with tomatoes, cucumbers, pita, white sauce, hot sauce, olives, fried eggplant, feta, rice — really anything you desire', 4),
+(1, 'Preheat the oven to 325 degrees F (165 degrees C). Grease an 8x11-inch baking dish',  5),
+(2, 'Cook and stir breakfast sausage in a skillet over medium heat until browned and crumbly, about 10 minutes; drain excess grease',  5),
+(3, 'Mix green onion into the sausage and spread into the bottom of the prepared baking dish',  5),
+(4, 'Spread hash brown potatoes in a layer over top; sprinkle with Cheddar cheese',  5),
+(5, 'Whisk eggs, milk, and gravy mix together in a bowl until smooth; pour over casserole. Season with paprika',  5),
+(6, 'Bake in the preheated oven until a knife inserted into the center of the casserole comes out clean, about 1 hour. Let stand 10 minutes to firm up before serving',  5),
+(1, 'Gather all ingredients and preheat a large griddle or skillet over medium heat',  6),
+(2, 'Spread one side of bread slices evenly with Thousand Island dressing',  6),
+(3, 'On four bread slices, layer one slice Swiss cheese, 2 slices corned beef, 1/4 cup sauerkraut, and a second slice of Swiss cheese. Top with remaining bread slices, dressing-side down. Butter the top of each sandwich',  6),
+(4, 'Place sandwiches, butter-side down on the preheated griddle; butter the top of each sandwich with remaining butter. Grill until both sides are golden brown, about 5 minutes per side',  6),
+(5, 'Serve hot. Enjoy',  6),
+(1, 'Preheat the oven to 375 degrees F (190 degrees C). Grease an 8-inch baking dish with cooking spray', 7),
+(2, 'Pat dry zucchini slices with a paper towel to remove excess moisture. Set aside', 7),
+(3, 'Heat olive oil in a saucepan over medium-high heat. Add ground beef; cook until browned, 5 to 8 minutes', 7),
+(4, 'Add marinara sauce, 1 teaspoon salt, oregano, and pepper; simmer for 10 minutes. Set aside', 7),
+(5, 'Combine ricotta cheese, egg, 1 teaspoon salt, and nutmeg in a bowl; mix well. Set aside', 7),
+(6, 'Arrange one layer of zucchini slices in the prepared baking dish. Cover with 1/2 of the sauce. Add another layer of zucchini slices. Spread ricotta mixture on top. Sprinkle with 1/2 of the mozzarella cheese. Add another layer of zucchini slices; cover with remaining sauce and top with remaining mozzarella cheese and Parmesan cheese. Cover the baking dish with aluminum foil', 7),
+(7, 'Bake in the preheated oven for 30 minutes. Remove aluminum foil and bake until top is golden, about 15 minutes more', 7),
+(1, 'Preheat oven to 400 degrees F (200 degrees C). Poke about 10 holes into spaghetti squash with a fork; place on a baking sheet', 8),
+(2, 'Bake in the preheated oven until easily pierced with a knife, 45 to 60 minutes. Remove from oven; cool until easily handled', 8),
+(3, 'Cut spaghetti squash in half and seed. Pull the squash flesh from the peel with a fork and place in a large bowl; let cool', 8),
+(4, 'Heat oil in a skillet over medium heat and cook onion until soft and translucent, about 5 minutes. Add garlic and cook until fragrant, about 1 minute. Add bok choy stems and cook until softened, stirring occasionally, 3 to 5 minutes. Add green leaves and sprinkle with salt. Cover and cook over low heat until vegetables are soft, about 10 minutes. Add bok choy and cooking liquid to spaghetti squash and combine', 8),
+(5, 'Whisk soy sauce, sesame oil, red wine vinegar, and sugar together in a small bowl. Pour over salad and mix well', 8),
+(1, 'Gather all ingredients. Stir soy sauce, oyster sauce, Worcestershire sauce, fish sauce, sesame oil, and cayenne pepper together in a small bowl for the secret sauce', 9),
+(2, 'Melt butter in a skillet over medium heat. Add garlic; cook and stir just until fragrant, about 1 minute. Quickly stir in the secret sauce and turn off the heat', 9),
+(3, 'Bring a large pot of lightly salted water to a boil. Cook spaghetti in boiling water, stirring occasionally, until tender yet slightly firm to the bite, about 12 minutes', 9),
+(4, 'Transfer spaghetti into the sauce using tongs, bringing some of the cooking water with it. Toss until well coated; stir in Parmesan cheese. Splash in more pasta water if noodles are too dry', 9),
+(5, 'Plate noodles; garnish with green onions and red pepper flakes', 9),
+(1, 'Preheat oven to 375 degrees F (190 degrees C). Line an 8x8-inch baking dish with aluminum foil, letting foil hang down over the sides of the pan; spray pan with cooking spray', 10),
+(2, 'Stir oats, wheat germ, flax seed, protein powder, cinnamon, and salt together in a bowl. Mash bananas in a separate large bowl and stir 1/4 cup Jif® peanut butter, honey, and vanilla extract into bananas, mixing well. Stir dry ingredients into banana mixture and spread into the prepared baking dish', 10),
+(3, 'Bake in the preheated oven for 20 minutes. Spread 1/4 cup natural peanut butter over top', 10),
+(4, 'Continue baking until lightly browned on the edges and set, 10 more minutes. Let cool in the pan and lift bars onto a work surface using aluminum foil as handles. Cut into bars, wrap in plastic wrap, and store in refrigerator', 10)
+;
 COMMIT TRANSACTION;

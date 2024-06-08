@@ -14,9 +14,7 @@ export default {
         return axios.get(`/get-recipe-by-recipe-id/${id}`);
     },
 
-    addRecipe(recipe) {
-        return axios.post('/add-recipe', recipe);
-    },
+   
 
     // REGISTERED USER FUNCTIONS //
 
