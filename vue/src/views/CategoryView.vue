@@ -1,17 +1,11 @@
 <template>
   <div class="container">
     <back-button/>
-    <!-- <h1>TEST</h1> -->
-    <!-- {{ recipes }} -->
-    {{ library }}
-    {{ idLibrary }}
     <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
       <div class='recipe icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
         </div>
       </div>
-      <!-- <img class='recipe favorite' src='/star_full.png' v-show="this.$store.state.token != ''"> -->
-      <!-- <div class='recipe favorite'></div> -->
       <div class="recipe text-boxes">
         <div class="recipe name">
           <h1 class="recipe-head-item">{{ recipe.recipeName }}</h1>
@@ -60,123 +54,78 @@ export default {
           this.library = response.data;
           this.library.forEach(
             (recipe) => {
-              console.log('almost there!');
               this.idLibrary.push(recipe.recipeId);
-              console.log('pushed');
             }
           );
         }
       }
     ).catch(error => {
-          if (error.response) {
-            if (error.response.status == 404) {
-              this.$router.push({name: 'NotFoundView'});
-            } else {
-              // this.$store.commit('SET_NOTIFICATION',
-              // `Error getting message. Response received was "${error.response.statusText}".`);
-            
-            }
-          } else if (error.request) {
-            // this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
+        if (error.response) {
+          if (error.response.status == 404) {
+            this.$router.push({name: 'NotFoundView'});
           } else {
-            // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
+            // this.$store.commit('SET_NOTIFICATION',
+            // `Error getting message. Response received was "${error.response.statusText}".`);    
           }
-        });
+        } else if (error.request) {
+          // this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
+        } else {
+          // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
+        }
+      }
+    );
     },
     methods: {
-
-      
-
-
     favoriteUnfavorite(id) {
       if(!this.idLibrary.includes(id)){
         RecipeService.addRecipeToLibrary(id).then(
-        (response) => {
-          if(response.status === 201) {
-            this.idLibrary.push(id);
-            console.log('success')
-           
+          (response) => {
+            if(response.status === 201) {
+              this.idLibrary.push(id);
+            }
+      
           }
-    
-        }
-      ).catch(error => {
-          if (error.response) {
-            if (error.response.status == 404) {
-              this.$router.push({name: 'NotFoundView'});
+        ).catch(error => {
+            if (error.response) {
+              if (error.response.status == 404) {
+                this.$router.push({name: 'NotFoundView'});
+              } else {
+                // this.$store.commit('SET_NOTIFICATION',
+                // `Error getting message. Response received was "${error.response.statusText}".`);
+              }
+            } else if (error.request) {
+              // this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
             } else {
-              this.$store.commit('SET_NOTIFICATION',
-              `Error getting message. Response received was "${error.response.statusText}".`);
+              // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
             }
-          } else if (error.request) {
-            this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
-          } else {
-            this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
           }
-        }); 
-           
-            }else{
-              RecipeService.deleteRecipeFromLibrary(id).then(
-                response => {
-                  if(response.status === 200) {
-                    this.idLibrary= this.idLibrary.filter((item) => item != id);
-                  }
-                }
-              ).catch(error => {
-          if (error.response) {
-            if (error.response.status == 404) {
-              this.$router.push({name: 'NotFoundView'});
+        );      
+      } else {
+        RecipeService.deleteRecipeFromLibrary(id).then(
+          response => {
+            if(response.status === 200) {
+              this.idLibrary= this.idLibrary.filter((item) => item != id);
+            }
+          }
+        ).catch(error => {
+            if (error.response) {
+              if (error.response.status == 404) {
+                this.$router.push({name: 'NotFoundView'});
+              } else {
+                // this.$store.commit('SET_NOTIFICATION',
+                // `Error getting message. Response received was "${error.response.statusText}".`);
+              }
+            } else if (error.request) {
+              // this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
             } else {
-              this.$store.commit('SET_NOTIFICATION',
-              `Error getting message. Response received was "${error.response.statusText}".`);
+              // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
             }
-          } else if (error.request) {
-            this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
-          } else {
-            this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
           }
-        }); 
-               
-            }
-
-   
-    },
-    checkFavorite(recipe) {
-      return this.library.includes(recipe);
-    },
-    // checkFavorites() {
-    //   console.log('reached function');
-    //   // this.recipes.forEach(
-    //   //   (recipe) => {
-    //   //     this.library.forEach(
-    //   //       (favorite) => {
-    //   //         if (favorite.id === recipe.id) {
-    //   //           recipe.favorite = true;
-    //   //           console.log("it's true");
-    //   //         } else {
-    //   //           recipe.favorite = false;
-    //   //           console.log("it's false");
-    //   //         }
-    //   //       }
-    //   //     );
-
-    //   //     // if (this.library.includes(recipe)) {
-    //   //     //   recipe.favorite = true;
-    //   //     //   console.log("it's true");
-    //   //     // } else {
-    //   //     //   console.log("it's false");
-    //   //     // }
-    //   //   }
-    //   // );
-    //   // this.library.forEach(
-    //   //   (recipe) => {
-    //   //     console.log('almost there!');
-    //   //     // this.idLibrary.push(recipe.recipeId);
-    //   //     console.log('pushed');
-    //   //   }
-    //   // );
-    // }
+        );         
+      }
+    }
   }
-  }
+}
 </script>
 
 <style>

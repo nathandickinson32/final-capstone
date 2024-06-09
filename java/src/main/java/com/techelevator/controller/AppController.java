@@ -33,23 +33,23 @@ public class AppController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(path="get-recipes", method = RequestMethod.GET)
+    @RequestMapping(path="/get-recipes", method = RequestMethod.GET)
     public List<Recipe> getRecipes() {
         return recipeDao.getRecipes();
     }
 
-    @RequestMapping(path="get-recipe-by-recipe-id/{id}", method = RequestMethod.GET)
+    @RequestMapping(path="/get-recipe-by-recipe-id/{id}", method = RequestMethod.GET)
     public Recipe getRecipeByRecipeId(@PathVariable int id) {
         return recipeDao.getRecipe(id);
     }
 
-    @RequestMapping(path="get-recipes-by-category-id/{id}", method = RequestMethod.GET)
+    @RequestMapping(path="/get-recipes-by-category-id/{id}", method = RequestMethod.GET)
     public List<Recipe> getRecipesByCategoryId(@PathVariable int id ) {
         return recipeDao.getRecipesByCategoryId(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path="add-recipe", method = RequestMethod.POST)
+    @RequestMapping(path="/add-recipe", method = RequestMethod.POST)
     public Recipe addRecipe(@RequestBody Recipe recipe) {
         return recipeDao.addRecipe(recipe);
     }
@@ -58,7 +58,7 @@ public class AppController {
     public List<Ingredient> getIngredientsByRecipeId(@PathVariable int id){
         return ingredientDao.getIngredientsByRecipeId(id);
     }
-    @RequestMapping(path="get-ingredient-by-ingredient-id/{id}", method = RequestMethod.GET)
+    @RequestMapping(path="/get-ingredient-by-ingredient-id/{id}", method = RequestMethod.GET)
     public Ingredient getIngredientByIngredientId(@PathVariable int id) {
         return ingredientDao.getIngredientByIngredientId(id);
     }
@@ -78,7 +78,7 @@ public class AppController {
 //    }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path="add-instruction", method = RequestMethod.POST)
+    @RequestMapping(path="/add-instruction", method = RequestMethod.POST)
     public RecipeInstruction addRecipeInstruction(@RequestBody RecipeInstruction recipeInstruction) {
         return recipeDao.addRecipeInstruction(recipeInstruction);
     }
@@ -86,7 +86,7 @@ public class AppController {
     /* USER FUNCTIONS */
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path="save-recipe/{id}", method = RequestMethod.POST)
+    @RequestMapping(path="/save-recipe/{id}", method = RequestMethod.POST)
     public boolean addRecipeToLibrary(@PathVariable int id, Principal principal) {
         return accountDao.addRecipeToLibrary(id, userDao.getUserIdByUsername(principal.getName()));
     }
@@ -99,6 +99,11 @@ public class AppController {
     @RequestMapping(path="/remove-recipe-from-library/{id}", method = RequestMethod.DELETE)
     public boolean deleteRecipeFromLibraryById(@PathVariable int id, Principal principal) {
         return accountDao.deleteRecipeFromLibraryByRecipeId(id, userDao.getUserIdByUsername(principal.getName()));
+    }
+
+    @RequestMapping(path="/get-authored-recipes", method = RequestMethod.GET)
+    public List<Recipe> getRecipesByAuthorId(Principal principal) {
+        return accountDao.getAuthoredRecipesByUserId(userDao.getUserIdByUsername(principal.getName()));
     }
 
 }

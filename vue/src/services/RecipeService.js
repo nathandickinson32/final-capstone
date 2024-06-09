@@ -22,6 +22,10 @@ export default {
         return axios.get('/get-library');
     },
 
+    getRecipeByAuthorId() {
+        return axios.get('/get-authored-recipes');
+    },
+
     addRecipeToLibrary(id) {
         return axios.post(`/save-recipe/${id}`);
     },

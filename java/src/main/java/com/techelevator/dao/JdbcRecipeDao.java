@@ -95,7 +95,6 @@ public class JdbcRecipeDao implements RecipeDao {
                     recipeToSave.getRecipeName(),
                     recipeToSave.getDescription(),
                     recipeToSave.getAuthorId()
-
                     );
         } catch(CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
