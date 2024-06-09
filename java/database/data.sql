@@ -29,7 +29,10 @@ VALUES
 ('Ultimate Low-Carb Zucchini Lasagna', 'Keto lasagna made with zucchini slices instead of pasta. This low-carb, gluten-free beef lasagna is delicious and satisfying; it is a crowd-pleaser.', 2),
 ('Low-Carb Spaghetti Squash Salad with Bok Choy', 'This low-calorie, low-carb, vegan salad is made with spaghetti squash, bok choy, and an Asian-inspired soy sauce dressing. Either serve salad at room temperature or chill in the fridge for later use.', 2),
 ('Garlic Noodles', 'Indulge in the aromatic and flavorful delight of Garlic Noodles! This easy-to-follow recipe features tender noodles coated in a savory garlic-infused sauce, creating a dish that is both comforting and satisfying!', 2),
-('High-Fiber, High-Protein Breakfast Bars', 'Ingredients such as wheat germ, flaxseed, protein powder, peanut butter, and oats make this a healthy way to start the day!', 2);
+('High-Fiber, High-Protein Breakfast Bars', 'Ingredients such as wheat germ, flaxseed, protein powder, peanut butter, and oats make this a healthy way to start the day!', 2),
+('Italian Tiramisu', 'Tiramisu is a classic Italian dessert. Ladyfinger cookies are dipped in coffee, then layered with mascarpone', 2),
+('Vegetarian Mexican Inspired Stuffed Peppers', 'This vegetarian stuffed peppers recipe is not too spicy, but it is packed with flavor!', 2),
+('Middle Eastern Balela Salad', 'Middle Eastern chickpea and black bean salad flavored with fresh herbs. Super simple and refreshing', 2);
 
 
 
@@ -47,7 +50,11 @@ VALUES
 (7,2),
 (8,2),
 (9,2),
-(10,2);
+(10,2),
+(11,2),
+(12,2),
+(13,2);
+
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
@@ -66,7 +73,13 @@ VALUES
 (9,3),
 (9,9),
 (10,2),
-(10,6);
+(10,6),
+(11,5),
+(11,10),
+(12,11),
+(12,8),
+(13, 12),
+(13, 3);
 
 INSERT INTO ingredients(ingredient_name)
 VALUES
@@ -74,7 +87,7 @@ VALUES
 ('Potatoes'),
 ('Onions'),
 ('Garlic'),
-('Bell peppers '),
+('Bell peppers'),
 ('Tomatoes'),
 ('Spinach'),
 ('Kale'),
@@ -213,7 +226,14 @@ VALUES
 ('cooking spray'),
 ('wheat germ'),
 ('protein powder'),
-('peanut butter');
+('peanut butter'),
+('kirschwasser'),
+('ladyfingers'),
+('chili powder'),
+('garlic salt'),
+('mint ');
+
+
 INSERT INTO recipe_ingredients(recipe_id, ingredient_id)
 VALUES
 (1,121),
@@ -308,7 +328,38 @@ VALUES
 (10, 19),
 (10,144),
 (10, 87),
-(10, 94);
+(10, 94),
+(11, 49),
+(11, 90),
+(11, 45),
+(11, 48),
+(11, 145),
+(11, 106),
+(11, 146),
+(11, 95),
+(12, 5),
+(12, 76),
+(12, 3),
+(12, 32),
+(12, 42),
+(12, 6),
+(12, 147),
+(12, 148),
+(12, 65),
+(12, 63),
+(12, 45),
+(13, 40),
+(13, 42),
+(13, 6),
+(13, 3),
+(13, 74),
+(13, 149),
+(13, 24),
+(13, 76),
+(13, 4),
+(13, 65),
+(13, 64)
+;
 
 
 INSERT INTO recipe_instructions(step, instruction, recipe_id)
@@ -362,6 +413,14 @@ VALUES
 (1, 'Preheat oven to 375 degrees F (190 degrees C). Line an 8x8-inch baking dish with aluminum foil, letting foil hang down over the sides of the pan; spray pan with cooking spray', 10),
 (2, 'Stir oats, wheat germ, flax seed, protein powder, cinnamon, and salt together in a bowl. Mash bananas in a separate large bowl and stir 1/4 cup Jif® peanut butter, honey, and vanilla extract into bananas, mixing well. Stir dry ingredients into banana mixture and spread into the prepared baking dish', 10),
 (3, 'Bake in the preheated oven for 20 minutes. Spread 1/4 cup natural peanut butter over top', 10),
-(4, 'Continue baking until lightly browned on the edges and set, 10 more minutes. Let cool in the pan and lift bars onto a work surface using aluminum foil as handles. Cut into bars, wrap in plastic wrap, and store in refrigerator', 10)
+(4, 'Continue baking until lightly browned on the edges and set, 10 more minutes. Let cool in the pan and lift bars onto a work surface using aluminum foil as handles. Cut into bars, wrap in plastic wrap, and store in refrigerator', 10),
+(1, 'In a medium bowl beat together the egg yolks and 1/3 cup of sugar. Using a wooden spoon stir in mascarpone cheese, beaten egg whites, cream and kirschwasser; stir until smooth. Set aside', 11),
+(2, 'Dissolve remaining 2/3 cup sugar in coffee. Quickly, to avoid complete saturation, dip ends of ladyfingers in coffee mixture. Place ladyfingers in a single layer in a 9 x 13 inch glass baking dish. Spread a layer of cheese mixture over the ladyfingers; repeat layers, ending with cheese mixture', 11),
+(3, 'Cover and refrigerate for several hours. Sprinkle with cocoa just before serving', 11),
+(1, 'Preheat the oven to 350 degrees F (175 degrees C)', 12),
+(2, 'Bring a large pot of water and 1 tablespoon salt to a boil. Add green bell peppers and cook until slightly softened, 3 to 4 minutes', 12),
+(3, 'Drain bell peppers and arrange cut-side up in a 9x9-inch baking dish', 12),
+(1, 'Stir chickpeas, black beans, tomatoes, red onion, parsley, and mint together in a large bowl', 13),
+(2, 'Whisk lemon juice, olive oil, garlic, cumin, salt, and ground pepper together in a bowl; pour over chickpea mixture and toss to coat. Cover and refrigerate salad until flavors blend, about 30 minutes', 13)
 ;
 COMMIT TRANSACTION;
