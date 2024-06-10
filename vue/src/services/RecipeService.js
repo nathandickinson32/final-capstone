@@ -34,12 +34,13 @@ export default {
         return axios.delete(`/remove-recipe-from-library/${id}`);
     },
 
-         updateRecipe(recipe) {
-    return axios.put(`/update-recipe/${recipe}`);
+         addCustomRecipe(recipe) {
+    return axios.post(`/add-custom-recipe`, recipe);
   },
      
       updateRecipeInstructions(step, id) {
     return axios.put(`/update-instruction/${step}/${id}`);
-  }
+  },
+
 
 }

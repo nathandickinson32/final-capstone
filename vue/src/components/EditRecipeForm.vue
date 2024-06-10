@@ -1,4 +1,5 @@
 <template>
+  {{ recipe }}
    <form v-on:submit.prevent="submitForm" class="recipeForm">
     <div class="form-group">
       <label for="recipeName">Recipe Name:</label>
@@ -31,22 +32,23 @@ export default {
         // isLoading: true,
          recipeId : -1,
          recipe : {}
+        
      }
  },
 
  created() {
-    this.recipeId = this.$route.params.recipe;
+    this.recipeId = this.$route.params.id;
 
     RecipeService.getRecipeByRecipeId(this.recipeId).then((response) => {
-      this.recipe = response;
+      this.recipe = response.data;
      // this.isLoading = false;
     });
   },
   methods : {
     submitForm() {
-      RecipeService.updateRecipe(this.recipe).then(
+      RecipeService.addCustomRecipe(this.recipe).then(
         (response) => {
-          if(response.status === 200) {
+          if(response.status === 201) {
             this.$router.push(`/`);
           }
         }

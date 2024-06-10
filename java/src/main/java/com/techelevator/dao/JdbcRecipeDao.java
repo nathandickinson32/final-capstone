@@ -84,7 +84,7 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
-    public Recipe addRecipe(Recipe recipeToSave) {
+    public Recipe addRecipe(Recipe recipeToSave, int id) {
 
         String sql = "INSERT INTO recipe(recipe_name, description, author_id) VALUES (?, ?, ?) RETURNING recipe_id";
 
@@ -95,7 +95,7 @@ public class JdbcRecipeDao implements RecipeDao {
             newRecipeId = template.queryForObject(sql, Integer.class,
                     recipeToSave.getRecipeName(),
                     recipeToSave.getDescription(),
-                    recipeToSave.getAuthorId()
+                    id
                     );
         } catch(CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
@@ -107,10 +107,10 @@ public class JdbcRecipeDao implements RecipeDao {
         return getRecipe(newRecipeId);
     }
     @Override
-    public void updateRecipe(Recipe recipeToUpdate, int id) {
+    public void updateRecipe(Recipe recipeToUpdate) {
         String sql = "UPDATE recipe SET recipe_name=?, description=?, author_id=? WHERE recipe_id = ?";
         try {
-            template.update(sql, recipeToUpdate.getRecipeName(), recipeToUpdate.getDescription(), recipeToUpdate.getAuthorId(), id);
+            template.update(sql, recipeToUpdate.getRecipeName(), recipeToUpdate.getDescription(), recipeToUpdate.getAuthorId(), recipeToUpdate.getRecipeId());
         } catch (CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
         } catch (DataIntegrityViolationException e) {
