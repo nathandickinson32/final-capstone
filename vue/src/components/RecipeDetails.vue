@@ -1,5 +1,9 @@
 <template>
-  <div class='container'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div class='container'>
+    
     <!-- <div>
      <div>{{recipe}}
     {{ ingredients }}
@@ -68,6 +72,12 @@ export default {
 div.container {
   display: grid;
   justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "details details"
+                       "instructions ingredients";
+  margin-top: 10%;
+  position: relative;
+  
 }
 
 div {
@@ -75,20 +85,35 @@ div {
 }
 
 .details {
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  grid-area: details;
 }
 
 .ingredients {
   flex: 1;
-  margin-right: 20px
+  grid-area: ingredients;
+  margin-right: 20px;
+  justify-content: center
 }
 
 .instructions {
+  grid-area: instructions;
   flex: 1;
   margin-left: 20px;
+  justify-content:center; 
   /** frontend 002 test */
 }
+@media only screen and (max-width: 600px) {
+  .container {
+    image-rendering: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "details"
+    "ingredients"
+    "instructions";
+  }
+}
+
 
 
 
