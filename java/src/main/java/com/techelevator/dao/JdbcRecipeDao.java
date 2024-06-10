@@ -172,6 +172,18 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
+    public void updateInstruction(RecipeInstruction instructionToUpdate) {
+        String sql = "UPDATE recipe_instruction SET instruction=? WHERE step = ? AND recipe_id = ?";
+        try {
+            template.update(sql, instructionToUpdate.getStep(), instructionToUpdate.getRecipeId() );
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+    }
+
+    @Override
     public RecipeInstruction addRecipeInstruction( RecipeInstruction recipeInstructionToSave){
         String sql = "INSERT INTO recipe_instructions(step, instruction, recipe_id) VALUES (?, ?, ?) RETURNING instructions_id";
 

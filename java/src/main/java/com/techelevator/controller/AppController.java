@@ -106,4 +106,9 @@ public class AppController {
         return accountDao.getAuthoredRecipesByUserId(userDao.getUserIdByUsername(principal.getName()));
     }
 
+    @RequestMapping(path="/update-instruction", method = RequestMethod.PUT)
+    public void updateInstruction(@RequestBody  RecipeInstruction recipeInstruction) {
+        recipeDao.updateInstruction(recipeInstruction);
+    }
+
 }
