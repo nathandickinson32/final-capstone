@@ -423,4 +423,11 @@ VALUES
 (1, 'Stir chickpeas, black beans, tomatoes, red onion, parsley, and mint together in a large bowl', 13),
 (2, 'Whisk lemon juice, olive oil, garlic, cumin, salt, and ground pepper together in a bowl; pour over chickpea mixture and toss to coat. Cover and refrigerate salad until flavors blend, about 30 minutes', 13)
 ;
+
+INSERT INTO measurements
+VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce');
+
+INSERT INTO ingredients_measurements (ingredient_id, numerator, measurement_type)
+VALUES (2, 1, 'cup');
+
 COMMIT TRANSACTION;
