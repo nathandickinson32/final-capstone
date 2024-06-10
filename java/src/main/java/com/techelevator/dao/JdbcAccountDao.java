@@ -121,7 +121,7 @@ public class JdbcAccountDao implements AccountDao{
         } catch (DataIntegrityViolationException e) {
             System.out.println("Data problems");
         }
-        return null;
+        return ingredients;
     }
 
     @Override
