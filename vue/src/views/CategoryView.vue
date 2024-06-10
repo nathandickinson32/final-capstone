@@ -35,9 +35,7 @@ export default {
     return {
       recipes: [],
       library: [],
-      idLibrary: [],
-      image1 : '/star_outline.png',
-      image2 : '/star_full.png'
+      idLibrary: []
     }
   },
   created() {
