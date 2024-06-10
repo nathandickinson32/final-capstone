@@ -32,6 +32,14 @@ export default {
      
     deleteRecipeFromLibrary(id) {
         return axios.delete(`/remove-recipe-from-library/${id}`);
-    }
+    },
+
+         updateRecipe(recipe) {
+    return axios.put(`/update-recipe/${recipe}`);
+  },
+     
+      updateRecipeInstructions(step, id) {
+    return axios.put(`/update-instruction/${step}/${id}`);
+  }
 
 }

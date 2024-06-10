@@ -62,9 +62,9 @@ public class AppController {
     public Ingredient getIngredientByIngredientId(@PathVariable int id) {
         return ingredientDao.getIngredientByIngredientId(id);
     }
-    @RequestMapping(path="/update-recipe", method = RequestMethod.PUT)
-    public void updateRecipe(@RequestBody Recipe recipe) {
-        recipeDao.updateRecipe(recipe);
+    @RequestMapping(path="/update-recipe/{id}", method = RequestMethod.PUT)
+    public void updateRecipe(@PathVariable int id, @RequestBody Recipe recipe) {
+        recipeDao.updateRecipe(recipe, id);
     }
 
     @RequestMapping(path="/get-recipe-instructions-by-recipe-id/{id}", method = RequestMethod.GET)

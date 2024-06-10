@@ -37,7 +37,7 @@ public class JdbcRecipeDao implements RecipeDao {
     public List<Recipe> getRecipes() {
 
         List<Recipe> recipes = new ArrayList<>();
-        String sql = "SELECT * FROM recipe;";
+        String sql = "SELECT * FROM recipe ORDER BY recipe_id;";
 
         SqlRowSet results = template.queryForRowSet(sql);
 
@@ -107,10 +107,10 @@ public class JdbcRecipeDao implements RecipeDao {
         return getRecipe(newRecipeId);
     }
     @Override
-    public void updateRecipe(Recipe recipeToUpdate) {
+    public void updateRecipe(Recipe recipeToUpdate, int id) {
         String sql = "UPDATE recipe SET recipe_name=?, description=?, author_id=? WHERE recipe_id = ?";
         try {
-            template.update(sql, recipeToUpdate.getRecipeName(), recipeToUpdate.getDescription(), recipeToUpdate.getAuthorId() );
+            template.update(sql, recipeToUpdate.getRecipeName(), recipeToUpdate.getDescription(), recipeToUpdate.getAuthorId(), id);
         } catch (CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
         } catch (DataIntegrityViolationException e) {
