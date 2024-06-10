@@ -69,7 +69,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 div.container {
   display: grid;
   justify-content: center;
@@ -78,6 +78,9 @@ div.container {
                        "instructions ingredients";
   margin-top: 10%;
   position: relative;
+  /*background-image: url("pexels-goumbik-616484.jpg");*/
+  
+ 
   
 }
 

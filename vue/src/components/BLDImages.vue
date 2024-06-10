@@ -56,6 +56,7 @@
     grid-template-areas: "breakfast lunch dinner";
     margin-top: 10%;
     position: relative;
+    
 }
 
 #breakfast {
@@ -85,6 +86,7 @@
     width:  100%;
     height: 45vh;
     object-fit: cover;
+    font-family: helvetica, Sans-serif;
     
 }
 

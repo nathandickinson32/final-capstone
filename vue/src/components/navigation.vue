@@ -108,6 +108,7 @@ mounted() {
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
+  font-family: helvetica, Sans-serif;
 }
 #profile{
   text-decoration: underline;
