@@ -6,6 +6,7 @@
     {{ ingredients }}
      <p>picture ?</p>
     </div> -->
+    Testing testing 123
     <div class='broad-details'>
       <div class='icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon details-icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
