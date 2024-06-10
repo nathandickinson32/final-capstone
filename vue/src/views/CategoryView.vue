@@ -126,7 +126,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 .container {
   display: grid;
   justify-content: center;
@@ -138,6 +139,7 @@ export default {
   border-radius: 25px;
   width: 75vw;
   height: 250px;
+  background-color: rgb(127, 170, 127);
 }
 
 .container div {

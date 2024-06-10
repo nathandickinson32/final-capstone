@@ -1,18 +1,21 @@
 <template>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 <div>
 <div class="home">
   
-    <h1>My Foodie Friend</h1>
-    <p>Both guests and registered users can access this static display and navigation</p>
+    <h1 id="header">My Foodie Friend</h1>
+    <p id="paragraph">Welcome to your personal meal planning friend!</p>
   </div>
   <nav class="static">
 
     <a class="home-btn" href="/">Home</a>
 
     <div class="dropdown">
-      <label for="categories">Choose a category:</label>
+      <label for="categories"></label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
-          <option value="">-Select-</option> <!-- keep this value empty, select can't be selected-->
+          <option value="">-Pick a Category-</option> <!-- keep this value empty, select can't be selected-->
           <option value="/category/1">Appetizers</option>
           <option value="/category/2">Breakfast</option>
           <option value="/category/3">Lunch</option>
@@ -28,21 +31,22 @@
         </select>
       </div>
       <div class="off-screen-menu">
+        <label id="profile">Your Profile:</label>
         <ul>
           <a href="/groceryList">
-            <li>Grocery List</li>
+            <li id="groceryList">Grocery List</li>
           </a>
           <a href="/favoriteMeals">
-            <li>Favorite Meals</li>
+            <li id="favMeals">Favorite Meals</li>
           </a>
           <a href="/favoriteRecipes">
-            <li>Favorite Recipes</li>
+            <li id="favRecipes">Favorite Recipes</li>
           </a>
           <a href="/customRecipes">
-            <li>Custom Recipes</li>
+            <li id="customRecipes">Custom Recipes</li>
           </a>
-          <a href="">
-            <li>Add Recipe</li>
+          <a  href="">
+            <li id="addRecipes">Add Recipe</li>
           </a>
         </ul>
       </div>
@@ -92,7 +96,7 @@ mounted() {
 </script>
 
 
-<style>
+<style scoped>
 .home {
   background-image: url("/pexels-monicore-1391487.jpg");
   background-size: cover;
@@ -103,6 +107,34 @@ mounted() {
   height: 110px;
   width: 80vw;
   margin-left: auto;
+  margin-right: auto;
+  font-family: helvetica, Sans-serif;
+}
+#profile{
+  text-decoration: underline;
+}
+
+#header{
+  
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+  width: 275px;
+  margin-left:auto;
+  margin-right: auto;
+  
+  
+}
+#paragraph{
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+  width: 350px;
+  margin-left:auto;
   margin-right: auto;
 }
 
@@ -116,6 +148,7 @@ mounted() {
   height: 30px;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgb(127, 170, 127);
 }
 
 .home-btn {
@@ -134,11 +167,11 @@ mounted() {
 }
 
 .dropdown{
-display: flex;
-margin-left: auto;
-margin-right: auto;
-margin-top: auto;
-margin-bottom: auto;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 
 }
 
@@ -219,6 +252,60 @@ nav {
   top: 50%;
   transform: translate(50%, -50%) rotate(90deg);
   
+}
+
+@media only screen and (max-width: 600px) {
+  .home-btn {
+  text-align: center;
+  top:50%;
+  background-color:rgb(255, 192, 203);
+  color: black;
+  height: 20px;
+  width: 80px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+#paragraph {
+  opacity: 0;
+}
+
+
+.ham-menu {
+  display: flex;
+  height: 50px;
+  width: 25px;
+  margin-right: 0px;
+  padding-left: 10px;
+  top: -25px;
+}
+
+.off-screen-menu{
+  width: 50%;
+  font-size: 28px;
+  
+}
+
+#groceryList {
+  margin-bottom: 20px;
+}
+
+#favMeals{
+  margin-bottom: 20px;
+}
+
+#favRecipes{
+  margin-bottom: 20px;
+}
+
+#customRecipes{
+margin-bottom: 20px;
+}
+
+
 }
 
 </style>

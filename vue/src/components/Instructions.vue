@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div >
 
 <ul v-for="instruction in instructions" v-bind:key="instruction.id" class ='instructionCard'>
 <li>{{instruction.step  }} <br> {{ instruction.instruction }}</li>
@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .instructionCard{
   margin:40px 10px 20px 40px;
@@ -47,5 +47,7 @@ export default {
   background-size:40px 40px ;
   padding-left: 48px;
   background-position: 0 10px;
+  width: 300px;
+ 
 }
 </style>
