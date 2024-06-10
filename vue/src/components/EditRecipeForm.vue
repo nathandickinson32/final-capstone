@@ -6,7 +6,7 @@
         id="recipeName"
         type="text"
         class="form-control"
-        v-model="recipe.title"
+        v-model="recipe.recipeName"
         autocomplete="off"
       />
     </div>
