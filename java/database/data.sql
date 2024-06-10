@@ -22,7 +22,7 @@ INSERT INTO recipe(recipe_name, description, author_id)
 VALUES
 ('Sausage Balls', 'These bite-sized morsels are baked to a golden brown, offering a delightful balance of crispiness on the outside and moist, cheesy goodness on the inside.', 2),
 ('Peppermint Mocha Mousse', 'Indulge in the festive flavors of Peppermint Mocha Mousse, a decadent dessert that marries rich chocolate, bold coffee, and refreshing peppermint. This airy and creamy mousse is perfect for holiday celebrations or anytime you crave a sweet treat with a hint of mint.', 2),
-('Blackberry, Fig & Prosciutto Mini “Pizzas', 'These elegant bites combine the sweetness of fresh blackberries and figs with the savory, salty flavor of prosciutto, all atop a crispy flatbread base.', 2),
+('Blackberry, Fig & Prosciutto Mini Pizzas', 'These elegant bites combine the sweetness of fresh blackberries and figs with the savory, salty flavor of prosciutto, all atop a crispy flatbread base.', 2),
 ('Oven-Roasted Chicken Shawarma', 'Marinated in a blend of spices and roasted to perfection, this chicken is juicy, tender, and bursting with flavor.',2 ),
 ('Sausage Breakfast Casserole', 'This savory sausage breakfast casserole with hash brown potatoes, green onions, and cheese is easy to put together and perfect for a hearty breakfast or weekend brunch.', 2),
 ('Reuben Sandwich', 'A traditional reuben sandwich consists of thinly sliced corned beef, Swiss cheese, and sauerkraut on rye bread slathered with Russian or Thousand Island dressing.',2),
