@@ -31,6 +31,7 @@
         </select>
       </div>
       <div class="off-screen-menu">
+        <label id="profile">Your Profile:</label>
         <ul>
           <a href="/groceryList">
             <li id="groceryList">Grocery List</li>
@@ -107,6 +108,9 @@ mounted() {
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
+}
+#profile{
+  text-decoration: underline;
 }
 
 #header{

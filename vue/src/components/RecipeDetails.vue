@@ -1,7 +1,7 @@
 <template>
-  <head>
+  <!--<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+    </head>-->
     <div class='container'>
     
     <!-- <div>
@@ -9,22 +9,23 @@
     {{ ingredients }}
      <p>picture ?</p>
     </div> -->
-    <div><h1>{{recipe.recipeName}}</h1></div>
-    <div>{{recipe.description}}</div>
-    <div class="details">
-      <div class="instructions">
-        <instructions/>
+    <div id="details"><h1 >{{recipe.recipeName}}</h1>
+    <div >{{recipe.description}}</div>
+  </div>
+  
+      <div >
+        <instructions id="instructions"/>
       </div>
     
 
-      <div class="ingredients">
+      <div id="ingredients">
         <h3>Ingredients List</h3>
         <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
-        <p>{{ ingredient.ingredientName }}</p>
+        <p >{{ ingredient.ingredientName }}</p>
         </div>
       
       </div>
-    </div>
+    
    
    
 
@@ -84,27 +85,35 @@ div {
   margin: auto;
 }
 
-.details {
+#details {
   justify-content: center;
   grid-area: details;
+
+  border: 1px black solid;
+  border-radius: 10px;
+  height: 20vh;
+  
 }
 
-.ingredients {
-  flex: 1;
+#ingredients {
+ 
   grid-area: ingredients;
   margin-right: 20px;
-  justify-content: center
+  justify-content: center;
+  border: 1px black solid;
+  border-radius: 10px;
+  
 }
 
-.instructions {
+#instructions {
   grid-area: instructions;
-  flex: 1;
   margin-left: 20px;
   justify-content:center; 
   /** frontend 002 test */
 }
+
 @media only screen and (max-width: 600px) {
-  .container {
+  div.container {
     image-rendering: auto;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -112,6 +121,13 @@ div {
     "ingredients"
     "instructions";
   }
+  #details {
+    height: 20vh;
+    
+  }
+  
+
+  
 }
 
 
