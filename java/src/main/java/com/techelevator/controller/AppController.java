@@ -111,4 +111,9 @@ public class AppController {
         recipeDao.updateInstruction(recipeInstruction);
     }
 
+    @RequestMapping(path="/get-grocery-list", method = RequestMethod.GET)
+    public List<Ingredient> getGroceryList(Principal principal) {
+        return accountDao.getIngredientsByUserId(userDao.getUserIdByUsername(principal.getName()));
+    }
+
 }

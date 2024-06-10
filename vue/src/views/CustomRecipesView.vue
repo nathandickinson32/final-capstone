@@ -56,7 +56,7 @@ import BackButton from '../components/BackButton.vue';
           } else if (error.request) {
             // this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
           } else {
-                        // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
+            // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
           }
         }
       );

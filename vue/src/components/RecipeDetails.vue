@@ -33,6 +33,7 @@ import RecipeService from '../services/RecipeService';
 import IngredientsService from '../services/IngredientsService';
 import Instructions from '../components/Instructions.vue';
 import BackButton from '../components/BackButton.vue';
+
 export default {
   created() {
     RecipeService.getRecipeByRecipeId(this.$route.params.id).then(

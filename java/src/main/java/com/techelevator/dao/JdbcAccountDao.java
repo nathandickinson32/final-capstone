@@ -101,6 +101,26 @@ public class JdbcAccountDao implements AccountDao{
 
     @Override
     public List<Ingredient> getIngredientsByUserId(int userId) {
+        List<Ingredient> ingredients = new ArrayList<>();
+        String sql = "SELECT ingredients_users.ingredient_id, ingredient_name, quantity " +
+                "FROM ingredients_users " +
+                "JOIN ingredients ON ingredients_users.ingredient_id = ingredients.ingredient_id " +
+                "WHERE user_id = ?;";
+        try {
+            SqlRowSet results = template.queryForRowSet(sql, userId);
+
+            while(results.next()) {
+                Ingredient ingredient = new Ingredient();
+                ingredient.setIngredientId(results.getInt("ingredient_id"));
+                ingredient.setIngredientName(results.getString("ingredient_name"));
+                ingredient.setQuantity(results.getInt("quantity"));
+                ingredients.add(ingredient);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
         return null;
     }
 

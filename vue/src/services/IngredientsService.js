@@ -14,6 +14,10 @@ export default {
         return axios.get(`/get-ingredient-by-ingredient-id/${ingredientId}`);
     },
 
+    getIngredientsByUserId() {
+        return axios.get('/get-grocery-list');
+    },
+
     addIngredient(ingredient) {
         return axios.post('/add-ingredient', ingredient);
     }
