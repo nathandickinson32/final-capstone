@@ -1,13 +1,16 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS ingredients_measurements;
+DROP TABLE IF EXISTS ingredients_users;
 DROP TABLE IF EXISTS recipe_users;
 DROP TABLE IF EXISTS recipe_instructions;
 DROP TABLE IF EXISTS recipe_categories;
 DROP TABLE IF EXISTS recipe_ingredients;
+DROP TABLE IF EXISTS measurements;
 DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS recipe;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS users;
 
 
 CREATE TABLE users (
@@ -68,6 +71,25 @@ recipe_id int NOT NULL,
 user_id int NOT NULL,
 CONSTRAINT FK_recipe_id FOREIGN KEY(recipe_id) REFERENCES recipe(recipe_id),
 CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE measurements (
+measurement_type varchar NOT NULL UNIQUE
+);
+
+CREATE TABLE ingredients_measurements (
+ingredient_id int NOT NULL,
+numerator int NOT NULL,
+denominator int,
+measurement_type varchar NOT NULL,
+CONSTRAINT FK_ingredient_id FOREIGN KEY(ingredient_id) REFERENCES ingredients(ingredient_id),
+CONSTRAINT FK_measurement_type FOREIGN KEY(measurement_type) REFERENCES measurements(measurement_type)
+);
+
+CREATE TABLE ingredients_users (
+ingredient_id int NOT NULL,
+user_id int NOT NULL,
+quantity int NOT NULL
 );
 
 COMMIT TRANSACTION;
