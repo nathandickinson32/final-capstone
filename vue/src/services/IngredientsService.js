@@ -20,5 +20,13 @@ export default {
 
     addIngredient(ingredient) {
         return axios.post('/add-ingredient', ingredient);
+    },
+
+    addGroceryListItem(ingredientId) {
+        return axios.post(`/add-to-grocery-list/${ingredientId}`);
+    },
+
+    updateGroceryListItem(ingredientId) {
+        return axios.put(`/update-grocery-list/${ingredientId}`);
     }
 }

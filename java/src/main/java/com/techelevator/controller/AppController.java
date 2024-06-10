@@ -116,4 +116,20 @@ public class AppController {
         return accountDao.getIngredientsByUserId(userDao.getUserIdByUsername(principal.getName()));
     }
 
+    @RequestMapping(path="/remove-from-grocery-list", method = RequestMethod.DELETE)
+    public boolean removeGroceryListItem(Principal principal) {
+        return false;
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/new-grocery-list-item/{id}", method = RequestMethod.POST)
+    public boolean addGroceryListItem(@PathVariable int id, Principal principal) {
+        return accountDao.addIngredientToGroceryList(id, userDao.getUserIdByUsername(principal.getName()));
+    }
+
+    @RequestMapping(path="/update-grocery-list-item/{id}", method = RequestMethod.PUT)
+    public boolean updateGroceryListItem(@PathVariable int id, Principal principal) {
+        return accountDao.addIngredientToGroceryList(id, userDao.getUserIdByUsername(principal.getName()));
+    }
+
 }

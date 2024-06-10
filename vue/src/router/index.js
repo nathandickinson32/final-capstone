@@ -7,7 +7,6 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import RecipeDetailsView from '../views/RecipeDetailsView.vue';
-import BreakfastView from '../views/BreakfastView.vue';
 import CategoryView from '../views/CategoryView.vue';
 import Instructions from '../components/Instructions.vue'
 import GroceryListView from '../views/GroceryListView.vue';
@@ -76,14 +75,6 @@ const routes = [
     }
   },
   {
-    path: "/breakfast",
-    name: "breakfast",
-    component: BreakfastView,
-    meta: {
-      requiresAuth: false
-    }
-  },
-  {
     path: "/category/:id",
     name: "category",
     component: CategoryView,
@@ -123,17 +114,14 @@ const routes = [
       requiresAuth: true
     }
   },
- { 
-  path: "/editRecipe/:id",
-  name: "editRecipe",
-  component: EditRecipeForm,
-  meta: {
-    requiresAuth: true
+  { 
+    path: "/editRecipe/:id",
+    name: "editRecipe",
+    component: EditRecipeForm,
+    meta: {
+      requiresAuth: true
+    }
   }
-
-}
-
-
 ];
 
 // Create the router

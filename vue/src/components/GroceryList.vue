@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for='ingredient in ingredients' v-bind:key='ingredient.ingredient_id' class='ingredient-row'>
+          <tr v-for='ingredient in groceryList' v-bind:key='ingredient.ingredient_id' class='ingredient-row'>
             <td class='checkbox-col'>
               <input type='checkbox' />
             </td>
@@ -36,7 +36,7 @@ export default {
     IngredientsService.getIngredientsByUserId().then(
       (response) => {
         if (response.status === 200) {
-          this.ingredients = response.data;
+          this.groceryList = response.data;
         }
       }
     ).catch(
@@ -55,7 +55,7 @@ export default {
   },
   data() {
     return {
-      ingredients: []
+      groceryList: []
     }
   }
 }

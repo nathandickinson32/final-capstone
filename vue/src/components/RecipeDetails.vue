@@ -1,11 +1,7 @@
 <template>
   <div class='container' id='recipe-details-container'>
     <back-button />
-    <!-- <div>
-     <div>{{recipe}}
-    {{ ingredients }}
-     <p>picture ?</p>
-    </div> -->
+    <!-- {{groceryIdList}} -->
     <div class='broad-details'>
       <div class='icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon details-icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
@@ -23,7 +19,12 @@
 
       <div class="ingredients">
         <h3>Ingredients List</h3>
-        <div v-for='ingredient in ingredients' v-bind:key='ingredient.id' class='ingredientCard'>
+        <!-- <label class='grocery-btn-label' for='grocery-btn'></label>
+        <button id='grocery-btn'>Add All</button> -->
+        <button class='grocery-btn'>
+          <img id='add-to-cart' src='../images/add-to-cart.png'>
+        </button>
+        <div v-for='ingredient in ingredients' v-bind:key='ingredient.ingredientId' class='ingredientCard'>
         <p>{{ ingredient.ingredientName }}</p>
         </div>
       
@@ -83,16 +84,41 @@ export default {
         }
       }
     );
+    IngredientsService.getIngredientsByUserId().then(
+      (response) => {
+        if (response.status === 200) {
+          this.groceryList = response.data;
+          this.groceryList.forEach(
+            (ingredient) => {
+              this.groceryIdList.push(ingredient.ingredientId);
+            }
+          );
+        }
+      }
+    ).catch(
+      (error) => {
+        if (error.response) {
+          if (error.response.status == 404) {
+            this.$router.push( {name: 'NotFoundView'} );
+          }
+        } else if (error.request) {
+          // this.$store.commit('SET_NOTIFICATION', `Error getting message. Server could not be reached.`);
+        } else {
+          // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
+        }
+      }
+    );
   },
   data() {
     return {
       recipe : {},
       ingredients: [],
       library: [],
-      idLibrary: []
+      idLibrary: [],
+      groceryList: [],
+      groceryIdList: []
     }
   },
-
   components: {
     BackButton,
     Instructions
@@ -145,6 +171,30 @@ export default {
           }
         );         
       }
+    },
+    addAllToGroceries() {
+      this.ingredients.forEach(
+        (item) => {
+          if (!this.groceryIdList.includes(item.ingredientId)) {
+            IngredientsService.addGroceryListItem(item.ingredientId).then(
+              (response) => {
+                if (response.status === 201) {
+                  console.log("success!");
+                }
+              }
+            )
+          } else if (this.groceryIdList.includes(item.ingredientId)) {
+            //Update grocery list row by 1
+            IngredientsService.updateGroceryListItem(item.ingredientId).then(
+              (response) => {
+                if (response.status === 200) {
+                  console.log("success!");
+                }
+              }
+            )
+          }
+        }
+      );
     }
   }
 
@@ -188,6 +238,14 @@ div {
 .broad-details {
   width: 600px;
   height: 250px;
+}
+
+#add-to-cart {
+  height: 40px;
+}
+
+.grocery-btn {
+  
 }
 
 </style>
