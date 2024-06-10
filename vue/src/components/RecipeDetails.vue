@@ -1,7 +1,7 @@
 <template>
-  <!--<head>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>-->
+    </head>
     <div class='container'>
     
     <!-- <div>
@@ -76,8 +76,9 @@ div.container {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "details details"
                        "instructions ingredients";
-  margin-top: 10%;
+  margin-top: 20px;
   position: relative;
+ 
   /*background-image: url("pexels-goumbik-616484.jpg");*/
   
  
@@ -91,10 +92,11 @@ div {
 #details {
   justify-content: center;
   grid-area: details;
-
+  text-align: center;
   border: 1px black solid;
   border-radius: 10px;
   height: 20vh;
+  background-color: rgb(127, 170, 127);
   
 }
 
@@ -105,6 +107,9 @@ div {
   justify-content: center;
   border: 1px black solid;
   border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgb(127, 170, 127);
   
 }
 

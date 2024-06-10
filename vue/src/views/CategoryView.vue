@@ -1,4 +1,5 @@
 <template>
+  
   <div class='container'>
     <!-- <h1>TEST</h1> -->
     <!-- {{ recipes }} -->
@@ -53,12 +54,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .container {
   display: grid;
   justify-content: center;
   margin-top: 20px;
+  
 }
 
 .recipeCard {
@@ -66,6 +68,7 @@ export default {
   border-radius: 25px;
   width: 75vw;
   height: 250px;
+  background-color: rgb(127, 170, 127);
 }
 
 .container div {
@@ -113,5 +116,6 @@ img.favorite {
   margin-top: auto;
   margin-bottom: auto;
 }
+
 
 </style>

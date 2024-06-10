@@ -96,7 +96,7 @@ mounted() {
 </script>
 
 
-<style>
+<style scoped>
 .home {
   background-image: url("/pexels-monicore-1391487.jpg");
   background-size: cover;
@@ -148,6 +148,7 @@ mounted() {
   height: 30px;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgb(127, 170, 127);
 }
 
 .home-btn {
