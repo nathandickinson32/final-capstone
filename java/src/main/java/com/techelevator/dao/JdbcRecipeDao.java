@@ -9,6 +9,7 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -105,7 +106,6 @@ public class JdbcRecipeDao implements RecipeDao {
 
         return getRecipe(newRecipeId);
     }
-
     @Override
     public void updateRecipe(Recipe recipeToUpdate) {
         String sql = "UPDATE recipe SET recipe_name=?, description=?, author_id=? WHERE recipe_id = ?";
@@ -124,7 +124,7 @@ public class JdbcRecipeDao implements RecipeDao {
         List<RecipeInstruction> recipeInstructions = new ArrayList<>();
         String sql = "SELECT * FROM recipe_instructions " +
                 "INNER JOIN recipe ON recipe_instructions.recipe_id = recipe.recipe_id " +
-                "WHERE recipe_instructions.recipe_id = ?;";
+                "WHERE recipe_instructions.recipe_id = ? ORDER BY step;";
 
 
         try {
@@ -172,10 +172,10 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
-    public void updateInstruction(RecipeInstruction instructionToUpdate) {
-        String sql = "UPDATE recipe_instruction SET instruction=? WHERE step = ? AND recipe_id = ?";
+    public void updateInstruction(RecipeInstruction instructionToUpdate, int step, int id) {
+        String sql = "UPDATE recipe_instructions SET instruction=? WHERE step = ? AND recipe_id = ?";
         try {
-            template.update(sql, instructionToUpdate.getStep(), instructionToUpdate.getRecipeId() );
+            template.update(sql, instructionToUpdate.getInstruction(),step, id );
         } catch (CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
         } catch (DataIntegrityViolationException e) {

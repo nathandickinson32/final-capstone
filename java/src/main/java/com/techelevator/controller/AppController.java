@@ -106,9 +106,9 @@ public class AppController {
         return accountDao.getAuthoredRecipesByUserId(userDao.getUserIdByUsername(principal.getName()));
     }
 
-    @RequestMapping(path="/update-instruction", method = RequestMethod.PUT)
-    public void updateInstruction(@RequestBody  RecipeInstruction recipeInstruction) {
-        recipeDao.updateInstruction(recipeInstruction);
+    @RequestMapping(path="/update-instruction/{step}/{id}", method = RequestMethod.PUT)
+    public void updateInstruction(@PathVariable int step, @PathVariable int id, @RequestBody  RecipeInstruction recipeInstruction) {
+        recipeDao.updateInstruction(recipeInstruction, step, id);
     }
 
     @RequestMapping(path="/get-grocery-list", method = RequestMethod.GET)
