@@ -49,7 +49,7 @@ export default {
       RecipeService.addCustomRecipe(this.recipe).then(
         (response) => {
           if(response.status === 201) {
-            this.$router.push(`/`);
+            this.$router.push(`/customRecipes`);
           }
         }
       )
