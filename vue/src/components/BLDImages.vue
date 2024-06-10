@@ -22,7 +22,7 @@
         <div id="lunch">
   <router-link v-bind:to="{name: 'category', params: {id: 2}}"> 
         
-        <img  class="big3" src="cheeseburger_stock.jpg" alt="cheeseburger"> 
+        <img  class="big3" src="salad.webp" alt="cheeseburger"> 
         <div class="btn-float top-center-lunch">
             <p>Lunch</p>
         </div>

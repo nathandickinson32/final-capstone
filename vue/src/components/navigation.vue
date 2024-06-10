@@ -5,17 +5,17 @@
 <div>
 <div class="home">
   
-    <h1>My Foodie Friend</h1>
-    <p>Both guests and registered users can access this static display and navigation</p>
+    <h1 id="header">My Foodie Friend</h1>
+    <p id="paragraph">Welcome to your personal meal planning friend!</p>
   </div>
   <nav class="static">
 
     <a class="home-btn" href="/">Home</a>
 
     <div class="dropdown">
-      <label for="categories">Choose a category:</label>
+      <label for="categories"></label>
         <select name="categories" id="categories" v-on:change="changeRoute($event)">
-          <option value="">-Select-</option> <!-- keep this value empty, select can't be selected-->
+          <option value="">-Pick a Category-</option> <!-- keep this value empty, select can't be selected-->
           <option value="/category/1">Appetizers</option>
           <option value="/category/2">Breakfast</option>
           <option value="/category/3">Lunch</option>
@@ -33,19 +33,19 @@
       <div class="off-screen-menu">
         <ul>
           <a href="/groceryList">
-            <li>Grocery List</li>
+            <li id="groceryList">Grocery List</li>
           </a>
           <a href="/favoriteMeals">
-            <li>Favorite Meals</li>
+            <li id="favMeals">Favorite Meals</li>
           </a>
           <a href="/favoriteRecipes">
-            <li>Favorite Recipes</li>
+            <li id="favRecipes">Favorite Recipes</li>
           </a>
           <a href="/customRecipes">
-            <li>Custom Recipes</li>
+            <li id="customRecipes">Custom Recipes</li>
           </a>
-          <a href="">
-            <li>Add Recipe</li>
+          <a  href="">
+            <li id="addRecipes">Add Recipe</li>
           </a>
         </ul>
       </div>
@@ -106,6 +106,30 @@ mounted() {
   height: 110px;
   width: 80vw;
   margin-left: auto;
+  margin-right: auto;
+}
+
+#header{
+  
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+  width: 275px;
+  margin-left:auto;
+  margin-right: auto;
+  
+  
+}
+#paragraph{
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+  width: 350px;
+  margin-left:auto;
   margin-right: auto;
 }
 
@@ -239,17 +263,40 @@ nav {
   margin-top: auto;
   margin-bottom: auto;
 }
-.home >p {
-  color: transparent;
+#paragraph {
+  opacity: 0;
 }
+
 
 .ham-menu {
   display: flex;
   height: 50px;
-  width: 50px;
-  margin-right: 10px;
-  position: relative;
+  width: 25px;
+  margin-right: 0px;
+  padding-left: 10px;
   top: -25px;
+}
+
+.off-screen-menu{
+  width: 50%;
+  font-size: 28px;
+  
+}
+
+#groceryList {
+  margin-bottom: 20px;
+}
+
+#favMeals{
+  margin-bottom: 20px;
+}
+
+#favRecipes{
+  margin-bottom: 20px;
+}
+
+#customRecipes{
+margin-bottom: 20px;
 }
 
 
