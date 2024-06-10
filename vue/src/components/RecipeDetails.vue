@@ -2,20 +2,22 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <back-button id="back-button"/>
   <div class='container' id='recipe-details-container'>
-    <back-button />
-    <div class='broad-details'>
+    
+    <div id='broad-details'>
       <div class='icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon details-icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
           </div>
       </div>
-      <div id="details"><h1>{{recipe.recipeName}}</h1></div>
-      <div>{{recipe.description}}</div>
+      <div id="details"><h1>{{recipe.recipeName}}</h1> <div>{{recipe.description}}</div></div>
+      
     </div>
     
     <div class="details">
-      <div class="instructions">
-        <instructions id='instructions'/>
+      
+      <div id='instructions'>
+        <instructions />
       </div>
       <div id="ingredients">
         <h3>Ingredients List</h3>
@@ -27,7 +29,7 @@
         </div>
       
       </div>
-  </div>
+    </div>
   </div>
 </template>
 
@@ -202,38 +204,39 @@ export default {
 div.container {
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr 1fr;
+  /*grid-template-columns: 1fr 1fr;
   grid-template-areas: "details details"
-                       "instructions ingredients";
+                       "instructions ingredients";*/
   margin-top: 20px;
   position: relative;
- 
-  /*background-image: url("pexels-goumbik-616484.jpg");*/
-  
- 
   
 }
 
 div {
   margin: auto;
 }
+#back-button{
+  position: absolute;
+  left: 20%;
+}
 
 .broad-details {
   justify-self: center;
 }
 
-.details {
-  display: flex;
+/*.details {
+  display: grid;
   justify-content: space-between;
 }
 
-.ingredients {
+/*.ingredients {
   flex: 1;
   margin-right: 20px;
   border: 2px solid black;
   border-radius: 25px;
   padding: none;
-}
+}*/
+
 #details {
   justify-content: center;
   grid-area: details;
