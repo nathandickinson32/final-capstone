@@ -9,5 +9,9 @@ export default {
 
     addInstructions(instruction) {
         return axios.post('/add-instruction', instruction);
-    }
+    },
+
+    updateRecipeInstructions(step, id) {
+        return axios.put(`/update-instruction/${step}/${id}`);
+      },
 }

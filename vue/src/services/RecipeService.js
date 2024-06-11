@@ -38,9 +38,7 @@ export default {
     return axios.post(`/add-custom-recipe`, recipe);
   },
      
-      updateRecipeInstructions(step, id) {
-    return axios.put(`/update-instruction/${step}/${id}`);
-  },
+ 
 
 
 }
