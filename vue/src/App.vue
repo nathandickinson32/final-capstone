@@ -9,10 +9,10 @@
     <div id="nav">
       
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;-->
-      <router-link v-bind:to="{ name: 'login'}" v-if="this.$store.state.token == ''">Login</router-link>
-      <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token != ''">Logout</router-link>
+      <router-link id="login-btn" v-bind:to="{ name: 'login'}" v-if="this.$store.state.token == ''">Login</router-link>
+      <router-link id="logout-btn" v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token != ''">Logout</router-link>
       |
-      <router-link v-bind:to="{ name: 'register' }">Register</router-link>
+      <router-link id="register-btn" v-bind:to="{ name: 'register' }">Register</router-link>
       
 
     </div>
@@ -39,6 +39,30 @@ body {
 }
 #nav {
  text-align: left;
+}
+#login-btn {
+  border: 1px solid black;
+  background-color: pink;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+#logout-btn {
+  border: 1px solid black;
+  background-color: pink;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+#register-btn {
+  border: 1px solid black;
+  background-color: pink;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
 }
 
 /* Extra small devices (phones, 600px and down) */
