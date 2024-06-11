@@ -108,7 +108,7 @@ mounted() {
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
-  font-family: helvetica, Sans-serif;
+  font-family: Libre Baskerville, Sans-serif;
   margin-top: 3px;
 }
 #profile{
