@@ -72,6 +72,9 @@
       ></textarea>
     </div>
 
+    <div id="buttons">
+    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+
 
     <div v-for="(ingredient, index) in ingredients" :key="ingredient.id" class="ingredientCard">
       <label :for="'ingredientName-' + index">Ingredient {{ ingredients[index].ingredientName }}</label>
@@ -89,11 +92,10 @@
       type="text"
       v-model="ingredients[index].quantity"
       ></textarea>
-      
+
     </div>
     
-    <div id="buttons">
-    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+   
 
     <!-- <td
     v-for="ingredient in ingredients" 
@@ -109,29 +111,27 @@
              
             />
           </td> -->
-          console.log("test4")
           <div class="dropdown">
-            console.log("test3")
       <label for="allIngredients"></label>
-      console.log("test2")
         <select name="allIngredients" id="allIngredients" v-on:change="changeRoute($event)">
           
-          <option value="">-Choose Ingredient-</option> <!-- keep this value empty, select can't be selected-->
-          console.log("test1")
-          <div v-for="ingredient in ingredients" :key="ingredient.id">
-              {{ ingredient }}
-              console.log(ingredient)
-              console.log("test")
-              <option value="ingredient.ingredientName"></option>
+          <option value="">-Choose Ingredient-</option> keep this value empty, select can't be selected
+        
               
-            </div>
-          <!--  -->
+              <option v-for="ingredient in allIngredients" :key="ingredient.id" :value="ingredient.ingredientName">{{ ingredient.ingredientName }}</option>
+              
+           
           
+
         </select>
+
+
+
       </div>
-    |
+
     <button class="btn btn-submit">Submit</button>
   </div>
+
   </form>
 </div>
 </template>
@@ -150,7 +150,7 @@ export default {
          ingredients: [],
          selectedIngredients: [],
          allIngredients: [],
-         selectedIngredientIds: [],
+        
         
 
         userRecipeDTO: {
