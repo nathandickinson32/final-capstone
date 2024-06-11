@@ -69,6 +69,20 @@ public class JdbcIngredientDao implements IngredientDao {
         return ingredient;
     }
 
+    public List<Ingredient> getAllIngredients() {
 
+        List<Ingredient> ingredients = new ArrayList<>();
+        String sql = "SELECT * FROM ingredients ORDER BY ingredient_name;";
+
+        SqlRowSet results = template.queryForRowSet(sql);
+
+        while (results.next()) {
+            Ingredient ingredient =new Ingredient();
+            ingredient.setIngredientName(results.getString("ingredient_name"));
+            ingredient.setQuantity(results.getInt("quantity"));
+            ingredients.add(ingredient);
+        }
+        return ingredients;
+    }
 
 }

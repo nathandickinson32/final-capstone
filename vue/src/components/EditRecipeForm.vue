@@ -1,6 +1,8 @@
 <template>
   <!-- {{ recipe }}
   {{ instructions }} -->
+  {{ ingredients }}
+  {{ allIngredients }}
    <form v-on:submit.prevent="submitForms" class="recipeForm">
     <div class="form-group">
       <label for="recipeName">Recipe Name:</label>
@@ -63,6 +65,24 @@
     </div>
     <button v-on:click.prevent="addStep">Add Instruction</button>
 
+
+    <div v-for="(ingredient, index) in ingredients" :key="ingredient.id" class="ingredientCard">
+      <label :for="'ingredientName-' + index">Ingredient {{ ingredients[index].ingredientName }}</label>
+      <input
+      :id="'ingredientName-' + index"
+      type="checkbox"
+      
+      v-model="ingredients[index].ingredientName"
+      readonly
+      /><!-- v-model="ingredients[index].ingredientName" -->
+
+      <label :for="'quantity-' + index">Quantity {{ingredients[index].quantity }}</label>
+      <textarea
+      :id="'quantity-' + index"
+      type="text"
+      v-model="ingredients[index].quantity"
+      ></textarea>
+    </div>
     
     <button class="btn btn-submit">Submit</button>
   </form>
@@ -71,6 +91,7 @@
 <script>
 import RecipeService from '../services/RecipeService';
 import InstructionService from '../services/InstructionService';
+import IngredientsService from '../services/IngredientsService';
 export default {
     data() {
      return {
@@ -78,6 +99,9 @@ export default {
          recipeId : -1,
          recipe : {},
          instructions: [],
+         ingredients: [],
+         selectedIngredients: [],
+         allIngredients: [],
         
 
         userRecipeDTO: {
@@ -104,14 +128,42 @@ export default {
      // this.isLoading = false;
     });
 
+    
+    IngredientsService.getAllIngredients().then(
+      (response) => {
+        if(response.status===200) {
+          this.allIngredients = response.data;
+        }
+      }
+    );
+
     InstructionService.getInstructionsByRecipeId(this.$route.params.id).then(
       (response) => {
         if(response.status===200) {
           this.userRecipeDTO.recipeInstructions = response.data;
         }
       }
-    )
+    );
+
+
+    RecipeService.getRecipeByRecipeId(this.$route.params.id).then(
+      (response) => {
+        if(response.status === 200) {
+          this.recipe = response.data;
+        }
+      }
+    );
+    IngredientsService.getIngredientsByRecipeId(this.$route.params.id).then(
+      (response) => {
+        if(response.status === 200) {
+          this.ingredients = response.data;
+        }
+      }
+    );
+    
   },
+ 
+  
   methods : {
 
     submitForms() {
@@ -154,7 +206,16 @@ export default {
         instruction: ''
       };
       this.userRecipeDTO.recipeInstructions.push(newInstruction);
-    }
+    },
+
+    //add, remove, create ingredient
+    
+    
+
+
+
+
+
   }
   }
 

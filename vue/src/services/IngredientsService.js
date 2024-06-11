@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
 
-    getIngredients() {
+    getAllIngredients() {
         return axios.get('/get-ingredients');
     },
 

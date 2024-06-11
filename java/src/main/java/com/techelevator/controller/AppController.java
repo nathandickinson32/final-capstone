@@ -142,4 +142,9 @@ public class AppController {
         List <RecipeInstruction> recipeInstructions = userRecipeDTO.getRecipeInstructions();
         return recipeDao.addNewUserRecipe(recipe, recipeInstructions, userDao.getUserIdByUsername(principal.getName()));
     }
+
+    @RequestMapping(path="/get-ingredients", method = RequestMethod.GET)
+    public List<Ingredient> getAllIngredients() {
+        return ingredientDao.getAllIngredients();
+    }
 }
