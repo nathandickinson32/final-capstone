@@ -142,7 +142,7 @@ export default {
   border: 1px black solid;
   border-radius: 25px;
   width: 75vw;
-  height: 250px;
+  min-height: 250px;
   background-color: rgb(127, 170, 127);
 }
 

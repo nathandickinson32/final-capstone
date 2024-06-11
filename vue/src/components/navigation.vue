@@ -172,7 +172,6 @@ mounted() {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
-
 }
 
 #categories {
