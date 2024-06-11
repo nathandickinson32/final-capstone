@@ -200,8 +200,8 @@ public class JdbcAccountDao implements AccountDao{
     @Override
     public boolean removeIngredientInGroceryList(int ing_id, int userId) {
         int receiptId = -1;
-        String sql = "DELETE * FROM ingredients_users " +
-                "WHERE ingredient_id = ? AND user_id = ?;";
+        String sql = "DELETE FROM ingredients_users WHERE ingredient_id = ? AND user_id = ?;";
+
 
         try {
 
