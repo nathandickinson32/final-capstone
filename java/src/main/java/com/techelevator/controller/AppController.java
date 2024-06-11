@@ -113,7 +113,7 @@ public class AppController {
 
     @RequestMapping(path="/remove-from-grocery-list/{id}", method = RequestMethod.DELETE)
     public boolean removeGroceryListItem(@PathVariable int id, Principal principal) {
-        return accountDao.deleteRecipeFromLibraryByRecipeId(id, userDao.getUserIdByUsername(principal.getName()));
+        return accountDao.removeIngredientInGroceryList(id, userDao.getUserIdByUsername(principal.getName()));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
