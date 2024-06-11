@@ -7,8 +7,8 @@ export default {
         return axios.get(`/get-recipe-instructions-by-recipe-id/${recipeId}`);
     },
 
-    addInstructions(instructions) {
-        return axios.post('/add-instruction', instructions);
+    addInstructions(instruction) {
+        return axios.post('/add-instruction', instruction);
     },
 
     addCustomUserRecipe(userRecipeDTO) {

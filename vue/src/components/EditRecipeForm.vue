@@ -41,7 +41,27 @@
       ></textarea>
     </div>
 <!-- click calls method to add new instruction -->
-    
+
+<div class="form-group">
+      <label for="step">Step:</label>
+      <input
+        id="step"
+        type="text"
+       
+      v-model="userRecipeDTO.recipeInstructions.step"
+      />
+      <!-- dto.recipe.recipeName -->
+    </div>
+ 
+    <div class="form-group">
+      <label for="instruction">Instruction:</label>
+      <textarea
+        id="instruction"
+        class="form-control"
+        v-model="userRecipeDTO.recipe.instruction"
+      ></textarea>
+    </div>
+    <button v-on:click.prevent="addStep">Add Instruction</button>
 
     
     <button class="btn btn-submit">Submit</button>
@@ -126,6 +146,14 @@ export default {
         .catch((error) => {
           console.error('Error adding instructions:', error);
         });
+    },
+
+    addStep() {
+      const newInstruction = {
+        step : '',
+        instruction: ''
+      };
+      this.userRecipeDTO.recipeInstructions.push(newInstruction);
     }
   }
   }

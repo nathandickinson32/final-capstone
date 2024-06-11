@@ -48,5 +48,8 @@ export default {
   padding-left: 48px;
   background-position: 0px 10px;
   width: 300px;
+  min-height: 48px;
 }
+
+
 </style>
