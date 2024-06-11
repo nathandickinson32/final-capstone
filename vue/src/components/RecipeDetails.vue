@@ -385,7 +385,9 @@ h1 {
 #add-to-cart-btn {
   grid-area: button;
   background-color:rgb(255, 192, 203);
+  border: 1px solid;
   border-color: antiquewhite;
+
   border-radius: 10px;
   width: 50%;
   height: 45px;

@@ -109,6 +109,7 @@ mounted() {
   margin-left: auto;
   margin-right: auto;
   font-family: helvetica, Sans-serif;
+  margin-top: 3px;
 }
 #profile{
   text-decoration: underline;
@@ -124,6 +125,7 @@ mounted() {
   width: 275px;
   margin-left:auto;
   margin-right: auto;
+ 
   
   
 }
