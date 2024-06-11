@@ -1,7 +1,9 @@
 <template>
   <div class="container">
+    
     <back-button/>
     <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
+      <RandomImage />
       <div class='recipe icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
         </div>
@@ -30,10 +32,12 @@
 <script>
 import BackButton from '../components/BackButton.vue';
 import RecipeService from "../services/RecipeService";
+import RandomImage from '../components/RandomImage.vue';
 
 export default {
   components: {
-    BackButton
+    BackButton,
+    RandomImage
   },
   data() {
     return {
