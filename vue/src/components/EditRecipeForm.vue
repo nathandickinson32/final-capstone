@@ -32,7 +32,7 @@
 
     <div v-for="(instruction, index) in userRecipeDTO.recipeInstructions" :key="instruction.id" class="instructionCard">
       <label :for="'step-' + index">Step {{ userRecipeDTO.recipeInstructions[index].step }}: </label>
-      <input id="stepText"
+      <input class="stepText"
       :id="'step-' + index"
       type="text"
       v-model="userRecipeDTO.recipeInstructions[index].step"
@@ -40,7 +40,7 @@
       />
 
       <label :for="'instruction-' + index"> Instruction {{ userRecipeDTO.recipeInstructions[index].instruction }}</label>
-      <textarea id="instructionText" 
+      <textarea class="instructionText" 
       :id="'instruction-' + index"
       type="text"
       v-model="userRecipeDTO.recipeInstructions[index].instruction"
@@ -207,11 +207,11 @@ export default {
   padding-bottom:20px;
 }
 
-#instructionText {
+.instructionText {
   background-color: pink;
 }
 
-#stepText {
+.stepText {
   background-color: pink;
   max-width: 20px;
   
@@ -254,7 +254,7 @@ textarea {
 #step {
   font-size: 16px;
 }
-#stepText{
+.stepText{
   font-size: 16px;
 }
 
