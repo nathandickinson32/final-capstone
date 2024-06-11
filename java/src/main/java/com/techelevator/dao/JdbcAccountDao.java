@@ -181,7 +181,27 @@ public class JdbcAccountDao implements AccountDao{
     @Override
     public boolean updateIngredientInGroceryList(int ing_id, int userId) {
         int receiptId = -1;
-        String sql = "UPDATE ingredients_users SET quantity = quantity + 1 WHERE ingredient_id = ? AND user_id = ?;";
+        String sql = "UPDATE ingredients_users SET quantity = quantity + 1 " +
+                "WHERE ingredient_id = ? AND user_id = ?;";
+
+        try {
+
+            receiptId = template.update(sql, ing_id, userId);
+
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+        return receiptId != -1;
+    }
+
+    @Override
+    public boolean removeIngredientInGroceryList(int ing_id, int userId) {
+        int receiptId = -1;
+        String sql = "DELETE FROM ingredients_users WHERE ingredient_id = ? AND user_id = ?;";
+
 
         try {
 

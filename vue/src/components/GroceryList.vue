@@ -1,7 +1,10 @@
 <template>
   <div class='container'>
+    <!-- {{ toDeleteList }}<br>
+    {{ groceryList }} -->
     <h2 id='grocery-list-header'>To Buy</h2>
     <div class='grocery-list'>
+      <button class='del-btn top-btn' v-on:click='deleteSelected'>Delete Selected</button>
       <table id='grocery-tbl'>
         <thead>
           <tr>
@@ -11,9 +14,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for='ingredient in groceryList' v-bind:key='ingredient.ingredient_id' class='ingredient-row'>
+          <tr v-for='ingredient in groceryList' v-bind:key='ingredient.ingredientId' class='ingredient-row'>
             <td class='checkbox-col'>
-              <input type='checkbox' />
+              <input type='checkbox' 
+                v-bind:id='ingredient.ingredientId' 
+                v-bind:value='ingredient.ingredientId' 
+                v-bind:checked='toDeleteList.includes(ingredient.ingredientId)' 
+                v-on:click='toggleSelected(ingredient.ingredientId)'/>
             </td>
             <td>
               <h4 class='ingredientName'>{{ ingredient.ingredientName }}</h4>
@@ -24,6 +31,7 @@
           </tr>
         </tbody>
       </table>
+      <button class='del-btn bottom-btn' v-on:click='deleteSelected'>Delete Selected</button>
     </div>
   </div>
 </template>
@@ -55,7 +63,36 @@ export default {
   },
   data() {
     return {
-      groceryList: []
+      groceryList: [],
+      toDeleteList: []
+    }
+  },
+  methods: {
+    toggleSelected(ingredientId) {
+      if (this.toDeleteList.includes(ingredientId)) {
+        this.toDeleteList = this.toDeleteList.filter(
+          (id) => {
+            return id != ingredientId;
+          }
+        );
+      } else {
+        this.toDeleteList.push(ingredientId);
+      }
+    },
+    deleteSelected() {
+      this.toDeleteList.forEach(
+        (item) => {
+          console.log(item);
+          IngredientsService.deleteGroceryListItem(item).then(
+            (response) => {
+              if (response.status === 200) {
+                // this.$router.push({name: 'favoriteRecipes'});
+                console.log("deleted");
+              }
+            }
+          );
+        }
+      );
     }
   }
 }
@@ -93,6 +130,18 @@ td {
 
 h4.ingredientName {
   margin: 2px;
+}
+
+.del-btn {
+  background-color:rgb(255, 192, 203);
+  color: black;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.top-btn {
+  margin-bottom: 15px;
 }
 
 
