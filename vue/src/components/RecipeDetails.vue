@@ -22,14 +22,15 @@
       </div>
       <div id='description'>
         <p>{{recipe.description}}</p>
-      </div>
-    </div>
-
-    <div id='customize-btn'>
+        <div id='customize-btn'>
       <button class='btn'>
           <router-link v-bind:to="{name: 'editRecipe', params: {id: recipe.recipeId}}">Customize</router-link>
         </button>
     </div>
+      </div>
+    </div>
+
+    
     
     <!-- <div class="details"> -->
       
@@ -280,6 +281,7 @@ div.favorite {
   border: 1px black solid;
   border-radius: 10px;
   height: 20vh;
+  min-height: 350px;
   background-color: rgb(127, 170, 127);
   margin-bottom: 20px;
   width: 75vw;
