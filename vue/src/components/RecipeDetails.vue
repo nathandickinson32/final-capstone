@@ -332,6 +332,7 @@ div.recipe-name {
   color: black;
   border: 1px solid;
   border-color: black;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 700px) {
