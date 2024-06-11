@@ -114,49 +114,6 @@ a {
     text-decoration: none;
 }
 
-/*
-
-.top-center-breakfast{
-    z-index: 1;
-  position: absolute;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: pink;
-  padding: 5px;
-  top: 45%;
-  left: 17%;
-  transform: translate(0, -50%);
-  font-size: 3rem;
-  color:black;
-}
-
-.top-center-lunch{
-    z-index: 1;
-  position: absolute;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: pink;
-  padding: 5px;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color:black;
-}
-.top-center-dinner{
-    z-index: 1;
-  position: absolute;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: pink;
-  padding: 5px;
-  top: 45%;
-  left: 83%;
-  transform: translate(-130%, -50%);
-  font-size: 3rem;
-  color:black;
-}
-*/
 
 
 

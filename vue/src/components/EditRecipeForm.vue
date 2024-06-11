@@ -1,6 +1,7 @@
 <template>
   <!-- {{ recipe }}
   {{ instructions }} -->
+  <div class="container">
    <form v-on:submit.prevent="submitForms" class="recipeForm">
     <div class="form-group">
       <label for="recipeName">Recipe Name:</label>
@@ -61,11 +62,13 @@
         v-model="userRecipeDTO.recipe.instruction"
       ></textarea>
     </div>
-    <button v-on:click.prevent="addStep">Add Instruction</button>
-
-    
+    <div id="buttons">
+    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+    |
     <button class="btn btn-submit">Submit</button>
+  </div>
   </form>
+</div>
 </template>
 
 <script>
@@ -163,5 +166,17 @@ export default {
 </script>
 
 <style scoped>
+.add-btn {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+ 
+}
 
+.container {
+  border: 2px solid black;
+  border-radius: 25px;
+  padding-bottom: 5px;
+  background-color: rgb(127, 170, 127);
+}
 </style>
