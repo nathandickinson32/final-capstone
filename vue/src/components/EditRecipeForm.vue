@@ -1,6 +1,6 @@
 <template>
-  {{ recipe }}
-  {{ instructions }}
+  <!-- {{ recipe }}
+  {{ instructions }} -->
    <form v-on:submit.prevent="submitForms" class="recipeForm">
     <div class="form-group">
       <label for="recipeName">Recipe Name:</label>
@@ -8,9 +8,11 @@
         id="recipeName"
         type="text"
         class="form-control"
-        v-model="recipe.recipeName"
+        
+        v-model="userRecipeDTO.recipe.recipeName" 
         autocomplete="off"
       />
+      <!-- dto.recipe.recipeName -->
     </div>
  
     <div class="form-group">
@@ -18,13 +20,28 @@
       <textarea
         id="description"
         class="form-control"
-        v-model="recipe.description"
+        v-model="userRecipeDTO.recipe.description"
       ></textarea>
     </div>
 
-    <!-- <div v-for="">
+    <div v-for="(instruction, index) in userRecipeDTO.recipeInstructions" :key="instruction.id" class="instructionCard">
+      <label :for="'step-' + index">Step {{ userRecipeDTO.recipeInstructions[index].step }}</label>
+      <input
+      :id="'step-' + index"
+      type="text"
+      v-model="userRecipeDTO.recipeInstructions[index].step"
+      readonly
+      />
 
-    </div> -->
+      <label :for="'instruction-' + index">Instruction {{ userRecipeDTO.recipeInstructions[index].instruction }}</label>
+      <textarea
+      :id="'instruction-' + index"
+      type="text"
+      v-model="userRecipeDTO.recipeInstructions[index].instruction"
+      ></textarea>
+    </div>
+<!-- click calls method to add new instruction -->
+    
 
     
     <button class="btn btn-submit">Submit</button>
@@ -40,8 +57,22 @@ export default {
         // isLoading: true,
          recipeId : -1,
          recipe : {},
-         instructions: []
+         instructions: [],
         
+
+        userRecipeDTO: {
+          recipe:{
+            recipeName:"",
+            description:""
+          },
+        recipeInstructions: [
+          {
+          step:0,
+          instruction:""
+          
+        }
+      ]
+        }
      }
  },
 
@@ -49,14 +80,14 @@ export default {
     this.recipeId = this.$route.params.id;
 
     RecipeService.getRecipeByRecipeId(this.recipeId).then((response) => {
-      this.recipe = response.data;
+      this.userRecipeDTO.recipe = response.data;
      // this.isLoading = false;
     });
 
     InstructionService.getInstructionsByRecipeId(this.$route.params.id).then(
       (response) => {
         if(response.status===200) {
-          this.instructions = response.data;
+          this.userRecipeDTO.recipeInstructions = response.data;
         }
       }
     )
@@ -64,21 +95,45 @@ export default {
   methods : {
 
     submitForms() {
-      RecipeService.addCustomRecipe(this.recipe).then(
+      InstructionService.addCustomUserRecipe(this.userRecipeDTO).then(
         (response) => {
           if(response.status === 201) {
             this.$router.push(`/customRecipes`);
+            //add instruction
           }
         }
-      )
+      ).catch((error) => {
+          console.error('Error adding recipe:', error);
+        });
       
+    },
+
+    addInstructions(recipeId) {
+      // Prepare instructions data to be added
+      const instructionsData = this.userRecipeDTO.recipeInstructions.map((instruction) => ({
+        step: instruction.step,
+        instruction: instruction.instruction,
+        recipeId: recipeId
+      }));
+
+      // Add instructions using InstructionService
+      InstructionService.addInstructions(instructionsData)
+        .then((response) => {
+          if (response.status === 201) {
+            this.$router.push(`/customRecipes`);
+          }
+        })
+        .catch((error) => {
+          console.error('Error adding instructions:', error);
+        });
     }
   }
+  }
 
-}
+
 
 </script>
 
-<style>
+<style scoped>
 
 </style>

@@ -13,8 +13,9 @@ public interface RecipeDao {
     public Recipe addRecipe( Recipe recipe, int id);
     public void updateRecipe( Recipe recipeToUpdate);
     public List<RecipeInstruction> getRecipeInstructionsByRecipeId(int recipeId);
-    public RecipeInstruction addRecipeInstruction( RecipeInstruction recipeInstruction);
+    public RecipeInstruction addRecipeInstruction( RecipeInstruction recipeInstruction, int id);
     public RecipeInstruction getRecipeInstruction(int instructionsId);
     public void updateInstruction( RecipeInstruction instructionToUpdate, int step, int id);
+    public Recipe addNewUserRecipe(Recipe recipeToSave,List<RecipeInstruction> recipeInstructionsToSave, int id);
 
 }

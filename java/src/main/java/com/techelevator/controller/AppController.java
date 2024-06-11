@@ -4,10 +4,7 @@ import com.techelevator.dao.AccountDao;
 import com.techelevator.dao.IngredientDao;
 import com.techelevator.dao.RecipeDao;
 import com.techelevator.dao.UserDao;
-import com.techelevator.model.IdDto;
-import com.techelevator.model.Ingredient;
-import com.techelevator.model.Recipe;
-import com.techelevator.model.RecipeInstruction;
+import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -77,11 +74,7 @@ public class AppController {
 //        return recipeDao.getRecipeInstruction(id);
 //    }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path="/add-instruction", method = RequestMethod.POST)
-    public RecipeInstruction addRecipeInstruction(@RequestBody RecipeInstruction recipeInstruction) {
-        return recipeDao.addRecipeInstruction(recipeInstruction);
-    }
+
 
     /* USER FUNCTIONS */
 
@@ -111,6 +104,8 @@ public class AppController {
         recipeDao.updateInstruction(recipeInstruction, step, id);
     }
 
+
+
     @RequestMapping(path="/get-grocery-list", method = RequestMethod.GET)
     public List<Ingredient> getGroceryList(Principal principal) {
         return accountDao.getIngredientsByUserId(userDao.getUserIdByUsername(principal.getName()));
@@ -132,4 +127,19 @@ public class AppController {
         return accountDao.addIngredientToGroceryList(id, userDao.getUserIdByUsername(principal.getName()));
     }
 
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/add-instruction", method = RequestMethod.POST)
+    public RecipeInstruction addRecipeInstruction(@RequestBody RecipeInstruction recipeInstruction,Principal principal) {
+        return recipeDao.addRecipeInstruction(recipeInstruction, userDao.getUserIdByUsername(principal.getName()));
+    }
+
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/add-user-recipe", method = RequestMethod.POST)
+    public Recipe addRecipeInstruction(@RequestBody UserRecipeDTO userRecipeDTO, Principal principal) {
+        Recipe recipe = userRecipeDTO.getRecipe();
+        List <RecipeInstruction> recipeInstructions = userRecipeDTO.getRecipeInstructions();
+        return recipeDao.addNewUserRecipe(recipe, recipeInstructions, userDao.getUserIdByUsername(principal.getName()));
+    }
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.sql.DataSource;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,7 +185,7 @@ public class JdbcRecipeDao implements RecipeDao {
     }
 
     @Override
-    public RecipeInstruction addRecipeInstruction( RecipeInstruction recipeInstructionToSave){
+    public RecipeInstruction addRecipeInstruction(RecipeInstruction recipeInstructionToSave, int id){
         String sql = "INSERT INTO recipe_instructions(step, instruction, recipe_id) VALUES (?, ?, ?) RETURNING instructions_id";
 
         int newInstructionsId = -1;
@@ -206,6 +207,57 @@ public class JdbcRecipeDao implements RecipeDao {
 
         return getRecipeInstruction(newInstructionsId);
     }
+
+
+    @Override
+    public Recipe addNewUserRecipe(Recipe recipeToSave,List <RecipeInstruction> recipeInstructionsToSave, int id) {
+
+        String sql = "INSERT INTO recipe(recipe_name, description, author_id) VALUES (?, ?, ?) RETURNING recipe_id";
+
+        int newRecipeId = -1;
+
+
+        try {
+            newRecipeId = template.queryForObject(sql, Integer.class,
+                    recipeToSave.getRecipeName(),
+                    recipeToSave.getDescription(),
+                    id
+            );
+        } catch(CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
+        }
+
+
+        String sql2 = "INSERT INTO recipe_instructions(step, instruction, recipe_id) VALUES (?, ?, ?) RETURNING instructions_id";
+
+        int newInstructionsId = -1;
+
+        for(RecipeInstruction recipeInstruction : recipeInstructionsToSave) {
+            try {
+                newInstructionsId = template.queryForObject(sql2, Integer.class,
+                        recipeInstruction.getStep(),
+                        recipeInstruction.getInstruction(),
+                        newRecipeId
+
+                );
+            } catch (CannotGetJdbcConnectionException e) {
+                System.out.println("Problem connecting");
+            } catch (DataIntegrityViolationException e) {
+                System.out.println("Data problems");
+            }
+        }
+
+
+
+        return getRecipe(newRecipeId);
+
+
+
+    }
+
+
 
 }
 

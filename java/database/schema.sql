@@ -92,4 +92,6 @@ user_id int NOT NULL,
 quantity int NOT NULL
 );
 
+
+
 COMMIT TRANSACTION;

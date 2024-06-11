@@ -7,11 +7,13 @@ export default {
         return axios.get(`/get-recipe-instructions-by-recipe-id/${recipeId}`);
     },
 
-    addInstructions(instruction) {
-        return axios.post('/add-instruction', instruction);
+    addInstructions(instructions) {
+        return axios.post('/add-instruction', instructions);
     },
 
-    updateRecipeInstructions(step, id) {
-        return axios.put(`/update-instruction/${step}/${id}`);
+    addCustomUserRecipe(userRecipeDTO) {
+        return axios.post(`/add-user-recipe`, userRecipeDTO);
       },
+
+
 }
