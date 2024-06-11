@@ -24,6 +24,12 @@
         <p>{{recipe.description}}</p>
       </div>
     </div>
+
+    <div id='customize-btn'>
+      <button class='btn'>
+          <router-link v-bind:to="{name: 'editRecipe', params: {id: recipe.recipeId}}">Customize</router-link>
+        </button>
+    </div>
     
     <!-- <div class="details"> -->
       
@@ -222,6 +228,7 @@ div.container {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "button button"
                        "details details"
+                       "customize customize"
                        "instructions ingredients";
   margin-top: 20px;
   /* position: relative; */
@@ -315,6 +322,19 @@ div.recipe-name {
   /** frontend 002 test */
 }
 
+#customize-btn {
+  grid-area: customize;
+  justify-self: center;
+}
+
+#customize-btn > button {
+  background-color:rgb(255, 192, 203);
+  color: black;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 700px) {
   div.container {
     image-rendering: auto;
@@ -322,6 +342,7 @@ div.recipe-name {
     grid-template-areas:
     "button"
     "details"
+    "customize"
     "ingredients"
     "instructions";
   }

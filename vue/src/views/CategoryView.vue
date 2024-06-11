@@ -18,6 +18,10 @@
             >View Details</router-link
           >
         </button>
+        |
+        <button class='btn'>
+          <router-link v-bind:to="{name: 'editRecipe', params: {id: recipe.recipeId}}">Customize</router-link>
+        </button>
       </div>
     </div>
   </div>
@@ -189,7 +193,7 @@ div.favorite {
   border: 1px solid;
   border-color: black;
   border-radius: 10px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-top: auto;
   margin-bottom: auto;
 }
