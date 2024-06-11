@@ -7,8 +7,9 @@
     <div class="container">
   <!-- {{ recipe }}
   {{ instructions }} -->
-  <!-- {{ ingredients }}
-  {{ allIngredients }} -->
+
+  {{ ingredients }}
+  {{ allIngredients }}
   
    <form v-on:submit.prevent="submitForms" class="recipeForm">
     <div class="form-group">
@@ -93,6 +94,41 @@
     
     <div id="buttons">
     <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+
+    <!-- <td
+    v-for="ingredient in ingredients" 
+    v-bind:key="ingredient.id"
+    
+    >
+      
+            <input
+              type="checkbox"
+              v-bind:id="ingredient.id"
+              v-bind:value="ingredient.id"
+              v-model="selectedIngredientIds"
+             
+            />
+          </td> -->
+          console.log("test4")
+          <div class="dropdown">
+            console.log("test3")
+      <label for="allIngredients"></label>
+      console.log("test2")
+        <select name="allIngredients" id="allIngredients" v-on:change="changeRoute($event)">
+          
+          <option value="">-Choose Ingredient-</option> <!-- keep this value empty, select can't be selected-->
+          console.log("test1")
+          <div v-for="ingredient in ingredients" :key="ingredient.id">
+              {{ ingredient }}
+              console.log(ingredient)
+              console.log("test")
+              <option value="ingredient.ingredientName"></option>
+              
+            </div>
+          <!--  -->
+          
+        </select>
+      </div>
     |
     <button class="btn btn-submit">Submit</button>
   </div>
@@ -114,6 +150,7 @@ export default {
          ingredients: [],
          selectedIngredients: [],
          allIngredients: [],
+         selectedIngredientIds: [],
         
 
         userRecipeDTO: {
