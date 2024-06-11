@@ -7,8 +7,9 @@
     <div class="container">
   <!-- {{ recipe }}
   {{ instructions }} -->
-  <!-- {{ ingredients }}
-  {{ allIngredients }} -->
+
+  {{ ingredients }}
+  {{ allIngredients }}
   
    <form v-on:submit.prevent="submitForms" class="recipeForm">
     <div class="form-group">
@@ -71,6 +72,9 @@
       ></textarea>
     </div>
 
+    <div id="buttons">
+    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+
 
     <div v-for="(ingredient, index) in ingredients" :key="ingredient.id" class="ingredientCard">
       <label :for="'ingredientName-' + index">Ingredient {{ ingredients[index].ingredientName }}</label>
@@ -88,14 +92,46 @@
       type="text"
       v-model="ingredients[index].quantity"
       ></textarea>
-      
+
     </div>
     
-    <div id="buttons">
-    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
-    |
+   
+
+    <!-- <td
+    v-for="ingredient in ingredients" 
+    v-bind:key="ingredient.id"
+    
+    >
+      
+            <input
+              type="checkbox"
+              v-bind:id="ingredient.id"
+              v-bind:value="ingredient.id"
+              v-model="selectedIngredientIds"
+             
+            />
+          </td> -->
+          <div class="dropdown">
+      <label for="allIngredients"></label>
+        <select name="allIngredients" id="allIngredients" v-on:change="changeRoute($event)">
+          
+          <option value="">-Choose Ingredient-</option> keep this value empty, select can't be selected
+        
+              
+              <option v-for="ingredient in allIngredients" :key="ingredient.id" :value="ingredient.ingredientName">{{ ingredient.ingredientName }}</option>
+              
+           
+          
+
+        </select>
+
+
+
+      </div>
+
     <button class="btn btn-submit">Submit</button>
   </div>
+
   </form>
 </div>
 </template>
@@ -114,6 +150,7 @@ export default {
          ingredients: [],
          selectedIngredients: [],
          allIngredients: [],
+        
         
 
         userRecipeDTO: {

@@ -79,7 +79,7 @@ public class JdbcIngredientDao implements IngredientDao {
         while (results.next()) {
             Ingredient ingredient =new Ingredient();
             ingredient.setIngredientName(results.getString("ingredient_name"));
-            ingredient.setQuantity(results.getInt("quantity"));
+     
             ingredients.add(ingredient);
         }
         return ingredients;
