@@ -2,34 +2,49 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <back-button id="back-button"/>
+  
   <div class='container' id='recipe-details-container'>
-    
-    <div id='broad-details'>
+    <back-button id="back-button"/>
+    <!-- <div id='broad-details'> -->
+      <!-- <div class='icon-holder'>
+        <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon details-icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
+        </div>
+      </div> -->
+    <!-- </div> -->
+
+    <div id="details">
       <div class='icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon details-icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
-          </div>
+        </div>
       </div>
-      <div id="details"><h1>{{recipe.recipeName}}</h1> <div>{{recipe.description}}</div></div>
-      
+      <div class='recipe-name'>
+        <h1>{{recipe.recipeName}}</h1> 
+      </div>
+      <div id='description'>
+        <p>{{recipe.description}}</p>
+      </div>
     </div>
     
-    <div class="details">
+    <!-- <div class="details"> -->
       
       <div id='instructions'>
         <instructions />
       </div>
       <div id="ingredients">
         <h3>Ingredients List</h3>
-        <button class='grocery-btn'>
-          <img id='add-to-cart' src='../images/add-to-cart.png'>
-        </button>
+        <div id='add-to-cart-container'>
+          <label for='add-to-cart-btn' id='add-to-cart-label'>Add to Groceries:</label>
+          <button id='add-to-cart-btn' class='grocery-btn'>
+            <img id='add-to-cart' src='../images/add-to-cart.png'>
+          </button>
+        </div>
+        
         <div v-for='ingredient in ingredients' v-bind:key='ingredient.ingredientId' class='ingredientCard'>
-        <p>{{ ingredient.ingredientName }}</p>
+          <p>{{ ingredient.ingredientName }}</p>
         </div>
       
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -204,94 +219,166 @@ export default {
 div.container {
   display: grid;
   justify-content: center;
-  /*grid-template-columns: 1fr 1fr;
-  grid-template-areas: "details details"
-                       "instructions ingredients";*/
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "button button"
+                       "details details"
+                       "instructions ingredients";
   margin-top: 20px;
-  position: relative;
-  
+  /* position: relative; */
 }
 
-div {
-  margin: auto;
-}
-#back-button{
-  position: absolute;
-  left: 20%;
-}
-
-.broad-details {
-  justify-self: center;
-}
-
-/*.details {
+div.icon-holder {
+  margin-top: 2%;
   display: grid;
-  justify-content: space-between;
+  height: 40px;
+  justify-content: end;
 }
 
-/*.ingredients {
-  flex: 1;
-  margin-right: 20px;
-  border: 2px solid black;
-  border-radius: 25px;
-  padding: none;
-}*/
+div.icon {
+  width: 50px;
+  height: 50px;
+  border: none;
+  margin-top: 5px;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
+div.unfavorite {
+  background-image: url(/star_outline.png);
+}
+
+div.favorite {
+  background-image: url(/star_full.png);
+}
+
+#broad-details {
+  grid-area: details;
+  display: flex;
+  width : 75vw;
+  justify-self: center;
+  align-items: center;
+  height: fit-content;
+}
+
+#back-button {
+  grid-area: button;
+}
 
 #details {
+  display: grid;
   justify-content: center;
+  grid-template-rows: 1fr 3fr 4fr;
   grid-area: details;
   text-align: center;
   border: 1px black solid;
   border-radius: 10px;
   height: 20vh;
   background-color: rgb(127, 170, 127);
+  margin-bottom: 20px;
+  width: 75vw;
+  justify-self: center;
+}
+
+div.recipe-name {
+  padding-top: 10px;
+  height: fit-content;
+}
+
+#description {
+  width: 50vw;
+  text-align: center;
+  height: fit-content;
+}
+
+#description > p {
+  margin: 0px;
 }
 
 #ingredients {
- 
+  display: flex;
+  flex-direction: column;
   grid-area: ingredients;
-  margin-right: 20px;
+  margin: auto;
   justify-content: center;
   border: 1px black solid;
   border-radius: 10px;
   padding-left: 5px;
   padding-right: 5px;
   background-color: rgb(127, 170, 127);
-  
+  width: 75%;
 }
 
 #instructions {
   grid-area: instructions;
-  margin-left: 20px;
+  margin: auto;
   justify-content:center; 
   /** frontend 002 test */
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   div.container {
     image-rendering: auto;
     grid-template-columns: 1fr;
     grid-template-areas:
+    "button"
     "details"
     "ingredients"
     "instructions";
   }
   #details {
-    height: 20vh;
-    
+    height: 30vh;
+    height: fit-content;
+    box-sizing: border-box;
+    width: 75%;
+    grid-template-rows: 1fr 2fr 3fr;
   }
-  
-
-  
-}
-
-.broad-details {
-  width: 600px;
-  height: 250px;
+  #back-button {
+    margin-left: 40%;
+  }
 }
 
 #add-to-cart {
   height: 40px;
+}
+
+h3, p {
+  text-align: center;
+}
+
+h1 {
+  margin: 0px
+}
+
+.ingredientCard > p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#add-to-cart-label {
+  grid-area: label;
+  display: inline-block;
+  align-self: center;
+  justify-self: end;
+  padding-right: 5px;
+}
+
+#add-to-cart-btn {
+  grid-area: button;
+  background-color:rgb(255, 192, 203);
+  border-color: antiquewhite;
+  border-radius: 10px;
+  width: 50%;
+  height: 45px;
+}
+
+#add-to-cart-container {
+  /* padding-right: 25%;
+  padding-left: 25%; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "label button";
+  justify-content: center;
+  padding-bottom: 5px;
 }
 
 </style>
