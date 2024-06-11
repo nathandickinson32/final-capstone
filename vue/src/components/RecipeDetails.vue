@@ -22,14 +22,15 @@
       </div>
       <div id='description'>
         <p>{{recipe.description}}</p>
-      </div>
-    </div>
-
-    <div id='customize-btn'>
+        <div id='customize-btn'>
       <button class='btn'>
           <router-link v-bind:to="{name: 'editRecipe', params: {id: recipe.recipeId}}">Customize</router-link>
         </button>
     </div>
+      </div>
+    </div>
+
+    
     
     <!-- <div class="details"> -->
       
@@ -40,7 +41,7 @@
         <h3>Ingredients List</h3>
         <div id='add-to-cart-container'>
           <label for='add-to-cart-btn' id='add-to-cart-label'>Add to Groceries:</label>
-          <button id='add-to-cart-btn' class='grocery-btn'>
+          <button v-on:click='addAllToGroceries' id='add-to-cart-btn' class='grocery-btn'>
             <img id='add-to-cart' src='../images/add-to-cart.png'>
           </button>
         </div>
@@ -194,22 +195,24 @@ export default {
       this.ingredients.forEach(
         (item) => {
           if (!this.groceryIdList.includes(item.ingredientId)) {
+            console.log("ingredient not in grocery");
             IngredientsService.addGroceryListItem(item.ingredientId).then(
               (response) => {
                 if (response.status === 201) {
                   console.log("success!");
                 }
               }
-            )
+            );
           } else if (this.groceryIdList.includes(item.ingredientId)) {
             //Update grocery list row by 1
+            console.log("ingredient in grocery");
             IngredientsService.updateGroceryListItem(item.ingredientId).then(
               (response) => {
                 if (response.status === 200) {
                   console.log("success!");
                 }
               }
-            )
+            );
           }
         }
       );
@@ -280,6 +283,7 @@ div.favorite {
   border: 1px black solid;
   border-radius: 10px;
   height: 20vh;
+  min-height: 350px;
   background-color: rgb(127, 170, 127);
   margin-bottom: 20px;
   width: 75vw;

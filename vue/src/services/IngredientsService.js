@@ -28,5 +28,9 @@ export default {
 
     updateGroceryListItem(ingredientId) {
         return axios.put(`/update-grocery-list/${ingredientId}`);
+    },
+
+    deleteGroceryListItem(ingredientId) {
+        return axios.delete(`/remove-from-grocery-list/${ingredientId}`);
     }
 }

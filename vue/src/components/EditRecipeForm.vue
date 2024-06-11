@@ -1,8 +1,15 @@
 <template>
+  
+    
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div class="container">
   <!-- {{ recipe }}
   {{ instructions }} -->
-  {{ ingredients }}
-  {{ allIngredients }}
+  <!-- {{ ingredients }}
+  {{ allIngredients }} -->
+  
    <form v-on:submit.prevent="submitForms" class="recipeForm">
     <div class="form-group">
       <label for="recipeName">Recipe Name:</label>
@@ -27,16 +34,16 @@
     </div>
 
     <div v-for="(instruction, index) in userRecipeDTO.recipeInstructions" :key="instruction.id" class="instructionCard">
-      <label :for="'step-' + index">Step {{ userRecipeDTO.recipeInstructions[index].step }}</label>
-      <input
+      <label :for="'step-' + index">Step {{ userRecipeDTO.recipeInstructions[index].step }}: </label>
+      <input class="stepText"
       :id="'step-' + index"
       type="text"
       v-model="userRecipeDTO.recipeInstructions[index].step"
       readonly
       />
 
-      <label :for="'instruction-' + index">Instruction {{ userRecipeDTO.recipeInstructions[index].instruction }}</label>
-      <textarea
+      <label :for="'instruction-' + index"> Instruction {{ userRecipeDTO.recipeInstructions[index].instruction }}</label>
+      <textarea class="instructionText" 
       :id="'instruction-' + index"
       type="text"
       v-model="userRecipeDTO.recipeInstructions[index].instruction"
@@ -45,7 +52,7 @@
 <!-- click calls method to add new instruction -->
 
 <div class="form-group">
-      <label for="step">Step:</label>
+      <label for="step">Step: </label>
       <input
         id="step"
         type="text"
@@ -63,7 +70,6 @@
         v-model="userRecipeDTO.recipe.instruction"
       ></textarea>
     </div>
-    <button v-on:click.prevent="addStep">Add Instruction</button>
 
 
     <div v-for="(ingredient, index) in ingredients" :key="ingredient.id" class="ingredientCard">
@@ -82,10 +88,16 @@
       type="text"
       v-model="ingredients[index].quantity"
       ></textarea>
+      
     </div>
     
+    <div id="buttons">
+    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+    |
     <button class="btn btn-submit">Submit</button>
+  </div>
   </form>
+</div>
 </template>
 
 <script>
@@ -224,5 +236,94 @@ export default {
 </script>
 
 <style scoped>
+.add-btn {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+ 
+}
+
+
+
+.container {
+  border: 2px solid black;
+  border-radius: 25px;
+  padding-bottom: 5px;
+  background-color: rgb(127, 170, 127);
+}
+
+#recipeName {
+  background-color: pink;
+
+}
+
+#description {
+  background-color: pink;
+  
+}
+
+#step {
+  background-color: pink;
+  max-width: 20px;
+}
+
+#instruction {
+  background-color: pink;
+  padding-bottom:20px;
+}
+
+.instructionText {
+  background-color: pink;
+}
+
+.stepText {
+  background-color: pink;
+  max-width: 20px;
+  
+}
+textarea {
+  width: 200px;
+  height: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+ 
+.form-group {
+  border-bottom: 2px dotted black;
+  padding: 5px;
+  
+  
+}
+.instructionCard {
+  border-bottom: 2px dotted black;
+  padding: 5px;
+  
+}
+textarea {
+  font-size: 16px;
+}
+
+.container {
+  font-size: 18px;
+}
+
+#recipeName {
+  font-size: 16px;
+  
+}
+
+#description {
+  font-size: 16px;
+  
+}
+#step {
+  font-size: 16px;
+}
+.stepText{
+  font-size: 16px;
+}
+
+}
+
 
 </style>
