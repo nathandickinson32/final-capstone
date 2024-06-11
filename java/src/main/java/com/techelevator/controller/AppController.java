@@ -111,9 +111,9 @@ public class AppController {
         return accountDao.getIngredientsByUserId(userDao.getUserIdByUsername(principal.getName()));
     }
 
-    @RequestMapping(path="/remove-from-grocery-list", method = RequestMethod.DELETE)
-    public boolean removeGroceryListItem(Principal principal) {
-        return false;
+    @RequestMapping(path="/remove-from-grocery-list/{id}", method = RequestMethod.DELETE)
+    public boolean removeGroceryListItem(@PathVariable int id, Principal principal) {
+        return accountDao.deleteRecipeFromLibraryByRecipeId(id, userDao.getUserIdByUsername(principal.getName()));
     }
 
     @ResponseStatus(HttpStatus.CREATED)

@@ -54,9 +54,7 @@ import BackButton from '../components/BackButton.vue';
             this.library = response.data;
             this.library.forEach(
               (recipe) => {
-                console.log('almost there!');
                 this.idLibrary.push(recipe.recipeId);
-                console.log('pushed');
               }
             );
           }
@@ -70,8 +68,6 @@ import BackButton from '../components/BackButton.vue';
             (response) => {
               if(response.status === 201) {
                 this.idLibrary.push(id);
-                console.log('success')
-              
               }
         
             }

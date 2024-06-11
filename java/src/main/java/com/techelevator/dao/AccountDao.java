@@ -14,4 +14,5 @@ public interface AccountDao {
     public boolean deleteRecipeFromLibraryByRecipeId(int id, int userId); // deletes recipe from library
     public boolean addIngredientToGroceryList(int ing_id, int userId);
     public boolean updateIngredientInGroceryList(int ing_id, int userId);
+    public boolean removeIngredientInGroceryList(int ing_id, int userId);
 }
