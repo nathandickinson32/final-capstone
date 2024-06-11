@@ -48,16 +48,6 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            // this.importUserData();
-            // RecipeService.getRecipeLibraryByUser().then(
-            //   (response) => {
-            //     if (response.status === 200) {
-            //       this.library = response.data;
-            //       this.$store.commit("SET_USER_LIBRARY", this.library);
-            //       console.log("success");
-            //     }
-            //   }
-            // );
             this.$router.push("/");
           }
         })
