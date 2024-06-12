@@ -11,9 +11,7 @@ export default {
         return axios.post('/add-instruction', instruction);
     },
 
-    addCustomUserRecipe(userRecipeDTO) {
-        return axios.post(`/add-user-recipe`, userRecipeDTO);
-      },
+  
 
 
 }
