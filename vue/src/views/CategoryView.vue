@@ -208,5 +208,6 @@ div.favorite {
   /* margin-left: 10px; */
   margin-top: auto;
   margin-bottom: auto;
+  font-family: 'Roboto', serif;
 }
 </style>

@@ -2,7 +2,7 @@
   
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
-      <h1>Create Account</h1>
+      <h1 id="create" >Create Account</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -108,6 +108,13 @@ label {
   border-radius: 10px;
   height: 45px;
   width: 70px;
+  font-family: 'Roboto', serif;
+}
+#register{
+  font-family: 'Roboto', serif;
+}
+#create{
+  font-family: 'LibreBaskerville', serif;
 }
 
 </style>

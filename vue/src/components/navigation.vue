@@ -111,7 +111,7 @@ mounted() {
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 #profile{
   text-decoration: underline;
@@ -169,6 +169,7 @@ mounted() {
   margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
+  font-family: 'Roboto', serif;
 }
 
 .dropdown{
@@ -177,11 +178,13 @@ mounted() {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
+  
 }
 
 #categories {
   text-align: left;
   background-color: pink;
+  font-family: 'Roboto', serif;
 }
 
 .off-screen-menu {
@@ -235,6 +238,9 @@ nav {
   transform: translate (-50%, -50%);
   transition: .7s ease;
 
+}
+option {
+  font-family: 'Roboto', serif;
 }
 
 .ham-menu span:nth-child(1) {

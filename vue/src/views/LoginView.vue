@@ -2,7 +2,7 @@
 
   <div id="login">
     <form v-on:submit.prevent="login">
-      <h1 >Please Sign In</h1>
+      <h1 id="plsSignIn">Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -98,6 +98,13 @@ label {
   border-radius: 10px;
   height: 30px;
   width: 60px;
+  font-family: 'Roboto', serif;
+}
+#login{
+  font-family: 'Roboto', serif;
+}
+#plsSignIn{
+  font-family: 'LibreBaskerville', serif;
 }
 
 </style>
