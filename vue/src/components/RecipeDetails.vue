@@ -195,27 +195,25 @@ export default {
       this.ingredients.forEach(
         (item) => {
           if (!this.groceryIdList.includes(item.ingredientId)) {
-            console.log("ingredient not in grocery");
             IngredientsService.addGroceryListItem(item.ingredientId).then(
               (response) => {
                 if (response.status === 201) {
-                  console.log("success!");
+                  //
                 }
               }
             );
           } else if (this.groceryIdList.includes(item.ingredientId)) {
-            //Update grocery list row by 1
-            console.log("ingredient in grocery");
             IngredientsService.updateGroceryListItem(item.ingredientId).then(
               (response) => {
                 if (response.status === 200) {
-                  console.log("success!");
+                  //
                 }
               }
             );
           }
         }
       );
+      window.alert('Added to Grocery List!');
     }
   }
 

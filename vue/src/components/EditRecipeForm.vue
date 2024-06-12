@@ -8,6 +8,7 @@
 
     <!-- {{ ingredients }}
     {{ allIngredients }} -->
+    {{ this.userRecipeDTO.ingredientIds }}
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -86,7 +87,7 @@
 
         <div
           v-for="(ingredient, index) in ingredients"
-          :key="ingredient.id"
+          :key="ingredient.ingredientId"
           class="ingredientCard"
         >
           <label :for="'ingredientName-' + index"
@@ -115,14 +116,13 @@
              
             />
           </td> -->
-          <button>Remove Ingredients</button>
+        <button>Remove Ingredients</button>
         <div class="dropdown">
           <label for="allIngredients"></label>
           <select
             name="allIngredients"
-            id="allIngredients" 
+            id="allIngredients"
             v-on:change="addIngredient"
-            
           >
             <!-- on:click needs to add ingredient to this.ingredients -->
             <option value="">-Choose Ingredient to add-</option>
@@ -130,7 +130,7 @@
 
             <option
               v-for="ingredient in allIngredients"
-              :key="ingredient.id"
+              :key="ingredient.ingredientId"
               :value="ingredient.ingredientName"
             >
               {{ ingredient.ingredientName }}
@@ -172,7 +172,7 @@ export default {
             instruction: "",
           },
         ],
-        ingredientIds:[],
+        ingredientIds: [],
       },
     };
   },
@@ -210,6 +210,9 @@ export default {
       (response) => {
         if (response.status === 200) {
           this.ingredients = response.data;
+          this.ingredients.forEach((ingredient) => {
+            this.userRecipeDTO.ingredientIds.push(ingredient.ingredientId);
+          });
         }
       }
     );
@@ -243,7 +246,7 @@ export default {
       InstructionService.addInstructions(instructionsData)
         .then((response) => {
           if (response.status === 201) {
-            console.log("success")
+            console.log("success");
           }
         })
         .catch((error) => {
@@ -261,25 +264,27 @@ export default {
 
     // add, remove, create ingredient
     addIngredient(event) {
-      const ingredientName = event.target.value;
+      const ingredientName = event.target.value.trim();
       const ingredient = this.allIngredients.find(
         (ing) => ing.ingredientName === ingredientName
       );
       if (ingredient) {
+        let newIngredientId = ingredient.ingredientId;
+
         this.ingredients.push({ ...ingredient, quantity: "" });
+        this.userRecipeDTO.ingredientIds.push(newIngredientId);
       }
       event.target.value = "";
     },
 
-//     addNewIngredientToRecipe(selectedIngredient) {
-//   console.log("Selected Ingredient:", selectedIngredient);
-//   const newIngredientId = selectedIngredient.ingredientId;
-//   console.log("New Ingredient ID:", newIngredientId);
-//   this.userRecipeDTO.ingredientIds.push(newIngredientId);
-//   console.log("User Recipe DTO:", this.userRecipeDTO);
-// },
-
-  }
+    //     addNewIngredientToRecipe(selectedIngredient) {
+    //   console.log("Selected Ingredient:", selectedIngredient);
+    //  let newIngredientId = selectedIngredient.ingredientId;
+    //   console.log("New Ingredient ID:", newIngredientId);
+    //   this.userRecipeDTO.ingredientIds.push(newIngredientId);
+    //   console.log("User Recipe DTO:", this.userRecipeDTO);
+    // },
+  },
 };
 </script>
 
