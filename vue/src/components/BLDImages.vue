@@ -115,6 +115,7 @@ a {
 }
 p {
   font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 

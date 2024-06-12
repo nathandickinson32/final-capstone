@@ -169,7 +169,8 @@ mounted() {
   margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 18px;
 }
 
 .dropdown{
@@ -184,7 +185,8 @@ mounted() {
 #categories {
   text-align: left;
   background-color: pink;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 .off-screen-menu {
@@ -240,7 +242,8 @@ nav {
 
 }
 option {
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 .ham-menu span:nth-child(1) {

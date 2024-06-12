@@ -202,14 +202,15 @@ div.favorite {
   top: 50%;
   background-color: pink;
   color: black;
-  height: 20px;
-  width: 90px;
+  height: 30px;
+  width: 120px;
   border: 1px solid;
   border-color: black;
   border-radius: 10px;
   /* margin-left: 10px; */
   margin-top: auto;
   margin-bottom: auto;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 17px;
 }
 </style>

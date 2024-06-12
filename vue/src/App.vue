@@ -61,7 +61,8 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #logout-btn {
   border: 1px solid black;
@@ -70,7 +71,8 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #register-btn {
   border: 1px solid black;
@@ -79,7 +81,8 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 

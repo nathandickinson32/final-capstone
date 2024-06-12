@@ -50,6 +50,7 @@ export default {
   width: 300px;
   min-height: 48px;
   font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 
