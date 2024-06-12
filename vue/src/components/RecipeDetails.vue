@@ -234,6 +234,7 @@ div.container {
                        "customize customize"
                        "instructions ingredients";
   margin-top: 20px;
+  align-items: start;
   /* position: relative; */
 }
 
@@ -303,6 +304,11 @@ div.recipe-name {
   width: 50vw;
   text-align: center;
   height: fit-content;
+  justify-self: center;
+}
+
+#instructions > div {
+  margin-left: 0px;
 }
 
 #description > p {
@@ -323,7 +329,6 @@ div.recipe-name {
   width: 75%;
   font-family: 'Montserrat', serif;
   font-size: 20px;
-
 }
 
 #instructions {
