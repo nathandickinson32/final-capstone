@@ -84,14 +84,14 @@
         <button class="add-btn" v-on:click.prevent="addStep">
           Add Instruction
         </button>
-
+<h2>Ingredients</h2>
         <div
           v-for="(ingredient, index) in ingredients"
           :key="ingredient.ingredientId"
           class="ingredientCard"
         >
           <label :for="'ingredientName-' + index"
-            >Ingredient {{ ingredients[index].ingredientName }}</label
+            >{{ ingredients[index].ingredientName }}</label
           >
           <input
             :id="'ingredientName-' + index"
