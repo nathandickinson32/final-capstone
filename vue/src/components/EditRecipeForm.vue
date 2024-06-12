@@ -119,11 +119,7 @@
              
             />
           </td> -->
-<<<<<<< HEAD
-        <button v-on:click.prevent="removeSelectedIngredient">Remove Ingredients</button>
-=======
-        <button id="remove">Remove Ingredients</button>
->>>>>>> 4ac86cf8a67b75beb79c1f23a9164251241682be
+        <button id="remove" v-on:click.prevent="removeSelectedIngredient">Remove Ingredients</button>
         <div class="dropdown">
           <label for="allIngredients"></label>
           <select
