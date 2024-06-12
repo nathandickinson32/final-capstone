@@ -139,7 +139,7 @@ td {
 
 h4.ingredientName {
   margin: 2px;
-  font-family: 'LibreBaskerville', serif;
+  font-family: 'Montserrat', serif;
 }
 
 .del-btn {

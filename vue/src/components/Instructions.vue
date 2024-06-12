@@ -49,6 +49,7 @@ export default {
   background-position: 0px 10px;
   width: 300px;
   min-height: 48px;
+  font-family: 'Montserrat', serif;
 }
 
 

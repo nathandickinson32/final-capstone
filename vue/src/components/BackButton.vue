@@ -41,6 +41,6 @@ export default {
   margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
 }
 </style>

@@ -293,6 +293,7 @@ export default {
   border: 1px solid black;
   border-radius: 10px;
   background-color: pink;
+  font-family: 'Montserrat', serif;
 }
 
 .container {
@@ -304,33 +305,40 @@ export default {
 
 #recipeName {
   background-color: pink;
+  font-family: 'Montserrat', serif;
 }
 
 #description {
   background-color: pink;
+  font-family: 'Montserrat', serif;
 }
 
 #step {
   background-color: pink;
   max-width: 20px;
+  font-family: 'Montserrat', serif;
 }
 
 #instruction {
   background-color: pink;
   padding-bottom: 20px;
+  font-family: 'Montserrat', serif;
 }
 
 .instructionText {
   background-color: pink;
+  font-family: 'Montserrat', serif;
 }
 
 .stepText {
   background-color: pink;
+  font-family: 'Montserrat', serif;
   max-width: 20px;
 }
 textarea {
   width: 200px;
   height: 100px;
+  font-family: 'Montserrat', serif;
 }
 
 @media only screen and (max-width: 600px) {
