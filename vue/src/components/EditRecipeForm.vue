@@ -45,7 +45,7 @@
           :id="'step-' + index"
           type="text"
           v-model="userRecipeDTO.recipeInstructions[index].step"
-          readonly
+          
         />
 
         <label :for="'instruction-' + index">
@@ -61,24 +61,24 @@
       </div>
       <!-- click calls method to add new instruction -->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="step">Step: </label>
         <input
           id="step"
           type="text"
           v-model="userRecipeDTO.recipeInstructions.step"
         />
-        <!-- dto.recipe.recipeName -->
-      </div>
+        dto.recipe.recipeName
+      </div> -->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="instruction">Instruction:</label>
         <textarea
           id="instruction"
           class="form-control"
           v-model="userRecipeDTO.recipe.instruction"
         ></textarea>
-      </div>
+      </div> -->
 
       <div id="buttons">
         <button class="add-btn" v-on:click.prevent="addStep">
