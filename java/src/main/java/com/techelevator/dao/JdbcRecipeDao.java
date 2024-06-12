@@ -250,13 +250,13 @@ public class JdbcRecipeDao implements RecipeDao {
             }
         }
 
-        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id) VALUES (?, ?)";
-
+        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id) VALUES (?, ?) RETURNING ingredient_id";
+            int returnId=-1;
 
         for( Integer ingredientId: ingredientIds)
             try {
 
-               template.queryForObject(sql3, Integer.class,
+              returnId= template.queryForObject(sql3, Integer.class,
 
 
                         newRecipeId,
