@@ -97,6 +97,9 @@ mounted() {
 
 
 <style scoped>
+
+
+
 .home {
   background-image: url("/pexels-monicore-1391487.jpg");
   background-size: cover;
@@ -108,7 +111,6 @@ mounted() {
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
-  font-family: Libre Baskerville, Sans-serif;
   margin-top: 3px;
 }
 #profile{
@@ -125,7 +127,7 @@ mounted() {
   width: 275px;
   margin-left:auto;
   margin-right: auto;
- 
+  font-family: 'LibreBaskerville', serif;
   
   
 }
@@ -138,6 +140,7 @@ mounted() {
   width: 350px;
   margin-left:auto;
   margin-right: auto;
+  font-family: 'LibreBaskerville', serif;
 }
 
 .static {

@@ -57,12 +57,16 @@ public class AuthenticationController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/register", method = RequestMethod.POST)
-    public void register(@Valid @RequestBody RegisterUserDto newUser) {
+    public ResponseEntity<LoginResponseDto> register(@Valid @RequestBody RegisterUserDto newUser) {
         try {
             if (userDao.getUserByUsername(newUser.getUsername()) != null) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already exists.");
             } else {
                 userDao.createUser(newUser);
+                LoginDto userLogin = new LoginDto();
+                userLogin.setUsername(newUser.getUsername());
+                userLogin.setPassword(newUser.getPassword());
+                return login(userLogin);
             }
         }
         catch (DaoException e) {

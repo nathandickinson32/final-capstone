@@ -33,6 +33,12 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url('/fonts/libreBaskerville/LibreBaskerville-Regular.ttf'),
+       url('/fonts/libreBaskerville/LibreBaskerville-Italic.ttf'),
+       url('/fonts/libreBaskerville/LibreBaskerville-Bold.ttf');
+}
 
 body {
   background-color: #8A9A5B;
@@ -64,6 +70,7 @@ body {
   padding-right: 5px;
   padding-bottom: 2px;
 }
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
