@@ -55,6 +55,7 @@ export default {
         }
       }
     );
+    if (this.$store.state.token != '') {
     RecipeService.getRecipeLibraryByUser().then(
       (response) => {
         if (response.status === 200) {
@@ -80,7 +81,7 @@ export default {
           // this.$store.commit('SET_NOTIFICATION', `Error getting message. Request could not be created.`);
         }
       }
-    );
+    );}
     },
     methods: {
     favoriteUnfavorite(id) {
