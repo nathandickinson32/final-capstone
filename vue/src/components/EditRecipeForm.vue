@@ -93,7 +93,7 @@
           <label :for="'ingredientName-' + index"
             >{{ ingredients[index].ingredientName }}</label
           >
-          <input
+          <input 
             :id="'ingredientName-' + index"
             type="checkbox"
             v-model="selectedIngredients[index]"
@@ -116,7 +116,7 @@
              
             />
           </td> -->
-        <button>Remove Ingredients</button>
+        <button id="remove">Remove Ingredients</button>
         <div class="dropdown">
           <label for="allIngredients"></label>
           <select
@@ -348,6 +348,35 @@ textarea {
   font-family: 'Montserrat', serif;
   font-size: 20px;
 }
+.dropdown option {
+  background-color: pink;
+  font-family: 'Montserrat';
+  font-size: 18px;
+}
+#remove {
+  background-color: pink;
+  border-radius: 10px;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  height: 30px;
+  width: 170px;
+}
+#allIngredients {
+  background-color: pink;
+  font-family: 'Montserrat';
+  font-size: 18px;
+}
+h2{
+  font-family: 'libreBaskerville';
+}
+.ingredientCard {
+  font-family: 'Montserrat';
+  font-size: 20px;
+}
+.ingredientCard input{
+  background-color: pink;
+}
+
 
 @media only screen and (max-width: 600px) {
   .form-group {

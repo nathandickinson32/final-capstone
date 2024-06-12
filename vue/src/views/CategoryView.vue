@@ -3,7 +3,7 @@
     
     <back-button/>
     <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
-      <RandomImage  id="randomImage"/>
+      <RandomImage  id="randomImage" />
       <div class='recipe icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
         </div>
