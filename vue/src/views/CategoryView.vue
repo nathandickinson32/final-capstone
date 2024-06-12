@@ -10,11 +10,11 @@
       <img v-if="recipe.recipeId == 4" src="/public/"/>
       <img v-if="recipe.recipeId == 5" src="/public/pexels-enginakyurt-1552635.jpg"/>
       <img v-if="recipe.recipeId == 6" src="/public/pexels-adrian-dorobantu-989175-2300034.jpg"/>
-      <img v-if="recipe.recipeId == 7" src="/public/"/>
-      <img v-if="recipe.recipeId == 8" src="/public/"/>
-      <img v-if="recipe.recipeId == 9" src="/public/"/>
-      <img v-if="recipe.recipeId == 10" src="/public/"/>
-      <img v-if="recipe.recipeId == 11" src="/public/"/>
+      <img v-if="recipe.recipeId == 7" src="/public/pexels-jaulani7-2765875.jpg"/>
+      <img v-if="recipe.recipeId == 8" src="/public/pasta-salad.jpg"/>
+      <img v-if="recipe.recipeId == 9" src="/public/garlic-noodles.jpg"/>
+      <img v-if="recipe.recipeId == 10" src="/public/brekky-bar.jpg"/>
+      <img v-if="recipe.recipeId == 11" src="/public/tiramisu.jpg"/>
       <img v-if="recipe.recipeId == 12" src="/public/"/>
       <img v-if="recipe.recipeId == 13" src="/public/"/>
       <img v-if="recipe.recipeId == 14" src="/public/pexels-valeriya-1639557.jpg"/>
