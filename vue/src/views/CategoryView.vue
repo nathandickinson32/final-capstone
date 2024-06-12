@@ -3,7 +3,27 @@
     
     <back-button/>
     <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
-      <RandomImage  id="randomImage" />
+      <!--<RandomImage  id="randomImage" />-->
+      <img v-if="recipe.recipeId == 1" src="/public/sausageballs.webp"/>
+      <img v-if="recipe.recipeId == 2" src="/public/moussemiddle-1-of-1.webp"/>
+      <img v-if="recipe.recipeId == 3" src="/public/img_4961-copy.webp"/>
+      <img v-if="recipe.recipeId == 4" src="/public/"/>
+      <img v-if="recipe.recipeId == 5" src="/public/pexels-enginakyurt-1552635.jpg"/>
+      <img v-if="recipe.recipeId == 6" src="/public/pexels-adrian-dorobantu-989175-2300034.jpg"/>
+      <img v-if="recipe.recipeId == 7" src="/public/"/>
+      <img v-if="recipe.recipeId == 8" src="/public/"/>
+      <img v-if="recipe.recipeId == 9" src="/public/"/>
+      <img v-if="recipe.recipeId == 10" src="/public/"/>
+      <img v-if="recipe.recipeId == 11" src="/public/"/>
+      <img v-if="recipe.recipeId == 12" src="/public/"/>
+      <img v-if="recipe.recipeId == 13" src="/public/"/>
+      <img v-if="recipe.recipeId == 14" src="/public/pexels-valeriya-1639557.jpg"/>
+      <img v-if="recipe.recipeId == 15" src="/public/"/>
+      <img v-if="recipe.recipeId == 16" src="/public/"/>
+      <img v-if="recipe.recipeId == 17" src="/public/"/>
+      <img v-if="recipe.recipeId == 18" src="/public/"/>
+      <img v-if="recipe.recipeId == 19" src="/public/"/>
+      <img v-if="recipe.recipeId == 20" src="/public/"/>
       <div class='recipe icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
         </div>
@@ -213,6 +233,12 @@ div.favorite {
   margin-bottom: auto;
   font-family: 'Montserrat', serif;
   font-size: 17px;
+}
+img {
+    max-height: auto;
+    width: 70%;
+    border: 5px solid pink;
+    border-radius: 25px;
 }
 
 </style>
