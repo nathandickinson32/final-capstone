@@ -36,18 +36,18 @@
           <a href="/groceryList">
             <li id="groceryList">Grocery List</li>
           </a>
-          <a href="/favoriteMeals">
+          <!--<a href="/favoriteMeals">
             <li id="favMeals">Favorite Meals</li>
-          </a>
+          </a>-->
           <a href="/favoriteRecipes">
             <li id="favRecipes">Favorite Recipes</li>
           </a>
           <a href="/customRecipes">
             <li id="customRecipes">Custom Recipes</li>
           </a>
-          <a  href="">
+          <!--<a  href="">
             <li id="addRecipes">Add Recipe</li>
-          </a>
+          </a>-->
         </ul>
       </div>
       <nav>
@@ -124,7 +124,7 @@ mounted() {
   border: 1px solid black;
   border-radius: 10px;
   background-color: pink;
-  width: 275px;
+  width: 325px;
   margin-left:auto;
   margin-right: auto;
   font-family: 'LibreBaskerville', serif;
@@ -137,7 +137,7 @@ mounted() {
   border: 1px solid black;
   border-radius: 10px;
   background-color: pink;
-  width: 350px;
+  width: 420px;
   margin-left:auto;
   margin-right: auto;
   font-family: 'LibreBaskerville', serif;
@@ -200,6 +200,8 @@ mounted() {
   text-align: left;
   font-size: 2.5rem;
   transition: .7s ease;
+  font-family: 'LibreBaskerville', serif;
+
 }
 
 .off-screen-menu.active{
