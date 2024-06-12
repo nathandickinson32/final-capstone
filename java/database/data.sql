@@ -32,13 +32,13 @@ VALUES
 ('High-Fiber, High-Protein Breakfast Bars', 'Ingredients such as wheat germ, flaxseed, protein powder, peanut butter, and oats make this a healthy way to start the day!', 2),
 ('Italian Tiramisu', 'Tiramisu is a classic Italian dessert. Ladyfinger cookies are dipped in coffee, then layered with mascarpone', 2),
 ('Vegetarian Mexican Inspired Stuffed Peppers', 'This vegetarian stuffed peppers recipe is not too spicy, but it is packed with flavor!', 2),
-('Middle Eastern Balela Salad', 'Middle Eastern chickpea and black bean salad flavored with fresh herbs. Super simple and refreshing', 2);
-('All-American Cheeseburger', 'The All-American Cheeseburger has certain non-negotiable elements: American cheese is one of them', 2);
-('Potato and Egg Pie with Bacon and Crème Fraîche', 'It consists of a flaky pâte brisée filled with thinly sliced potatoes, bacon, hard-cooked eggs, herbs, and crème fraîche.', 2);
-('Poached Eggs with Red Wine Sauce', 'a Burgundian preparation reminiscent of eggs benedict, with egg-topped buttered toast rounds. Traditionally the eggs for this dish are poached in red wine', 2);
-('Shrimp Creole', 'The spicy Creole sauce has layers of flavor built on a foundation of the Cajun flavor trinity — onion, celery, and green bell pepper — mixed with garlic and sautéed in butter until tender.', 2);
-('Deep-Dish All-American Cinnamon Apple Pie', 'That rich syrup is mixed with the apples, piled into the crust, and baked until tender and delicious. ', 2);
-('Grilled Korean-Style Short Ribs', 'The short ribs are marinated overnight in a simple mix of sake, soy sauce, sugar, garlic, and sesame oil. Cooked quickly on a hot grill, the juicy meat is tender with a satisfying chew.', 2);
+('Middle Eastern Balela Salad', 'Middle Eastern chickpea and black bean salad flavored with fresh herbs. Super simple and refreshing', 2),
+('All-American Cheeseburger', 'The All-American Cheeseburger has certain non-negotiable elements: American cheese is one of them', 2),
+('Potato and Egg Pie with Bacon and Crème Fraîche', 'It consists of a flaky pâte brisée filled with thinly sliced potatoes, bacon, hard-cooked eggs, herbs, and crème fraîche.', 2),
+('Poached Eggs with Red Wine Sauce', 'a Burgundian preparation reminiscent of eggs benedict, with egg-topped buttered toast rounds. Traditionally the eggs for this dish are poached in red wine', 2),
+('Shrimp Creole', 'The spicy Creole sauce has layers of flavor built on a foundation of the Cajun flavor trinity — onion, celery, and green bell pepper — mixed with garlic and sautéed in butter until tender.', 2),
+('Deep-Dish All-American Cinnamon Apple Pie', 'That rich syrup is mixed with the apples, piled into the crust, and baked until tender and delicious. ', 2),
+('Grilled Korean-Style Short Ribs', 'The short ribs are marinated overnight in a simple mix of sake, soy sauce, sugar, garlic, and sesame oil. Cooked quickly on a hot grill, the juicy meat is tender with a satisfying chew.', 2),
 ('Swordfish Sicilian-Style', 'Our all-time favorite is this quick-cooking swordfish, where an oregano-infused sauce imparts bright flavor to hot-off-the-grill steaks. ',2);
 
 
