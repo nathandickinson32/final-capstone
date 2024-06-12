@@ -98,10 +98,12 @@ label {
   border-radius: 10px;
   height: 30px;
   width: 60px;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #login{
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #plsSignIn{
   font-family: 'LibreBaskerville', serif;

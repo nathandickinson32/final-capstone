@@ -319,7 +319,8 @@ div.recipe-name {
   padding-right: 5px;
   background-color: rgb(127, 170, 127);
   width: 75%;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 
 }
 

@@ -108,10 +108,12 @@ label {
   border-radius: 10px;
   height: 45px;
   width: 70px;
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #register{
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #create{
   font-family: 'LibreBaskerville', serif;

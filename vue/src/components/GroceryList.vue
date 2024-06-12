@@ -140,6 +140,7 @@ td {
 h4.ingredientName {
   margin: 2px;
   font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 .del-btn {

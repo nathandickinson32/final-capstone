@@ -17,7 +17,7 @@
         <div class="recipe name">
           <h1 class="recipe-head-item">{{ recipe.recipeName }}</h1>
         </div>
-        <div class="recipe description">{{ recipe.description }}</div>
+        <div id="description" class="recipe description">{{ recipe.description }}</div>
       </div>
       <div>
         <button class="btn">
@@ -117,4 +117,8 @@ import BackButton from '../components/BackButton.vue';
   
   <style>
   
+  #description{
+    font-family: 'Montserrat';
+    font-size: 20px;
+  }
   </style>
