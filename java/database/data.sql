@@ -59,8 +59,14 @@ VALUES
 (10,2),
 (11,2),
 (12,2),
-(13,2);
-
+(13,2),
+(14,2),
+(15,2),
+(16,2),
+(17,2),
+(18,2),
+(19,2),
+(20,2);
 
 INSERT INTO recipe_categories(recipe_id, category_id)
 VALUES
@@ -85,7 +91,14 @@ VALUES
 (12,11),
 (12,8),
 (13, 12),
-(13, 3);
+(13, 3),
+(14,3),
+(15,4),
+(16,2),
+(17,4),
+(18,5),
+(19,4),
+(20, 3);
 
 INSERT INTO ingredients(ingredient_name)
 VALUES
