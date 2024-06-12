@@ -155,7 +155,8 @@ export default {
   
 }
 #description {
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
   text-decoration: none;
 }
 
