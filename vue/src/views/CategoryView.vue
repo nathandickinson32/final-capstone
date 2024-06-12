@@ -12,7 +12,7 @@
         <div class="recipe name">
           <h1 class="recipe-head-item">{{ recipe.recipeName }}</h1>
         </div>
-        <div class="recipe description">{{ recipe.description }}</div>
+        <div id="description" class="recipe description">{{ recipe.description }}</div>
       </div>
       <div>
         <button class="btn">
@@ -141,6 +141,9 @@ export default {
   justify-content: center;
   margin-top: 20px;
 }
+.recipe-head-item {
+  font-family: 'LibreBaskerville', serif;
+}
 
 .recipeCard {
   border: 1px black solid;
@@ -148,6 +151,11 @@ export default {
   width: 75vw;
   min-height: 250px;
   background-color: rgb(127, 170, 127);
+  
+}
+#description {
+  font-family: 'Roboto', serif;
+  text-decoration: none;
 }
 
 .container div {
