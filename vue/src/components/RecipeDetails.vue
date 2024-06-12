@@ -250,6 +250,9 @@ div.icon {
   background-repeat: no-repeat;
   background-size: 40px 40px;
 }
+h3{
+  font-family: 'LibreBaskerville', serif;
+}
 
 div.unfavorite {
   background-image: url(/star_outline.png);
@@ -291,6 +294,7 @@ div.favorite {
 div.recipe-name {
   padding-top: 10px;
   height: fit-content;
+  font-family: 'LibreBaskerville', serif;
 }
 
 #description {
@@ -315,6 +319,8 @@ div.recipe-name {
   padding-right: 5px;
   background-color: rgb(127, 170, 127);
   width: 75%;
+  font-family: 'Roboto', serif;
+
 }
 
 #instructions {
@@ -322,6 +328,8 @@ div.recipe-name {
   margin: auto;
   justify-content:center; 
   /** frontend 002 test */
+  font-family: 'Roboto', serif;
+  text-decoration: none;
 }
 
 #customize-btn {
