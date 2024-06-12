@@ -8,7 +8,10 @@
       <table id='grocery-tbl'>
         <thead>
           <tr>
-            <th id='th1'>&nbsp;</th>
+            <th id='th1'>
+              <input type='checkbox' id='selectAll' @click='toggleAllSelected' v-bind:checked="toDeleteList.length === groceryList.length && groceryList.length > 0"/>
+              <!-- <input type="checkbox" id="selectAll" v-on:click="toggleAllSelected" v-bind:checked="toDeleteList.length === groceryList.length && groceryList.length > 0"/> -->
+            </th>
             <th id='th2'><h3>Ingredient</h3></th>
             <th id='th3'><h3>Quantity to Buy</h3></th>
           </tr>
@@ -87,12 +90,27 @@ export default {
             (response) => {
               if (response.status === 200) {
                 // this.$router.push({name: 'favoriteRecipes'});
-                console.log("deleted");
+                
               }
             }
           );
         }
       );
+      location.reload();
+      window.alert('Deleted!');
+    },
+    toggleAllSelected() {
+      if (this.toDeleteList.length < this.groceryList.length) {
+        this.groceryList.forEach(
+          (item) => {
+            if(!this.toDeleteList.includes(item.ingredientId)) {
+              this.toDeleteList.push(item.ingredientId);
+            }
+          }
+        )
+      } else if (this.toDeleteList.length === this.groceryList.length) {
+        this.toDeleteList = [];
+      }
     }
   }
 }
