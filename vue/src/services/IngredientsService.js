@@ -32,5 +32,9 @@ export default {
 
     deleteGroceryListItem(ingredientId) {
         return axios.delete(`/remove-from-grocery-list/${ingredientId}`);
+    },
+    
+    deleteIngredients(recipeIngredientDTO) {
+        return axios.delete(`/remove-ingredient-from-recipe-ingredients`, recipeIngredientDTO);
     }
 }

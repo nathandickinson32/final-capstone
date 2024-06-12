@@ -84,21 +84,24 @@
         <button class="add-btn" v-on:click.prevent="addStep">
           Add Instruction
         </button>
-<h2>Ingredients</h2>
+
         <div
           v-for="(ingredient, index) in ingredients"
           :key="ingredient.ingredientId"
           class="ingredientCard"
         >
           <label :for="'ingredientName-' + index"
-            >{{ ingredients[index].ingredientName }}</label
+            >Ingredient {{ ingredients[index].ingredientName }}</label
           >
           <input
             :id="'ingredientName-' + index"
             type="checkbox"
-            v-model="selectedIngredients[index]"
+            :value="ingredient.ingredientId"
+            v-model="selectedIngredients"
             readonly
           />
+
+          {{ selectedIngredients}}
           <!-- v-model="ingredients[index].ingredientName" -->
         </div>
 
@@ -116,7 +119,7 @@
              
             />
           </td> -->
-        <button>Remove Ingredients</button>
+        <button v-on:click.prevent="removeSelectedIngredient">Remove Ingredients</button>
         <div class="dropdown">
           <label for="allIngredients"></label>
           <select
@@ -272,10 +275,26 @@ export default {
         let newIngredientId = ingredient.ingredientId;
 
         this.ingredients.push({ ...ingredient, quantity: "" });
+
         this.userRecipeDTO.ingredientIds.push(newIngredientId);
       }
       event.target.value = "";
     },
+
+    removeSelectedIngredient() {
+    this.selectedIngredients.forEach((id) => {
+      let index = this.ingredients.find((ingredient) =>
+      ingredient.ingredientId ===id
+      );
+      this.ingredients.splice(index, 1)
+      let index2 = this.userRecipeDTO.ingredientIds.find((ingredientId) =>
+      ingredientId===id
+      );
+      this.userRecipeDTO.ingredientIds.splice(index2, 1)
+    })
+
+
+    }
 
     //     addNewIngredientToRecipe(selectedIngredient) {
     //   console.log("Selected Ingredient:", selectedIngredient);
