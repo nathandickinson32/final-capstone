@@ -86,7 +86,7 @@
     width:  95%;
     height: 45vh;
     object-fit: cover;
-    font-family: helvetica, Sans-serif;
+    
     
 }
 
@@ -112,6 +112,9 @@
 
 a {
     text-decoration: none;
+}
+p {
+  font-family: 'LibreBaskerville', serif;
 }
 
 
