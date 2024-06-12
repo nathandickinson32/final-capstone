@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img id="randomImage" :src="randomImage" alt="Random Image" />
+        <img id="rndmImage" :src="randomImage" alt="Random Image" />
     </div>
 
 </template>
@@ -43,11 +43,13 @@ export default {
 
 <style scoped>
 img {
-    max-height: 300px;
+    max-height: auto;
+    width: 70%;
 }
-#randomImage {
-    border: 1px solid pink;
+#rndmImage {
+    border: 5px solid pink;
     border-radius: 25px;
 }
+
 
 </style>
