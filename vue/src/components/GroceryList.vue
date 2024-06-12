@@ -98,11 +98,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+
 
 #grocery-list-header {
   text-decoration: underline;
   margin-top: 0;
+  font-family: 'LibreBaskerville', serif;
 }
 
 table#grocery-tbl {
@@ -114,6 +117,12 @@ th#th2 {
   border: 1px solid black;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+thead th {
+  
+  font-family: 'LibreBaskerville', serif;
+
 }
 
 #th3 {
@@ -130,6 +139,7 @@ td {
 
 h4.ingredientName {
   margin: 2px;
+  font-family: 'LibreBaskerville', serif;
 }
 
 .del-btn {
