@@ -39,7 +39,7 @@
       </div>
       <div id="ingredients">
         <h3>Ingredients List</h3>
-        <div id='add-to-cart-container'>
+        <div id='add-to-cart-container' v-show="this.$store.state.token != ''">
           <label for='add-to-cart-btn' id='add-to-cart-label'>Add to Groceries:</label>
           <button v-on:click='addAllToGroceries' id='add-to-cart-btn' class='grocery-btn'>
             <img id='add-to-cart' src='../images/add-to-cart.png'>
@@ -77,6 +77,7 @@ export default {
         }
       }
     );
+    if (this.$store.state.token != '') {
     RecipeService.getRecipeLibraryByUser().then(
       (response) => {
         if (response.status === 200) {
@@ -127,6 +128,7 @@ export default {
         }
       }
     );
+    }
   },
   data() {
     return {
