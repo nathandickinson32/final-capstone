@@ -41,6 +41,7 @@ export default {
   },
   data() {
     return {
+      category: {},
       recipes: [],
       library: [],
       idLibrary: []

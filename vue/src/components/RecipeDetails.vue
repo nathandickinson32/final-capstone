@@ -372,8 +372,17 @@ h1 {
   margin: 0px
 }
 
+.ingredientCard {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
 .ingredientCard > p {
-  margin-top: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.ingredientCard:nth-last-child(1) {
   margin-bottom: 10px;
 }
 
