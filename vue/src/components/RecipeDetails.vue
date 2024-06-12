@@ -328,7 +328,8 @@ div.recipe-name {
   margin: auto;
   justify-content:center; 
   /** frontend 002 test */
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size:20px;
   text-decoration: none;
 }
 
