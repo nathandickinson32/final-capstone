@@ -114,7 +114,8 @@ a {
     text-decoration: none;
 }
 p {
-  font-family: 'LibreBaskerville', serif;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 

@@ -2,20 +2,20 @@
   
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
-      <h1>Create Account</h1>
+      <h1 id="create" >Create Account</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
+        <label for="username">Username:</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
+        <label for="password">Password:</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
       <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
+        <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
       <button id="submit" type="submit">Create Account</button>
@@ -106,8 +106,17 @@ label {
 #submit {
   background-color: pink;
   border-radius: 10px;
-  height: 45px;
-  width: 70px;
+  height: 50px;
+  width: 75px;
+  font-family: 'Montserrat', serif;
+  font-size: 18px;
+}
+#register{
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
+}
+#create{
+  font-family: 'LibreBaskerville', serif;
 }
 
 </style>

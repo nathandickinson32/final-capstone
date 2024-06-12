@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .backButton {
     background-image: url(../images/back.png);
 }
@@ -33,7 +33,7 @@ export default {
   top:50%;
   background-color:rgb(255, 192, 203);
   color: black;
-  height: 20px;
+  height: 30px;
   width: 60px;
   border: 1px solid;
   border-color: black;
@@ -41,5 +41,7 @@ export default {
   margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 </style>

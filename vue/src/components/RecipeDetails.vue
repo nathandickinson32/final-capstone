@@ -39,7 +39,7 @@
       </div>
       <div id="ingredients">
         <h3>Ingredients List</h3>
-        <div id='add-to-cart-container'>
+        <div id='add-to-cart-container' v-show="this.$store.state.token != ''">
           <label for='add-to-cart-btn' id='add-to-cart-label'>Add to Groceries:</label>
           <button v-on:click='addAllToGroceries' id='add-to-cart-btn' class='grocery-btn'>
             <img id='add-to-cart' src='../images/add-to-cart.png'>
@@ -77,6 +77,7 @@ export default {
         }
       }
     );
+    if (this.$store.state.token != '') {
     RecipeService.getRecipeLibraryByUser().then(
       (response) => {
         if (response.status === 200) {
@@ -127,6 +128,7 @@ export default {
         }
       }
     );
+    }
   },
   data() {
     return {
@@ -232,6 +234,7 @@ div.container {
                        "customize customize"
                        "instructions ingredients";
   margin-top: 20px;
+  align-items: start;
   /* position: relative; */
 }
 
@@ -301,6 +304,11 @@ div.recipe-name {
   width: 50vw;
   text-align: center;
   height: fit-content;
+  justify-self: center;
+}
+
+#instructions > div {
+  margin-left: 0px;
 }
 
 #description > p {
@@ -319,8 +327,8 @@ div.recipe-name {
   padding-right: 5px;
   background-color: rgb(127, 170, 127);
   width: 75%;
-  font-family: 'Roboto', serif;
-
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 #instructions {
@@ -328,7 +336,8 @@ div.recipe-name {
   margin: auto;
   justify-content:center; 
   /** frontend 002 test */
-  font-family: 'Roboto', serif;
+  font-family: 'Montserrat', serif;
+  font-size:20px;
   text-decoration: none;
 }
 
@@ -380,8 +389,17 @@ h1 {
   margin: 0px
 }
 
+.ingredientCard {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
 .ingredientCard > p {
-  margin-top: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.ingredientCard:nth-last-child(1) {
   margin-bottom: 10px;
 }
 

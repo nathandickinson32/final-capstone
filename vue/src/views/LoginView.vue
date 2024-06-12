@@ -2,7 +2,7 @@
 
   <div id="login">
     <form v-on:submit.prevent="login">
-      <h1 >Please Sign In</h1>
+      <h1 id="plsSignIn">Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -10,11 +10,11 @@
         Thank you for registering, please sign in.
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
+        <label for="username">Username:</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
+        <label for="password">Password:</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
       <button id="submit" type="submit">Sign in</button>
@@ -97,7 +97,16 @@ label {
   background-color: pink;
   border-radius: 10px;
   height: 30px;
-  width: 60px;
+  width: 80px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
+}
+#login{
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
+}
+#plsSignIn{
+  font-family: 'LibreBaskerville', serif;
 }
 
 </style>

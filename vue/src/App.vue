@@ -35,24 +35,16 @@ export default {
 <style>
 @font-face {
   font-family: 'LibreBaskerville';
-  src: url('/fonts/libreBaskerville/LibreBaskerville-Regular.ttf'),
-       url('/fonts/libreBaskerville/LibreBaskerville-Italic.ttf'),
-       url('/fonts/libreBaskerville/LibreBaskerville-Bold.ttf');
+  src: url('/fonts/libreBaskerville/LibreBaskerville-Regular.ttf');
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Black.ttf'),
-       url('/fonts/roboto/Roboto-BlackItalic.ttf'),
-       url('/fonts/roboto/Roboto-Bold.ttf'),
-       url('/fonts/roboto/Roboto-BoldItalic.ttf'),
-       url('/fonts/roboto/Roboto-Italic.ttf'),
-       url('/fonts/roboto/Roboto-Light.ttf'),
-       url('/fonts/roboto/Roboto-LightItalic.ttf'),
-       url('/fonts/roboto/Roboto-Medium.ttf'),
-       url('/fonts/roboto/Roboto-MediumItalic.ttf'),
-       url('/fonts/roboto/Roboto-Regular.ttf'),
-       url('/fonts/roboto/Roboto-Thin.ttf'),
-       url('/fonts/roboto/Roboto-ThinItalic.ttf');
+  src: url('/fonts/roboto/Roboto-Regular.ttf');
+       
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat-Regular.ttf');    
 }
 
 
@@ -69,6 +61,8 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #logout-btn {
   border: 1px solid black;
@@ -77,6 +71,8 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 #register-btn {
   border: 1px solid black;
@@ -85,6 +81,8 @@ body {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 

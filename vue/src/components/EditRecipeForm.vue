@@ -93,7 +93,7 @@
           <label :for="'ingredientName-' + index"
             >Ingredient {{ ingredients[index].ingredientName }}</label
           >
-          <input
+          <input 
             :id="'ingredientName-' + index"
             type="checkbox"
             :value="ingredient.ingredientId"
@@ -119,7 +119,11 @@
              
             />
           </td> -->
+<<<<<<< HEAD
         <button v-on:click.prevent="removeSelectedIngredient">Remove Ingredients</button>
+=======
+        <button id="remove">Remove Ingredients</button>
+>>>>>>> 4ac86cf8a67b75beb79c1f23a9164251241682be
         <div class="dropdown">
           <label for="allIngredients"></label>
           <select
@@ -312,6 +316,8 @@ export default {
   border: 1px solid black;
   border-radius: 10px;
   background-color: pink;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 .container {
@@ -323,34 +329,77 @@ export default {
 
 #recipeName {
   background-color: pink;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 #description {
   background-color: pink;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 #step {
   background-color: pink;
   max-width: 20px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 #instruction {
   background-color: pink;
   padding-bottom: 20px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 .instructionText {
   background-color: pink;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
 
 .stepText {
   background-color: pink;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
   max-width: 20px;
 }
 textarea {
   width: 200px;
   height: 100px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
 }
+.dropdown option {
+  background-color: pink;
+  font-family: 'Montserrat';
+  font-size: 18px;
+}
+#remove {
+  background-color: pink;
+  border-radius: 10px;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  height: 30px;
+  width: 170px;
+}
+#allIngredients {
+  background-color: pink;
+  font-family: 'Montserrat';
+  font-size: 18px;
+}
+h2{
+  font-family: 'libreBaskerville';
+}
+.ingredientCard {
+  font-family: 'Montserrat';
+  font-size: 20px;
+}
+.ingredientCard input{
+  background-color: pink;
+}
+
 
 @media only screen and (max-width: 600px) {
   .form-group {
