@@ -37,6 +37,10 @@ export default {
          addCustomRecipe(recipe) {
     return axios.post(`/add-custom-recipe`, recipe);
   },
+
+  addCustomUserRecipe(userRecipeDTO) {
+    return axios.post(`/add-user-recipe`, userRecipeDTO);
+  }
      
  
 

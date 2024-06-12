@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.IdDto;
+import com.techelevator.model.Ingredient;
 import com.techelevator.model.Recipe;
 import com.techelevator.model.RecipeInstruction;
 import org.springframework.dao.DataAccessException;
@@ -210,7 +211,7 @@ public class JdbcRecipeDao implements RecipeDao {
 
 
     @Override
-    public Recipe addNewUserRecipe(Recipe recipeToSave,List <RecipeInstruction> recipeInstructionsToSave, int id) {
+    public Recipe addNewUserRecipe(Recipe recipeToSave, List <RecipeInstruction> recipeInstructionsToSave, List <Integer> ingredientIds, int id) {
 
         String sql = "INSERT INTO recipe(recipe_name, description, author_id) VALUES (?, ?, ?) RETURNING recipe_id";
 
@@ -248,6 +249,27 @@ public class JdbcRecipeDao implements RecipeDao {
                 System.out.println("Data problems");
             }
         }
+
+        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id) VALUES (?, ?)";
+
+
+        for( Integer ingredientId: ingredientIds)
+            try {
+
+               template.queryForObject(sql3, Integer.class,
+
+
+                        newRecipeId,
+                       ingredientId
+
+                );
+            } catch (CannotGetJdbcConnectionException e) {
+                System.out.println("Problem connecting");
+            } catch (DataIntegrityViolationException e) {
+                System.out.println("Data problems");
+            }
+
+
 
 
 

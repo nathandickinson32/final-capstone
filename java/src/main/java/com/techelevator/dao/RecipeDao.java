@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 import com.techelevator.model.IdDto;
+import com.techelevator.model.Ingredient;
 import com.techelevator.model.Recipe;
 import com.techelevator.model.RecipeInstruction;
 
@@ -16,6 +17,6 @@ public interface RecipeDao {
     public RecipeInstruction addRecipeInstruction( RecipeInstruction recipeInstruction, int id);
     public RecipeInstruction getRecipeInstruction(int instructionsId);
     public void updateInstruction( RecipeInstruction instructionToUpdate, int step, int id);
-    public Recipe addNewUserRecipe(Recipe recipeToSave,List<RecipeInstruction> recipeInstructionsToSave, int id);
+    public Recipe addNewUserRecipe(Recipe recipeToSave, List<RecipeInstruction> recipeInstructionsToSave, List <Integer> ingredientIds, int id);
 
 }

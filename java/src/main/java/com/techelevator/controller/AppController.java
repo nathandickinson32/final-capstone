@@ -140,11 +140,20 @@ public class AppController {
     public Recipe addRecipeInstruction(@RequestBody UserRecipeDTO userRecipeDTO, Principal principal) {
         Recipe recipe = userRecipeDTO.getRecipe();
         List <RecipeInstruction> recipeInstructions = userRecipeDTO.getRecipeInstructions();
-        return recipeDao.addNewUserRecipe(recipe, recipeInstructions, userDao.getUserIdByUsername(principal.getName()));
+        List <Integer> ingredientIds = userRecipeDTO.getIngredientIds();
+        return recipeDao.addNewUserRecipe(recipe, recipeInstructions,ingredientIds, userDao.getUserIdByUsername(principal.getName()));
     }
 
     @RequestMapping(path="/get-ingredients", method = RequestMethod.GET)
     public List<Ingredient> getAllIngredients() {
         return ingredientDao.getAllIngredients();
+    }
+
+    @RequestMapping(path="/remove-ingredient-from-recipe-ingredients/", method = RequestMethod.DELETE)
+    public boolean deleteRecipeFromLibraryById(@RequestBody Recipe_IngredientDTO recipeIngredientDTO, Principal principal) {
+
+        int recipeId = recipeIngredientDTO.getRecipeId();
+        int ingredientId = recipeIngredientDTO.getIngredientId();
+        return ingredientDao.deleteIngredientFromRecipeIngredients(recipeId,ingredientId, userDao.getUserIdByUsername(principal.getName()));
     }
 }

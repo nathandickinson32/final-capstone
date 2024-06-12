@@ -1,103 +1,107 @@
 <template>
-  
-    
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <div class="container">
-  <!-- {{ recipe }}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <div class="container">
+    <!-- {{ recipe }}
   {{ instructions }} -->
 
-  {{ ingredients }}
-  {{ allIngredients }}
-  
-   <form v-on:submit.prevent="submitForms" class="recipeForm">
-    <div class="form-group">
-      <label for="recipeName">Recipe Name:</label>
-      <input
-        id="recipeName"
-        type="text"
-        class="form-control"
-        
-        v-model="userRecipeDTO.recipe.recipeName" 
-        autocomplete="off"
-      />
-      <!-- dto.recipe.recipeName -->
-    </div>
- 
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea
-        id="description"
-        class="form-control"
-        v-model="userRecipeDTO.recipe.description"
-      ></textarea>
-    </div>
+    <!-- {{ ingredients }}
+    {{ allIngredients }} -->
 
-    <div v-for="(instruction, index) in userRecipeDTO.recipeInstructions" :key="instruction.id" class="instructionCard">
-      <label :for="'step-' + index">Step {{ userRecipeDTO.recipeInstructions[index].step }}: </label>
-      <input class="stepText"
-      :id="'step-' + index"
-      type="text"
-      v-model="userRecipeDTO.recipeInstructions[index].step"
-      readonly
-      />
+    <form v-on:submit.prevent="submitForms" class="recipeForm">
+      <div class="form-group">
+        <label for="recipeName">Recipe Name:</label>
+        <input
+          id="recipeName"
+          type="text"
+          class="form-control"
+          v-model="userRecipeDTO.recipe.recipeName"
+          autocomplete="off"
+        />
+        <!-- dto.recipe.recipeName -->
+      </div>
 
-      <label :for="'instruction-' + index"> Instruction {{ userRecipeDTO.recipeInstructions[index].instruction }}</label>
-      <textarea class="instructionText" 
-      :id="'instruction-' + index"
-      type="text"
-      v-model="userRecipeDTO.recipeInstructions[index].instruction"
-      ></textarea>
-    </div>
-<!-- click calls method to add new instruction -->
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          class="form-control"
+          v-model="userRecipeDTO.recipe.description"
+        ></textarea>
+      </div>
 
-<div class="form-group">
-      <label for="step">Step: </label>
-      <input
-        id="step"
-        type="text"
-       
-      v-model="userRecipeDTO.recipeInstructions.step"
-      />
-      <!-- dto.recipe.recipeName -->
-    </div>
- 
-    <div class="form-group">
-      <label for="instruction">Instruction:</label>
-      <textarea
-        id="instruction"
-        class="form-control"
-        v-model="userRecipeDTO.recipe.instruction"
-      ></textarea>
-    </div>
+      <div
+        v-for="(instruction, index) in userRecipeDTO.recipeInstructions"
+        :key="instruction.id"
+        class="instructionCard"
+      >
+        <label :for="'step-' + index"
+          >Step {{ userRecipeDTO.recipeInstructions[index].step }}:
+        </label>
+        <input
+          class="stepText"
+          :id="'step-' + index"
+          type="text"
+          v-model="userRecipeDTO.recipeInstructions[index].step"
+          readonly
+        />
 
-    <div id="buttons">
-    <button class="add-btn" v-on:click.prevent="addStep">Add Instruction</button>
+        <label :for="'instruction-' + index">
+          Instruction
+          {{ userRecipeDTO.recipeInstructions[index].instruction }}</label
+        >
+        <textarea
+          class="instructionText"
+          :id="'instruction-' + index"
+          type="text"
+          v-model="userRecipeDTO.recipeInstructions[index].instruction"
+        ></textarea>
+      </div>
+      <!-- click calls method to add new instruction -->
 
+      <div class="form-group">
+        <label for="step">Step: </label>
+        <input
+          id="step"
+          type="text"
+          v-model="userRecipeDTO.recipeInstructions.step"
+        />
+        <!-- dto.recipe.recipeName -->
+      </div>
 
-    <div v-for="(ingredient, index) in ingredients" :key="ingredient.id" class="ingredientCard">
-      <label :for="'ingredientName-' + index">Ingredient {{ ingredients[index].ingredientName }}</label>
-      <input
-      :id="'ingredientName-' + index"
-      type="checkbox"
-      
-      v-model="ingredients[index].ingredientName"
-      readonly
-      /><!-- v-model="ingredients[index].ingredientName" -->
+      <div class="form-group">
+        <label for="instruction">Instruction:</label>
+        <textarea
+          id="instruction"
+          class="form-control"
+          v-model="userRecipeDTO.recipe.instruction"
+        ></textarea>
+      </div>
 
-      <label :for="'quantity-' + index">Quantity {{ingredients[index].quantity }}</label>
-      <textarea
-      :id="'quantity-' + index"
-      type="text"
-      v-model="ingredients[index].quantity"
-      ></textarea>
+      <div id="buttons">
+        <button class="add-btn" v-on:click.prevent="addStep">
+          Add Instruction
+        </button>
 
-    </div>
-    
-   
+        <div
+          v-for="(ingredient, index) in ingredients"
+          :key="ingredient.id"
+          class="ingredientCard"
+        >
+          <label :for="'ingredientName-' + index"
+            >Ingredient {{ ingredients[index].ingredientName }}</label
+          >
+          <input
+            :id="'ingredientName-' + index"
+            type="checkbox"
+            v-model="selectedIngredients[index]"
+            readonly
+          />
+          <!-- v-model="ingredients[index].ingredientName" -->
+        </div>
 
-    <!-- <td
+        <!-- <td
     v-for="ingredient in ingredients" 
     v-bind:key="ingredient.id"
     
@@ -111,165 +115,172 @@
              
             />
           </td> -->
-          <div class="dropdown">
-      <label for="allIngredients"></label>
-        <select name="allIngredients" id="allIngredients" v-on:change="changeRoute($event)">
-          
-          <option value="">-Choose Ingredient-</option> keep this value empty, select can't be selected
-        
-              
-              <option v-for="ingredient in allIngredients" :key="ingredient.id" :value="ingredient.ingredientName">{{ ingredient.ingredientName }}</option>
-              
-           
-          
+          <button>Remove Ingredients</button>
+        <div class="dropdown">
+          <label for="allIngredients"></label>
+          <select
+            name="allIngredients"
+            id="allIngredients" 
+            v-on:change="addIngredient"
+            
+          >
+            <!-- on:click needs to add ingredient to this.ingredients -->
+            <option value="">-Choose Ingredient to add-</option>
+            <!-- keep this value empty, select can't be selected -->
 
-        </select>
+            <option
+              v-for="ingredient in allIngredients"
+              :key="ingredient.id"
+              :value="ingredient.ingredientName"
+            >
+              {{ ingredient.ingredientName }}
+            </option>
+          </select>
+        </div>
 
-
-
+        <div>
+          <button class="btn btn-submit">Submit</button>
+        </div>
       </div>
-
-    <button class="btn btn-submit">Submit</button>
+    </form>
   </div>
-
-  </form>
-</div>
 </template>
 
 <script>
-import RecipeService from '../services/RecipeService';
-import InstructionService from '../services/InstructionService';
-import IngredientsService from '../services/IngredientsService';
+import RecipeService from "../services/RecipeService";
+import InstructionService from "../services/InstructionService";
+import IngredientsService from "../services/IngredientsService";
 export default {
-    data() {
-     return {
-        // isLoading: true,
-         recipeId : -1,
-         recipe : {},
-         instructions: [],
-         ingredients: [],
-         selectedIngredients: [],
-         allIngredients: [],
-        
-        
+  data() {
+    return {
+      // isLoading: true,
+      recipeId: -1,
+      recipe: {},
+      instructions: [],
+      ingredients: [],
+      selectedIngredients: [],
+      allIngredients: [],
 
-        userRecipeDTO: {
-          recipe:{
-            recipeName:"",
-            description:""
-          },
+      userRecipeDTO: {
+        recipe: {
+          recipeName: "",
+          description: "",
+        },
         recipeInstructions: [
           {
-          step:0,
-          instruction:""
-          
-        }
-      ]
-        }
-     }
- },
+            step: 0,
+            instruction: "",
+          },
+        ],
+        ingredientIds:[],
+      },
+    };
+  },
 
- created() {
+  created() {
     this.recipeId = this.$route.params.id;
 
     RecipeService.getRecipeByRecipeId(this.recipeId).then((response) => {
       this.userRecipeDTO.recipe = response.data;
-     // this.isLoading = false;
+      // this.isLoading = false;
     });
 
-    
-    IngredientsService.getAllIngredients().then(
-      (response) => {
-        if(response.status===200) {
-          this.allIngredients = response.data;
-        }
+    IngredientsService.getAllIngredients().then((response) => {
+      if (response.status === 200) {
+        this.allIngredients = response.data;
       }
-    );
+    });
 
     InstructionService.getInstructionsByRecipeId(this.$route.params.id).then(
       (response) => {
-        if(response.status===200) {
+        if (response.status === 200) {
           this.userRecipeDTO.recipeInstructions = response.data;
         }
       }
     );
 
-
     RecipeService.getRecipeByRecipeId(this.$route.params.id).then(
       (response) => {
-        if(response.status === 200) {
+        if (response.status === 200) {
           this.recipe = response.data;
         }
       }
     );
     IngredientsService.getIngredientsByRecipeId(this.$route.params.id).then(
       (response) => {
-        if(response.status === 200) {
+        if (response.status === 200) {
           this.ingredients = response.data;
         }
       }
     );
-    
   },
- 
-  
-  methods : {
 
+  methods: {
     submitForms() {
-      InstructionService.addCustomUserRecipe(this.userRecipeDTO).then(
-        (response) => {
-          if(response.status === 201) {
+      RecipeService.addCustomUserRecipe(this.userRecipeDTO)
+        .then((response) => {
+          if (response.status === 201) {
             this.$router.push(`/customRecipes`);
             //add instruction
           }
-        }
-      ).catch((error) => {
-          console.error('Error adding recipe:', error);
+        })
+        .catch((error) => {
+          console.error("Error adding recipe:", error);
         });
-      
     },
 
     addInstructions(recipeId) {
       // Prepare instructions data to be added
-      const instructionsData = this.userRecipeDTO.recipeInstructions.map((instruction) => ({
-        step: instruction.step,
-        instruction: instruction.instruction,
-        recipeId: recipeId
-      }));
+      const instructionsData = this.userRecipeDTO.recipeInstructions.map(
+        (instruction) => ({
+          step: instruction.step,
+          instruction: instruction.instruction,
+          recipeId: recipeId,
+        })
+      );
 
       // Add instructions using InstructionService
       InstructionService.addInstructions(instructionsData)
         .then((response) => {
           if (response.status === 201) {
-            this.$router.push(`/customRecipes`);
+            console.log("success")
           }
         })
         .catch((error) => {
-          console.error('Error adding instructions:', error);
+          console.error("Error adding instructions:", error);
         });
     },
 
     addStep() {
       const newInstruction = {
-        step : '',
-        instruction: ''
+        step: "",
+        instruction: "",
       };
       this.userRecipeDTO.recipeInstructions.push(newInstruction);
     },
 
-    //add, remove, create ingredient
-    
-    
+    // add, remove, create ingredient
+    addIngredient(event) {
+      const ingredientName = event.target.value;
+      const ingredient = this.allIngredients.find(
+        (ing) => ing.ingredientName === ingredientName
+      );
+      if (ingredient) {
+        this.ingredients.push({ ...ingredient, quantity: "" });
+      }
+      event.target.value = "";
+    },
 
-
-
-
+//     addNewIngredientToRecipe(selectedIngredient) {
+//   console.log("Selected Ingredient:", selectedIngredient);
+//   const newIngredientId = selectedIngredient.ingredientId;
+//   console.log("New Ingredient ID:", newIngredientId);
+//   this.userRecipeDTO.ingredientIds.push(newIngredientId);
+//   console.log("User Recipe DTO:", this.userRecipeDTO);
+// },
 
   }
-  }
-
-
-
+};
 </script>
 
 <style scoped>
@@ -277,10 +288,7 @@ export default {
   border: 1px solid black;
   border-radius: 10px;
   background-color: pink;
- 
 }
-
-
 
 .container {
   border: 2px solid black;
@@ -291,12 +299,10 @@ export default {
 
 #recipeName {
   background-color: pink;
-
 }
 
 #description {
   background-color: pink;
-  
 }
 
 #step {
@@ -306,7 +312,7 @@ export default {
 
 #instruction {
   background-color: pink;
-  padding-bottom:20px;
+  padding-bottom: 20px;
 }
 
 .instructionText {
@@ -316,7 +322,6 @@ export default {
 .stepText {
   background-color: pink;
   max-width: 20px;
-  
 }
 textarea {
   width: 200px;
@@ -324,43 +329,34 @@ textarea {
 }
 
 @media only screen and (max-width: 600px) {
- 
-.form-group {
-  border-bottom: 2px dotted black;
-  padding: 5px;
-  
-  
-}
-.instructionCard {
-  border-bottom: 2px dotted black;
-  padding: 5px;
-  
-}
-textarea {
-  font-size: 16px;
-}
+  .form-group {
+    border-bottom: 2px dotted black;
+    padding: 5px;
+  }
+  .instructionCard {
+    border-bottom: 2px dotted black;
+    padding: 5px;
+  }
+  textarea {
+    font-size: 16px;
+  }
 
-.container {
-  font-size: 18px;
-}
+  .container {
+    font-size: 18px;
+  }
 
-#recipeName {
-  font-size: 16px;
-  
-}
+  #recipeName {
+    font-size: 16px;
+  }
 
-#description {
-  font-size: 16px;
-  
+  #description {
+    font-size: 16px;
+  }
+  #step {
+    font-size: 16px;
+  }
+  .stepText {
+    font-size: 16px;
+  }
 }
-#step {
-  font-size: 16px;
-}
-.stepText{
-  font-size: 16px;
-}
-
-}
-
-
 </style>

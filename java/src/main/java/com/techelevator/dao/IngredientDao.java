@@ -9,6 +9,7 @@ public interface IngredientDao {
     public List<Ingredient> getIngredientsByRecipeId(int recipeId);
     public Ingredient getIngredientByIngredientId(int ingredientId);
     public List<Ingredient> getAllIngredients();
+    public boolean deleteIngredientFromRecipeIngredients( int recipeId,int ingredientId, int userId);
 
 
 }

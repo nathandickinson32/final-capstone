@@ -6,10 +6,24 @@ public class UserRecipeDTO {
 
     private Recipe recipe;
     private List<RecipeInstruction> recipeInstructions;
+    private List <Integer> ingredientIds;
 
     public Recipe getRecipe() {
         return recipe;
     }
+
+    public List<Integer> getIngredientIds() {
+        return ingredientIds;
+    }
+
+    public void setIngredientIds(List<Integer> ingredientIds) {
+        this.ingredientIds = ingredientIds;
+    }
+
+    public void setRecipeInstructions(List<RecipeInstruction> recipeInstructions) {
+        this.recipeInstructions = recipeInstructions;
+    }
+
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
