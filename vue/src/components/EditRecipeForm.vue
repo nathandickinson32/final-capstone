@@ -154,7 +154,7 @@
         </a>
         <div v-show="showForm === true">
           <label for="ingredientName">New Ingredient Name</label>
-          <input type="text" v-model="newIngredient.ingredientName" />
+          <input id="ingredientText" type="text" v-model="newIngredient.ingredientName" />
           <br>
           <br>
           <button class="add-btn" v-on:click.prevent="addNewIngredient">
@@ -380,6 +380,9 @@ button {
   padding-bottom: 5px;
   background-color: rgb(127, 170, 127);
   margin-top: 10px;
+}
+#ingredientText {
+  background-color: pink;
 }
 
 #recipeName {
