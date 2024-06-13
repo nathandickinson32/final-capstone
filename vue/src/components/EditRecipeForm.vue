@@ -113,7 +113,7 @@
           />
           <input
             :id="'ingredientName-' + index + '-numerator'"
-            type="text" v-model="ingredient.numerator"
+            type="text" v-model="ingredients[index].numerator"
           />
           <a
           id="show-fraction-button"
@@ -126,7 +126,7 @@
           <div v-show="showFraction === true">
             <input
               :id="'ingredientName-' + index + '-denominator'"
-              type="text" v-model="ingredient.denominator"
+              type="text" v-model="ingredients[index].denominator"
             />
           </div>
           
@@ -243,6 +243,7 @@ export default {
       showForm: false,
       allMeasurements: [],
 
+
       userRecipeDTO: {
         recipe: {
           recipeName: "",
@@ -256,7 +257,17 @@ export default {
         ],
         ingredientIds: [],
 
-        newIngredients: []
+        ingredients:
+   [
+    {
+         "ingredientId": "",
+     "numerator": "",
+     "denominator": "",
+     "measurementType" : ""
+     }
+     
+    ]
+
       },
     };
   },
@@ -295,7 +306,7 @@ export default {
         if (response.status === 200) {
           this.ingredients = response.data;
           this.ingredients.forEach((ingredient) => {
-            this.userRecipeDTO.ingredientIds.push(ingredient.ingredientId);
+            this.userRecipeDTO.ingredients.push(ingredient);
           });
         }
       }

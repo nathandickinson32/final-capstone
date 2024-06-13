@@ -250,15 +250,16 @@ public class JdbcRecipeDao implements RecipeDao {
             }
         }
 
-<<<<<<< HEAD
+
         String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id, numerator,denominator,measurement_type) VALUES (?, ?, ?, ?, ?) RETURNING ingredient_id";
-=======
-        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id, numerator, denominator,) VALUES (?, ?) RETURNING ingredient_id";
->>>>>>> dc1389c5f7f5b141a2859347fad72ac7c0b282c5
+
             int returnId=-1;
 
         for( Ingredient ingredient: ingredients)
             try {
+                if(ingredient.getDenominator()==0 || ingredient.getDenominator()<1){
+                    ingredient.setDenominator(1);
+                }
 
               returnId= template.queryForObject(sql3, Integer.class,
 
