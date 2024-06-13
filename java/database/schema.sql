@@ -50,10 +50,11 @@ CONSTRAINT PK_ingredients PRIMARY KEY(ingredient_id)
 );
 
 CREATE TABLE recipe_ingredients (
-recipe_ing_id SERIAL,
 recipe_id int NOT NULL,
 ingredient_id int NOT NULL,
-CONSTRAINT PK_recipe_ingredient PRIMARY KEY (recipe_ing_id),
+numerator int,
+denominator int,
+measurement_type varchar,
 CONSTRAINT FK_recipe_id FOREIGN KEY(recipe_id) REFERENCES recipe(recipe_id),
 CONSTRAINT FK_ingredient_id FOREIGN KEY(ingredient_id) REFERENCES ingredients(ingredient_id)
 );
@@ -76,15 +77,6 @@ CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)
 
 CREATE TABLE measurements (
 measurement_type varchar NOT NULL UNIQUE
-);
-
-CREATE TABLE ingredients_measurements (
-combo_id int NOT NULL,
-numerator int NOT NULL,
-denominator int,
-measurement_type varchar NOT NULL,
-CONSTRAINT FK_recipe_ingredient_id FOREIGN KEY(combo_id) REFERENCES recipe_ingredients(recipe_ing_id),
-CONSTRAINT FK_measurement_type FOREIGN KEY(measurement_type) REFERENCES measurements(measurement_type)
 );
 
 CREATE TABLE ingredients_users (

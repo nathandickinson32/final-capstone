@@ -25,10 +25,9 @@ public class JdbcIngredientDao implements IngredientDao {
     @Override
     public List<Ingredient> getIngredientsByRecipeId(int recipeId) {
         List<Ingredient> ingredients = new ArrayList<>();
-        String sql = "SELECT ingredients.ingredient_id, ingredient_name FROM ingredients " +
+        String sql = "SELECT ingredients.ingredient_id, ingredient_name, numerator, denominator, measurement_type FROM ingredients " +
                 "JOIN recipe_ingredients ON ingredients.ingredient_id = recipe_ingredients.ingredient_id " +
                 "WHERE  recipe_ingredients.recipe_id = ?;";
-
 
         try {
             SqlRowSet results = template.queryForRowSet(sql, recipeId);
@@ -37,12 +36,14 @@ public class JdbcIngredientDao implements IngredientDao {
                 Ingredient ingredient = new Ingredient();
                 ingredient.setIngredientId(results.getInt("ingredient_id"));
                 ingredient.setIngredientName(results.getString("ingredient_name"));
+                ingredient.setNumerator(results.getInt("numerator"));
 
-//                int denominator = results.getInt("denominator");
-//                if (!results.wasNull()) {
-//                    ingredient.setDenominator(denominator);
-//                }
+                int denominator = results.getInt("denominator");
+                if (denominator > 0) {
+                    ingredient.setDenominator(denominator);
+                }
 
+                ingredient.setMeasurementType(results.getString("measurement_type"));
                 ingredients.add(ingredient);
 
             }
