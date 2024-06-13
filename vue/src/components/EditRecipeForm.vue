@@ -6,10 +6,15 @@
 
     <!-- {{ ingredients }}
     {{ allIngredients }} -->
-    {{ this.userRecipeDTO.ingredientIds }} <br>
+        <!-- {{ this.userRecipeDTO.ingredientIds }} <br>
     {{ this.newIngredient }}
     <br> <br>
-    {{ this.ingredients }}
+    {{ this.ingredients }} -->
+    <hr id="separator">
+    <hr id="separator">
+    <label id="editInstructionsLabel">Edit Instructions</label>
+    <hr id="separator">
+
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -50,7 +55,8 @@
 
         <label :for="'instruction-' + index">
           Instruction
-          {{ userRecipeDTO.recipeInstructions[index].instruction }}</label
+          <!-- {{ userRecipeDTO.recipeInstructions[index].instruction }} -->
+          </label
         >
         <textarea
           class="instructionText"
@@ -84,6 +90,11 @@
         <button class="add-btn" v-on:click.prevent="addStep">
           Add Instruction
         </button>
+        <hr id="separator">
+        <hr id="separator">
+        <hr id="separator">
+        <label id="editIngredientsLabel">Edit Ingredients</label>
+        <hr id="separator">
 
         <div
           v-for="(ingredient, index) in ingredients"
@@ -100,6 +111,46 @@
             v-model="selectedIngredients"
             readonly
           />
+          <input
+            :id="'ingredientName-' + index + '-numerator'"
+            type="text" v-model="ingredient.numerator"
+          />
+          <a
+          id="show-fraction-button"
+          href="#"
+          v-on:click.prevent="showFraction = true"
+          v-if="showFraction === false"
+          >
+            Fraction?
+          </a>
+          <div v-show="showFraction === true">
+            <input
+              :id="'ingredientName-' + index + '-denominator'"
+              type="text" v-model="ingredient.denominator"
+            />
+          </div>
+          
+          <div class="dropdown">
+          <label for="measurements"></label>
+          <select
+            name="measurements"
+            id="measurements"
+          >
+            <!-- on:click needs to add ingredient to this.ingredients -->
+            <option value="">-Unit of Measurement-</option>
+            <!-- keep this value empty, select can't be selected -->
+
+            <option
+              v-for="measurement in allMeasurements"
+              :key="measurement.id"
+              :value="measurement.measurementName"
+            >
+              {{ measurement.measurementName }}
+            </option>
+          </select>
+        </div>
+
+          
 
           <!-- {{ selectedIngredients}} -->
           <!-- v-model="ingredients[index].ingredientName" -->
@@ -190,6 +241,7 @@ export default {
         ingredientName: ""
       },
       showForm: false,
+      allMeasurements: [],
 
       userRecipeDTO: {
         recipe: {
@@ -374,6 +426,29 @@ button {
   cursor: pointer;
 }
 
+#editInstructionsLabel {
+  font-family: 'LibreBaskerville';
+  font-size: 30px;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#editIngredientsLabel {
+  font-family: 'LibreBaskerville';
+  font-size: 30px;
+  text-decoration: underline;
+  
+}
+#separator {
+  opacity: 0;
+}
+#show-form-button{
+  font-size: 20px;
+}
+
+
 .container {
   border: 2px solid black;
   border-radius: 25px;
@@ -427,7 +502,7 @@ button {
 
 
 textarea {
-  width: 200px;
+  width: 400px;
   height: 100px;
   font-family: "Montserrat", serif;
   font-size: 20px;
