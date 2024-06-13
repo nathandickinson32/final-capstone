@@ -45,7 +45,7 @@
         </div>
         
         <div v-for='ingredient in ingredients' v-bind:key='ingredient.ingredientId' class='ingredientCard'>
-          <p>{{ ingredient.numerator }}<span v-show="ingredient.denominator !== null && ingredient.denominator !== undefined && ingredient.denominator !== 0" >/{{ ingredient.denominator }}</span>  {{ ingredient.measurementType }} {{ ingredient.ingredientName }}</p>
+          <p>{{ ingredient.numerator }}<span v-show="ingredient.denominator !== null && ingredient.denominator !== undefined && ingredient.denominator > 1" >/{{ ingredient.denominator }}</span>  {{ ingredient.measurementType }} {{ ingredient.ingredientName }}</p>
         </div>
       
       </div>
