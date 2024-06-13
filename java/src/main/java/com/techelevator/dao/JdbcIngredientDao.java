@@ -57,7 +57,7 @@ public class JdbcIngredientDao implements IngredientDao {
 
     public Ingredient getIngredientByIngredientId(int ingredientId) {
         Ingredient ingredient = new Ingredient();
-        String sql = "SELECT * FROM ingredients WHERE ingredient_id = ?;";
+        String sql = "SELECT * FROM ingredients WHERE ingredient_id = ? ORDER BY ingredient_name;";
 
 
         try {
