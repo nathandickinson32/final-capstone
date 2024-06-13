@@ -114,6 +114,7 @@
             Fraction?
           </a>
           <div v-show="showFraction === true">
+            <label for="ingredientName">New Ingredient Name</label>
             <input
               :id="'ingredientName-' + index + '-denominator'"
               type="text" v-model="ingredient.denominator"
