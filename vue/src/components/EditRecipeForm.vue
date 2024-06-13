@@ -101,6 +101,46 @@
             v-model="selectedIngredients"
             readonly
           />
+          <input
+            :id="'ingredientName-' + index + '-numerator'"
+            type="text" v-model="ingredient.numerator"
+          />
+          <a
+          id="show-fraction-button"
+          href="#"
+          v-on:click.prevent="showFraction = true"
+          v-if="showFraction === false"
+          >
+            Fraction?
+          </a>
+          <div v-show="showFraction === true">
+            <input
+              :id="'ingredientName-' + index + '-denominator'"
+              type="text" v-model="ingredient.denominator"
+            />
+          </div>
+          
+          <div class="dropdown">
+          <label for="measurements"></label>
+          <select
+            name="measurements"
+            id="measurements"
+          >
+            <!-- on:click needs to add ingredient to this.ingredients -->
+            <option value="">-Unit of Measurement-</option>
+            <!-- keep this value empty, select can't be selected -->
+
+            <option
+              v-for="measurement in allMeasurements"
+              :key="measurement.id"
+              :value="measurement.measurementName"
+            >
+              {{ measurement.measurementName }}
+            </option>
+          </select>
+        </div>
+
+          
 
           <!-- {{ selectedIngredients}} -->
           <!-- v-model="ingredients[index].ingredientName" -->
@@ -191,6 +231,7 @@ export default {
         ingredientName: ""
       },
       showForm: false,
+      allMeasurements: [],
 
       userRecipeDTO: {
         recipe: {
