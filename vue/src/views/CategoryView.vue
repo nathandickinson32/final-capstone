@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 
 .container {
   display: grid;
@@ -199,6 +199,7 @@ div.icon-holder {
   display: grid;
   height: 40px;
   justify-content: end;
+  cursor: pointer;
 }
 
 div.icon {
@@ -235,10 +236,11 @@ div.favorite {
   font-size: 17px;
 }
 img {
-    max-height: auto;
-    width: 70%;
+    max-height: 30vh;
+    max-width: 40vw;
     border: 5px solid pink;
     border-radius: 25px;
+    margin-top: 20px;
 }
 
 </style>

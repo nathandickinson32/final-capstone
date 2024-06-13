@@ -180,6 +180,7 @@ mounted() {
   margin-top: auto;
   margin-bottom: auto;
   
+  
 }
 
 #categories {
@@ -225,6 +226,7 @@ nav {
   margin-right: 10px;
   position: relative;
   top: -25px;
+  cursor: pointer;
 }
 
 .ham-menu span {

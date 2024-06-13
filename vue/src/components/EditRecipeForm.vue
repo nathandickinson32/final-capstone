@@ -164,7 +164,7 @@
        
 
         <div>
-          <button class="btn btn-submit">Submit</button>
+          <button id="submitbtn" class="btn btn-submit">Submit</button>
         </div>
       </div>
     </form>
@@ -356,6 +356,10 @@ export default {
   background-color: pink;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  cursor: pointer;
+}
+#submitbtn {
+  cursor: pointer;
 }
 
 .container {
@@ -421,6 +425,7 @@ textarea {
   font-size: 18px;
   height: 30px;
   width: 170px;
+  cursor: pointer;
 }
 #allIngredients {
   background-color: pink;
