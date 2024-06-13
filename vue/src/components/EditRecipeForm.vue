@@ -324,11 +324,11 @@ export default {
     removeSelectedIngredient() {
       this.selectedIngredients.forEach((id) => {
         let index = this.ingredients.findIndex(
-          (ingredient) => (ingredient.ingredientId = id)
+          (ingredient) => (ingredient.ingredientId === id)
         );
         this.ingredients.splice(index, 1);
         let index2 = this.userRecipeDTO.ingredientIds.findIndex(
-          (ingredientId) => (ingredientId = id)
+          (ingredientId) => (ingredientId === id)
         );
         this.userRecipeDTO.ingredientIds.splice(index2, 1);
       });
