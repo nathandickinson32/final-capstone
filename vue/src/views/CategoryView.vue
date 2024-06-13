@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 
 .container {
   display: grid;
@@ -199,6 +199,7 @@ div.icon-holder {
   display: grid;
   height: 40px;
   justify-content: end;
+  cursor: pointer;
 }
 
 div.icon {

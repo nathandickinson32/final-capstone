@@ -379,6 +379,7 @@ div.recipe-name {
 
 #add-to-cart {
   height: 40px;
+
 }
 
 h3, p {
@@ -420,6 +421,7 @@ h1 {
   border-radius: 10px;
   width: 50%;
   height: 45px;
+  cursor: pointer;
 }
 
 #add-to-cart-container {
