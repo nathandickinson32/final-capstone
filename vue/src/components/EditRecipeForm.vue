@@ -1,6 +1,6 @@
 <template>
   
-  <div class="container">
+<div class="container">
     <!-- {{ recipe }}
   {{ instructions }} -->
 
@@ -10,7 +10,10 @@
     {{ this.newIngredient }}
     <br> <br>
     {{ this.ingredients }} -->
-
+    <hr id="separator">
+    <hr id="separator">
+    <label id="editInstructionsLabel">Edit Instructions</label>
+    <hr id="separator">
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
         <label for="recipeName">Recipe Name:</label>
@@ -85,7 +88,11 @@
         <button class="add-btn" v-on:click.prevent="addStep">
           Add Instruction
         </button>
-
+        <hr id="separator">
+        <hr id="separator">
+        <hr id="separator">
+        <label id="editIngredientsLabel">Edit Ingredients</label>
+        <hr id="separator">
         <div
           v-for="(ingredient, index) in ingredients"
           :key="ingredient.ingredientId"
@@ -170,7 +177,7 @@
         </div>
       </div>
     </form>
-  </div>
+</div>
 </template>
 
 <script>
@@ -375,6 +382,28 @@ button {
   cursor: pointer;
 }
 
+#editInstructionsLabel {
+  font-family: 'LibreBaskerville';
+  font-size: 30px;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#editIngredientsLabel {
+  font-family: 'LibreBaskerville';
+  font-size: 30px;
+  text-decoration: underline;
+  
+}
+#separator {
+  opacity: 0;
+}
+#show-form-button{
+  font-size: 20px;
+}
+
 .container {
   border: 2px solid black;
   border-radius: 25px;
@@ -428,7 +457,7 @@ button {
 
 
 textarea {
-  width: 200px;
+  width: 400px;
   height: 100px;
   font-family: "Montserrat", serif;
   font-size: 20px;
