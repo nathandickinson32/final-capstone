@@ -250,7 +250,7 @@ public class JdbcRecipeDao implements RecipeDao {
             }
         }
 
-        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id) VALUES (?, ?) RETURNING ingredient_id";
+        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id, numerator, denominator,) VALUES (?, ?) RETURNING ingredient_id";
             int returnId=-1;
 
         for( Integer ingredientId: ingredientIds)
