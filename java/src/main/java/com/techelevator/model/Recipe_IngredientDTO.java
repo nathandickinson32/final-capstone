@@ -1,9 +1,11 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Recipe_IngredientDTO {
     private int recipeId;
 
-    private int ingredientId;
+    private List<Integer> ingredientIds;
 
     public int getRecipeId() {
         return recipeId;
@@ -13,11 +15,11 @@ public class Recipe_IngredientDTO {
         this.recipeId = recipeId;
     }
 
-    public int getIngredientId() {
-        return ingredientId;
+    public List<Integer> getIngredientIds() {
+        return ingredientIds;
     }
 
-    public void setIngredientId(int ingredientId) {
-        this.ingredientId = ingredientId;
+    public void setIngredientIds(List<Integer> ingredientIds) {
+        this.ingredientIds = ingredientIds;
     }
 }

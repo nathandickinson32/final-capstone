@@ -7,6 +7,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -149,11 +150,12 @@ public class AppController {
         return ingredientDao.getAllIngredients();
     }
 
-    @RequestMapping(path="/remove-ingredient-from-recipe-ingredients/", method = RequestMethod.DELETE)
-    public boolean deleteRecipeFromLibraryById(@RequestBody Recipe_IngredientDTO recipeIngredientDTO, Principal principal) {
+    @RequestMapping(path="/remove-ingredient-from-recipe-ingredients", method = RequestMethod.DELETE)
+    public boolean deleteIngredientFromRecipeIngredients(@RequestBody Recipe_IngredientDTO recipeIngredientDTO) {
 
         int recipeId = recipeIngredientDTO.getRecipeId();
-        int ingredientId = recipeIngredientDTO.getIngredientId();
-        return ingredientDao.deleteIngredientFromRecipeIngredients(recipeId,ingredientId, userDao.getUserIdByUsername(principal.getName()));
+       List <Integer> ingredientIds = recipeIngredientDTO.getIngredientIds();
+        System.out.println(ingredientIds + "  " + recipeId);
+        return ingredientDao.deleteIngredientsFromRecipeIngredients(recipeId,ingredientIds);
     }
 }

@@ -29,7 +29,8 @@
               <h4 class='ingredientName'>{{ ingredient.ingredientName }}</h4>
             </td>
             <td>
-              {{ ingredient.quantity }}
+              <input type='text' id='quantityNum' v-model='ingredient.quantity' />
+              <!-- {{ ingredient.quantity }} -->
             </td>
           </tr>
         </tbody>
@@ -138,9 +139,7 @@ th#th2 {
 }
 
 thead th {
-  
   font-family: 'LibreBaskerville', serif;
-
 }
 
 #th3 {
@@ -157,6 +156,13 @@ td {
 
 h4.ingredientName {
   margin: 2px;
+  font-family: 'Montserrat', serif;
+  font-size: 20px;
+}
+
+#quantityNum {
+  background-color: pink;
+  max-width: 40px;
   font-family: 'Montserrat', serif;
   font-size: 20px;
 }

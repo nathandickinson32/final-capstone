@@ -45,6 +45,7 @@ export default {
 img {
     max-height: auto;
     width: 70%;
+    
 }
 #rndmImage {
     border: 5px solid pink;

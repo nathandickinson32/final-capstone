@@ -77,7 +77,7 @@ public class JdbcIngredientDao implements IngredientDao {
         SqlRowSet results = template.queryForRowSet(sql);
 
         while (results.next()) {
-            Ingredient ingredient =new Ingredient();
+            Ingredient ingredient = new Ingredient();
             ingredient.setIngredientId(results.getInt("ingredient_id"));
             ingredient.setIngredientName(results.getString("ingredient_name"));
 
@@ -86,13 +86,17 @@ public class JdbcIngredientDao implements IngredientDao {
         return ingredients;
     }
 
-    public boolean deleteIngredientFromRecipeIngredients( int recipeId,int ingredientId, int userId){
-        int receiptId = -1;
-        String sql = "DELETE FROM recipe_ingredients WHERE recipe_id = ? AND ingredient_id = ? AND user_id =?;";
+    public boolean deleteIngredientsFromRecipeIngredients(int recipeId, List<Integer> ingredientIds) {
+        String sql = "DELETE FROM recipe_ingredients WHERE recipe_id = ? AND ingredient_id = ? ";
 
         try {
 
-            receiptId = template.update(sql,recipeId ,ingredientId, userId);
+            for (Integer ingredientId : ingredientIds) {
+                template.update(sql, recipeId, ingredientId);
+
+            }
+
+            return true;
 
         } catch (CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
@@ -100,7 +104,7 @@ public class JdbcIngredientDao implements IngredientDao {
             System.out.println("Data problems");
         }
 
-        return receiptId != -1;
+        return false;
     }
 
 }
