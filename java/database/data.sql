@@ -260,7 +260,7 @@ VALUES
 ('Swordfish')
 ;
 
-INSERT INTO recipe_ingredients(recipe_id, ingredient_id, numerator, denominator, measurement_type)
+INSERT INTO recipe_ingredients(recipe_id, ingredient_id)
 VALUES
 (1,121),
 (1,122),
@@ -281,7 +281,7 @@ VALUES
 (3,4),
 (3,76),
 (3,45),
-(3,123 ),
+(3,123),
 (3, 124),
 (3, 125),
 (3, 126),
@@ -308,7 +308,7 @@ VALUES
 (5, 49),
 (5, 44),
 (5, 66),
-(6, 114 ),
+(6, 114),
 (6, 130),
 (6, 45),
 (6, 51),
@@ -506,7 +506,7 @@ VALUES
 
 ;
 INSERT INTO measurements
-VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce');
+VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce'), ('pound'), ('');
 
 --ingredient {
 --    ingredientName : "string",
