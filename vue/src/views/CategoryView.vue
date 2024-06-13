@@ -235,10 +235,11 @@ div.favorite {
   font-size: 17px;
 }
 img {
-    max-height: auto;
-    width: 70%;
+    max-height: 30vh;
+    max-width: 40vw;
     border: 5px solid pink;
     border-radius: 25px;
+    margin-top: 20px;
 }
 
 </style>
