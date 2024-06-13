@@ -201,7 +201,7 @@ export default {
         ],
         ingredientIds: [],
 
-        newIngredients: [],
+        newIngredients: []
       },
     };
   },
