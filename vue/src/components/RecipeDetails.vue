@@ -379,6 +379,7 @@ div.recipe-name {
 
 #add-to-cart {
   height: 40px;
+
 }
 
 h3, p {
