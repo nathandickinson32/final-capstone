@@ -504,8 +504,6 @@ VALUES
 (2, 'Grill the swordfish steaks over high heat (as close to the heat as possible), turning once, until cooked through, 6 to 7 minutes. Transfer the fish to a platter. Prick each fish steak in several places with a fork to allow the sauce to penetrate. Using a spoon, beat the sauce, then drizzle it over the fish.', 20)
 ;
 
-
-
 ;
 INSERT INTO measurements
 VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce');

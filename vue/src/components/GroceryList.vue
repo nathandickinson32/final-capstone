@@ -9,6 +9,7 @@
         <thead>
           <tr>
             <th id='th1'>
+              <label for='selectAll'>Select All</label> <br>
               <input type='checkbox' id='selectAll' @click='toggleAllSelected' v-bind:checked="toDeleteList.length === groceryList.length && groceryList.length > 0"/>
               <!-- <input type="checkbox" id="selectAll" v-on:click="toggleAllSelected" v-bind:checked="toDeleteList.length === groceryList.length && groceryList.length > 0"/> -->
             </th>
@@ -130,6 +131,14 @@ export default {
 table#grocery-tbl {
   margin-bottom: 20px;
   border-spacing: 0px;
+}
+
+#th1 {
+  padding-right: 10px;
+}
+
+.checkbox-col{
+  padding-right: 18px;
 }
 
 th#th2 {
