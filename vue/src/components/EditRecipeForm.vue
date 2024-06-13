@@ -43,7 +43,6 @@
           :id="'step-' + index"
           type="text"
           v-model="userRecipeDTO.recipeInstructions[index].step"
-          
         />
 
         <label :for="'instruction-' + index">
@@ -91,7 +90,7 @@
           <label :for="'ingredientName-' + index"
             >Ingredient {{ ingredients[index].ingredientName }}</label
           >
-          <input 
+          <input
             :id="'ingredientName-' + index"
             type="checkbox"
             :value="ingredient.ingredientId"
@@ -99,7 +98,7 @@
             readonly
           />
 
-          {{ selectedIngredients}}
+          <!-- {{ selectedIngredients}} -->
           <!-- v-model="ingredients[index].ingredientName" -->
         </div>
 
@@ -117,7 +116,10 @@
              
             />
           </td> -->
-        <button id="remove" v-on:click.prevent="removeSelectedIngredient">Remove Ingredients</button>
+        <button id="remove" v-on:click.prevent="removeSelectedIngredient">
+          Remove Ingredients
+        </button>
+
         <div class="dropdown">
           <label for="allIngredients"></label>
           <select
@@ -138,6 +140,26 @@
             </option>
           </select>
         </div>
+
+        <a
+          id="show-form-button"
+          href="#"
+          v-on:click.prevent="showForm = true"
+          v-if="showForm === false"
+        >
+          Don't see your ingredient?
+        </a>
+        <div v-show="showForm === true">
+          <label for="ingredientName">New Ingredient Name</label>
+          <input type="text" v-model="newIngredient.ingredientName" />
+          <br>
+          <br>
+          <button class="add-btn" v-on:click.prevent="addNewIngredient">
+          Add Ingredient
+        </button>
+        </div>
+
+       
 
         <div>
           <button  class="btn btn-submit">Submit</button>
@@ -161,6 +183,10 @@ export default {
       ingredients: [],
       selectedIngredients: [],
       allIngredients: [],
+      newIngredient: {
+        ingredientName: "",
+      },
+      showForm: false,
 
       userRecipeDTO: {
         recipe: {
@@ -174,6 +200,8 @@ export default {
           },
         ],
         ingredientIds: [],
+
+        newIngredients: [],
       },
     };
   },
@@ -264,6 +292,20 @@ export default {
     },
 
     // add, remove, create ingredient
+
+    addNewIngredient() {
+      // const newIngredient = {
+
+      //   ingredientName: ""
+      // }
+      if(this.newIngredient.ingredientName!=""){
+        this.ingredients.push(this.newIngredient);
+      this.userRecipeDTO.newIngredients.push(this.newIngredient);
+      this.showForm = false;
+      this.newIngredient = {
+        ingredientName:""
+      };}
+    },
     addIngredient(event) {
       const ingredientName = event.target.value.trim();
       const ingredient = this.allIngredients.find(
@@ -280,19 +322,19 @@ export default {
     },
 
     removeSelectedIngredient() {
-    this.selectedIngredients.forEach((id) => {
-      let index = this.ingredients.find((ingredient) =>
-      ingredient.ingredientId ===id
-      );
-      this.ingredients.splice(index, 1)
-      let index2 = this.userRecipeDTO.ingredientIds.find((ingredientId) =>
-      ingredientId===id
-      );
-      this.userRecipeDTO.ingredientIds.splice(index2, 1)
-    })
+      this.selectedIngredients.forEach((id) => {
+        let index = this.ingredients.findIndex(
+          (ingredient) => (ingredient.ingredientId = id)
+        );
+        this.ingredients.splice(index, 1);
+        let index2 = this.userRecipeDTO.ingredientIds.findIndex(
+          (ingredientId) => (ingredientId = id)
+        );
+        this.userRecipeDTO.ingredientIds.splice(index2, 1);
+      });
 
-
-    }
+      this.selectedIngredients = [];
+    },
 
     //     addNewIngredientToRecipe(selectedIngredient) {
     //   console.log("Selected Ingredient:", selectedIngredient);
@@ -310,7 +352,7 @@ export default {
   border: 1px solid black;
   border-radius: 10px;
   background-color: pink;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
   cursor: pointer;
 }
@@ -328,39 +370,39 @@ button {
 
 #recipeName {
   background-color: pink;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
 }
 
 #description {
   background-color: pink;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
 }
 
 #step {
   background-color: pink;
   max-width: 20px;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
 }
 
 #instruction {
   background-color: pink;
   padding-bottom: 20px;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
 }
 
 .instructionText {
   background-color: pink;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
 }
 
 .stepText {
   background-color: pink;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
   max-width: 20px;
 }
@@ -370,18 +412,18 @@ button {
 textarea {
   width: 200px;
   height: 100px;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
 }
 .dropdown option {
   background-color: pink;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 18px;
 }
 #remove {
   background-color: pink;
   border-radius: 10px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 18px;
   height: 30px;
   width: 170px;
@@ -389,20 +431,19 @@ textarea {
 }
 #allIngredients {
   background-color: pink;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 18px;
 }
 h2{
-  font-family: 'libreBaskerville';
+  font-family: 'libreBaskerville', serif;
 }
 .ingredientCard {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 20px;
 }
-.ingredientCard input{
+.ingredientCard input {
   background-color: pink;
 }
-
 
 @media only screen and (max-width: 600px) {
   .form-group {
