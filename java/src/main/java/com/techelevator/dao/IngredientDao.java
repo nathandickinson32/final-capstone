@@ -14,5 +14,6 @@ public interface IngredientDao {
     public boolean deleteIngredientsFromRecipeIngredients( int recipeId, List <Integer> ingredientIds);
     public Integer addNewIngredient(IngredientNameDTO nameDTO);
     public List<Measurement> getAllMeasurements();
+    public String addNewMeasurement(Measurement measurement);
 
 }

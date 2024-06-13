@@ -150,4 +150,18 @@ public class JdbcIngredientDao implements IngredientDao {
         return measurements;
     }
 
+    @Override
+    public String addNewMeasurement(Measurement measurement) {
+
+        String sql = "INSERT INTO measurements (measurement_type) VALUES (?) RETURNING measurement_Type";
+        String newMeasurement = "";
+
+
+        newMeasurement = template.queryForObject(sql, String.class,
+                measurement.getMeasurementType());
+
+
+        return newMeasurement;
+    }
+
 }

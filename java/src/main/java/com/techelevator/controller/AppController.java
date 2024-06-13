@@ -170,4 +170,10 @@ public class AppController {
     public List<Measurement> getAllMeasurements() {
         return ingredientDao.getAllMeasurements();
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/add-measurement", method = RequestMethod.POST)
+    public String addMeasurement(@RequestBody Measurement measurement,Principal principal) {
+        return ingredientDao.addNewMeasurement(measurement);
+    }
 }
