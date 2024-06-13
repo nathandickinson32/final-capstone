@@ -199,7 +199,7 @@ div.icon-holder {
   display: grid;
   height: 40px;
   justify-content: end;
-  cursor: pointer;
+  
 }
 #add-to-cart-container{
   margin: 0px;
