@@ -1,7 +1,5 @@
 <template>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+  
   <div class="container">
     <!-- {{ recipe }}
   {{ instructions }} -->
@@ -142,7 +140,7 @@
         </div>
 
         <div>
-          <button id="submitbtn" class="btn btn-submit">Submit</button>
+          <button  class="btn btn-submit">Submit</button>
         </div>
       </div>
     </form>
@@ -316,7 +314,7 @@ export default {
   font-size: 20px;
   cursor: pointer;
 }
-#submitbtn {
+button {
   cursor: pointer;
 }
 
@@ -325,6 +323,7 @@ export default {
   border-radius: 25px;
   padding-bottom: 5px;
   background-color: rgb(127, 170, 127);
+  margin-top: 10px;
 }
 
 #recipeName {
@@ -365,6 +364,9 @@ export default {
   font-size: 20px;
   max-width: 20px;
 }
+
+
+
 textarea {
   width: 200px;
   height: 100px;
