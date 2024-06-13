@@ -474,9 +474,39 @@ VALUES
 (2, 'Bring a large pot of water and 1 tablespoon salt to a boil. Add green bell peppers and cook until slightly softened, 3 to 4 minutes', 12),
 (3, 'Drain bell peppers and arrange cut-side up in a 9x9-inch baking dish', 12),
 (1, 'Stir chickpeas, black beans, tomatoes, red onion, parsley, and mint together in a large bowl', 13),
-(2, 'Whisk lemon juice, olive oil, garlic, cumin, salt, and ground pepper together in a bowl; pour over chickpea mixture and toss to coat. Cover and refrigerate salad until flavors blend, about 30 minutes', 13)
+(2, 'Whisk lemon juice, olive oil, garlic, cumin, salt, and ground pepper together in a bowl; pour over chickpea mixture and toss to coat. Cover and refrigerate salad until flavors blend, about 30 minutes', 13),
+(1, 'Slice, and prepare all of your burger toppings and sauces.', 14),
+(2, 'Spread the cut-side of the bun with softened or melted butter and toast the cut side on a skillet or on the grill until golden brown.', 14),
+(3, 'Preheat grill to medium heat. Divide ground beef into 4 portions and form patties that are about 1/2" thick and 1" wider than the burger buns.', 14),
+(4, 'Grill hamburger patties (indent-side-up) covered for 3-5 min each side on the grill.', 14),
+(1, 'Preheat oven to 400°F. Unwrap 1 dough disk, and roll into a 13-inch round on a lightly floured surface; fit into a 9-inch pie pan. Chill 10 minutes.', 15),
+(2, 'Toss potatoes with parsley, pepper, and remaining 1/4 teaspoon salt. Place bacon in a large skillet, and cook over medium-high, stirring occasionally, until wilted and just browned on edges, about 2 minutes. ', 15),
+(3, 'Arrange half of potato slices in refrigerated pie shell, overlapping slices. Sprinkle evenly with bacon; top with remaining potato slices, overlapping slices. Spread crème fraîche over potatoes, and arrange egg slices on top.', 15),
+(4, 'Unwrap remaining dough disk, and roll into a 10-inch round on a lightly floured surface. Place round on top of pie. Trim edges and fold dough under. Crimp edge as desired. Using the tip of a knife, prick top of pie twice.', 15),
+(1, 'Whisk together 2 cups water and demiglace in a large nonreactive saucepan over medium until demiglace dissolves, about 2 minutes. Stir in wine, tomato, shallots, and bouquet garni.', 16),
+(2, 'Stir together softened butter and flour in a small bowl until smooth to make a beurre manié. Bring reserved wine mixture to a simmer over medium, and gradually whisk in beurre manié.', 16),
+(3, 'To serve, place 1 poached egg on each fried bread round; spoon about 2 1/2 tablespoons wine sauce over each egg. Sprinkle evenly with parsley, and serve with remaining wine sauce.', 16),
+(1, 'Add 1/3 cup kosher salt, 1/3 cup hot paprika, black pepper, garlic powder, onion powder, 2 tablespoons cayenne pepper, thyme and oregano to a bowl and whisk to combine. Set aside Creole seasoning.', 17),
+(2, 'Melt butter in a large skillet over medium-high. Add onion, bell pepper, celery, and garlic. Cook, stirring occasionally, until vegetables are softened but not browned, 5 to 7 minutes.',17),
+(3, 'Add chicken stock, 2 teaspoons Creole seasoning, remaining 1 teaspoon hot paprika, remaining 1/8 teaspoon cayenne, and bay leaves. Stir in scallions, Worcestershire sauce, hot sauce, and remaining 1/2 teaspoon salt; ', 17),
+(4, 'Heat oil in a separate large skillet over medium-high; swirl to coat. Add shrimp; sprinkle with 2 teaspoons Creole seasoning (or to taste), and cook, stirring often, until slightly pink, about 1 minute.', 17),
+(5, 'Add Creole sauce to shrimp; cook, stirring, until shrimp are pink, cooked through, and coated in sauce, 3 to 4 minutes', 17),
+(1, 'Brush inside of baked pie shell with 2 tablespoons apricot preserves.', 18),
+(2, 'Place apples, brown sugar, granulated sugar, cinnamon, nutmeg, and salt in a large bowl; toss to combine. Let stand until apples release about 1/2 cup liquid, 30 minutes to 1 hour. Drain apple liquid into a small, heavy saucepan. Set drained apples aside. Add butter to pan, and bring to a boil', 18),
+(3, 'Toss drained apples with cornstarch. Arrange half of apples on bottom of pie shell; drizzle with half of the reduced apple syrup. Arrange remaining apples in overlapping concentric circles on top, starting from outside and working in; drizzle with remaining apple syrup.', 18),
+(4, 'Cut a round of aluminum foil to fit over top of pie; pull edges of foil up and crimp in 3 or 4 places to create a small dome. Tent pie with foil, and bake in preheated oven until apples are tender when pierced with a paring knife, 1 hour to 1 hour and 15 minutes.', 18),
+(5, 'Remove aluminum foil, and bake until tops of apples are lightly browned, 5 to 8 minutes. Warm remaining apricot preserves, and brush over top of hot pie. Cool pie in pan on a wire rack 30 minutes.', 18),
+(1, 'Place ribs in a large glass baking dish or enameled roasting pan; stir together sake and granulated sugar, and rub on both sides of ribs. Cover and let stand 15 minutes.', 19),
+(2, 'Meanwhile, stir together soy sauce, scallions, garlic, brown sugar, and sesame oil in a medium bowl. Add 1 1/3 cups water, and stir until sugar dissolves. Stir in vegetable oil and pepper. Pour soy mixture over ribs, and turn to coat evenly. Cover and refrigerate 8 hours or overnight. Return ribs to room temperature before cooking.', 19),
+(3, 'Open bottom and top vents of a charcoal grill completely. Light a charcoal chimney starter filled with briquettes. When briquettes are covered with gray ash, pour onto bottom grate of grill, and then push to one side of grill. Working in batches, place ribs on oiled grates directly over coals, and grill, uncovered, until meat is seared, 1 to 2 minutes per side. ', 19),
+(4, ' Transfer ribs to side of grill without coals, and grill, uncovered, until tender, about 5 minutes per side. Remove from grill, and repeat procedure with remaining ribs. (Alternatively, preheat broiler with oven rack 3 inches from heat; broil ribs until browned and ribs reach desired degree of doneness, 2 to 3 minutes per side for medium-well.', 19),
+(1, 'Light a grill or preheat the broiler. In a small bowl, mix the lemon juice with the salt until the salt dissolves. Stir in the oregano. Slowly whisk in the olive oil and season generously with pepper.', 20),
+(2, 'Grill the swordfish steaks over high heat (as close to the heat as possible), turning once, until cooked through, 6 to 7 minutes. Transfer the fish to a platter. Prick each fish steak in several places with a fork to allow the sauce to penetrate. Using a spoon, beat the sauce, then drizzle it over the fish.', 20)
 ;
 
+
+
+;
 INSERT INTO measurements
 VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce');
 

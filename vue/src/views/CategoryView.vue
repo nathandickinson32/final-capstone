@@ -3,27 +3,27 @@
     
     <back-button/>
     <div v-for='recipe in recipes' v-bind:key='recipe.recipeId' class='recipeCard'>
-      <!--<RandomImage  id="randomImage" />-->
-      <img v-if="recipe.recipeId == 1" src="/public/sausageballs.webp"/>
-      <img v-if="recipe.recipeId == 2" src="/public/moussemiddle-1-of-1.webp"/>
-      <img v-if="recipe.recipeId == 3" src="/public/img_4961-copy.webp"/>
-      <img v-if="recipe.recipeId == 4" src="/public/pexels-h-a-m-e-official-1493053-4728230.jpg"/>
-      <img v-if="recipe.recipeId == 5" src="/public/pexels-enginakyurt-1552635.jpg"/>
-      <img v-if="recipe.recipeId == 6" src="/public/pexels-adrian-dorobantu-989175-2300034.jpg"/>
-      <img v-if="recipe.recipeId == 7" src="/public/pexels-jaulani7-2765875.jpg"/>
-      <img v-if="recipe.recipeId == 8" src="/public/pasta-salad.jpg"/>
-      <img v-if="recipe.recipeId == 9" src="/public/garlic-noodles.jpg"/>
-      <img v-if="recipe.recipeId == 10" src="/public/brekky-bar.jpg"/>
-      <img v-if="recipe.recipeId == 11" src="/public/tiramisu.jpg"/>
-      <img v-if="recipe.recipeId == 12" src="/public/pexels-dacapture-19359972.jpg"/>
-      <img v-if="recipe.recipeId == 13" src="/public/pexels-sude-akpinar-48866908-13803825.jpg"/>
-      <img v-if="recipe.recipeId == 14" src="/public/pexels-valeriya-1639557.jpg"/>
-      <img v-if="recipe.recipeId == 15" src="/public/pexels-ofir-eliav-2397652-6806028.jpg"/>
-      <img v-if="recipe.recipeId == 16" src="/public/pexels-kyleroxas-2122294.jpg"/>
-      <img v-if="recipe.recipeId == 17" src="/public/pexels-elletakesphotos-1483780.jpg"/>
-      <img v-if="recipe.recipeId == 18" src="/public/pexels-adana-eisagholian-1093385826-20666398.jpg"/>
-      <img v-if="recipe.recipeId == 19" src="/public/pexels-george-piskov-289673052-15047513.jpg"/>
-      <img v-if="recipe.recipeId == 20" src="/public/pexels-valeriya-7474366.jpg"/>
+      
+      <img class="cowpasture" v-if="recipe.recipeId == 1" src="/public/sausageballs.webp"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 2" src="/public/moussemiddle-1-of-1.webp"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 3" src="/public/img_4961-copy.webp"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 4" src="/public/pexels-h-a-m-e-official-1493053-4728230.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 5" src="/public/pexels-enginakyurt-1552635.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 6" src="/public/pexels-adrian-dorobantu-989175-2300034.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 7" src="/public/pexels-jaulani7-2765875.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 8" src="/public/pasta-salad.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 9" src="/public/garlic-noodles.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 10" src="/public/brekky-bar.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 11" src="/public/tiramisu.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 12" src="/public/pexels-dacapture-19359972.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 13" src="/public/pexels-sude-akpinar-48866908-13803825.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 14" src="/public/pexels-valeriya-1639557.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 15" src="/public/pexels-ofir-eliav-2397652-6806028.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 16" src="/public/pexels-kyleroxas-2122294.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 17" src="/public/pexels-elletakesphotos-1483780.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 18" src="/public/pexels-adana-eisagholian-1093385826-20666398.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 19" src="/public/pexels-george-piskov-289673052-15047513.jpg"/>
+      <img class="cowpasture" v-if="recipe.recipeId == 20" src="/public/pexels-valeriya-7474366.jpg"/>
       <div class='recipe icon-holder'>
         <div v-on:click="favoriteUnfavorite(recipe.recipeId)" class='recipe icon' v-bind:class="this.idLibrary.includes(recipe.recipeId) ? 'favorite' : 'unfavorite'" v-show="this.$store.state.token != ''">
         </div>
@@ -52,12 +52,12 @@
 <script>
 import BackButton from '../components/BackButton.vue';
 import RecipeService from "../services/RecipeService";
-import RandomImage from '../components/RandomImage.vue';
+
 
 export default {
   components: {
     BackButton,
-    RandomImage
+    
   },
   data() {
     return {
@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 
 .container {
   display: grid;
@@ -201,6 +201,12 @@ div.icon-holder {
   justify-content: end;
   cursor: pointer;
 }
+#add-to-cart-container{
+  margin: 0px;
+}
+#add-to-cart{
+  margin:-5px;
+}
 
 div.icon {
   width: 50px;
@@ -235,7 +241,7 @@ div.favorite {
   font-family: 'Montserrat', serif;
   font-size: 17px;
 }
-img {
+.cowpasture {
     max-height: 30vh;
     max-width: 40vw;
     border: 5px solid pink;
