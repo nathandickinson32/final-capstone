@@ -165,4 +165,9 @@ public class AppController {
         System.out.println(ingredientIds + "  " + recipeId);
         return ingredientDao.deleteIngredientsFromRecipeIngredients(recipeId,ingredientIds);
     }
+
+    @RequestMapping(path="/get-measurements", method = RequestMethod.GET)
+    public List<Measurement> getAllMeasurements() {
+        return ingredientDao.getAllMeasurements();
+    }
 }

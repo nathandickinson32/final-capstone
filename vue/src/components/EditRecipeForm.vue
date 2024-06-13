@@ -131,10 +131,10 @@
           </div>
           
           <div class="dropdown">
-          <label for="measurements"></label>
+          <label for="allMeasurements"></label>
           <select
-            name="measurements"
-            id="measurements"
+            name="allMeasurements"
+            id="allMeasurements"
           >
             <!-- on:click needs to add ingredient to this.ingredients -->
             <option value="">-Unit of Measurement-</option>
@@ -143,9 +143,9 @@
             <option
               v-for="measurement in allMeasurements"
               :key="measurement.id"
-              :value="measurement.measurementName"
+              :value="measurement.measurementType"
             >
-              {{ measurement.measurementName }}
+              {{ measurement.measurementType }}
             </option>
           </select>
         </div>
@@ -274,6 +274,12 @@ export default {
 
   created() {
     this.recipeId = this.$route.params.id;
+
+    IngredientsService.getAllMeasurements().then((response) => {
+      if (response.status === 200) {
+        this.allMeasurements = response.data;
+      }
+    });
 
     RecipeService.getRecipeByRecipeId(this.recipeId).then((response) => {
       this.userRecipeDTO.recipe = response.data;
