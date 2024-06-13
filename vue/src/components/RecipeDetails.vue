@@ -420,6 +420,7 @@ h1 {
   border-radius: 10px;
   width: 50%;
   height: 45px;
+  cursor: pointer;
 }
 
 #add-to-cart-container {

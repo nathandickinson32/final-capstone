@@ -43,5 +43,6 @@ export default {
   margin-bottom: auto;
   font-family: 'Montserrat', serif;
   font-size: 20px;
+  cursor: pointer;
 }
 </style>
