@@ -6,6 +6,10 @@ export default {
         return axios.get('/get-ingredients');
     },
 
+    getAllMeasurements() {
+        return axios.get('/get-measurements');
+    },
+
     getIngredientsByRecipeId(recipeId) {
         return axios.get(`/get-ingredients-by-recipe-id/${recipeId}`);
     },

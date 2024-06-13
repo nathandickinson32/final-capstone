@@ -148,7 +148,8 @@ public class AppController {
         Recipe recipe = userRecipeDTO.getRecipe();
         List <RecipeInstruction> recipeInstructions = userRecipeDTO.getRecipeInstructions();
         List <Integer> ingredientIds = userRecipeDTO.getIngredientIds();
-        return recipeDao.addNewUserRecipe(recipe, recipeInstructions,ingredientIds, userDao.getUserIdByUsername(principal.getName()));
+        List<Ingredient> ingredients = userRecipeDTO.getIngredients();
+        return recipeDao.addNewUserRecipe(recipe, recipeInstructions,ingredientIds,ingredients, userDao.getUserIdByUsername(principal.getName()));
     }
 
     @RequestMapping(path="/get-ingredients", method = RequestMethod.GET)
@@ -163,5 +164,10 @@ public class AppController {
        List <Integer> ingredientIds = recipeIngredientDTO.getIngredientIds();
         System.out.println(ingredientIds + "  " + recipeId);
         return ingredientDao.deleteIngredientsFromRecipeIngredients(recipeId,ingredientIds);
+    }
+
+    @RequestMapping(path="/get-measurements", method = RequestMethod.GET)
+    public List<Measurement> getAllMeasurements() {
+        return ingredientDao.getAllMeasurements();
     }
 }

@@ -7,6 +7,8 @@ public class Recipe_IngredientDTO {
 
     private List<Integer> ingredientIds;
 
+
+
     public int getRecipeId() {
         return recipeId;
     }

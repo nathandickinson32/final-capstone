@@ -13,6 +13,14 @@ public class UserRecipeDTO {
         return recipe;
     }
 
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public List<Integer> getIngredientIds() {
         return ingredientIds;
     }

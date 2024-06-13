@@ -6,10 +6,15 @@
 
     <!-- {{ ingredients }}
     {{ allIngredients }} -->
-    <!-- {{ this.userRecipeDTO.ingredientIds }} <br>
+        <!-- {{ this.userRecipeDTO.ingredientIds }} <br>
     {{ this.newIngredient }}
     <br> <br>
     {{ this.ingredients }} -->
+    <hr id="separator">
+    <hr id="separator">
+    <label id="editInstructionsLabel">Edit Instructions</label>
+    <hr id="separator">
+
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -85,6 +90,11 @@
         <button class="add-btn" v-on:click.prevent="addStep">
           Add Instruction
         </button>
+        <hr id="separator">
+        <hr id="separator">
+        <hr id="separator">
+        <label id="editIngredientsLabel">Edit Ingredients</label>
+        <hr id="separator">
 
         <div
           v-for="(ingredient, index) in ingredients"
@@ -103,7 +113,7 @@
           />
           <input
             :id="'ingredientName-' + index + '-numerator'"
-            type="text" v-model="ingredient.numerator"
+            type="text" v-model="ingredients[index].numerator"
           />
           <a
           id="show-fraction-button"
@@ -117,15 +127,15 @@
             <label for="ingredientName">New Ingredient Name</label>
             <input
               :id="'ingredientName-' + index + '-denominator'"
-              type="text" v-model="ingredient.denominator"
+              type="text" v-model="ingredients[index].denominator"
             />
           </div>
           
           <div class="dropdown">
-          <label for="measurements"></label>
+          <label for="allMeasurements"></label>
           <select
-            name="measurements"
-            id="measurements"
+            name="allMeasurements"
+            id="allMeasurements"
           >
             <!-- on:click needs to add ingredient to this.ingredients -->
             <option value="">-Unit of Measurement-</option>
@@ -134,9 +144,9 @@
             <option
               v-for="measurement in allMeasurements"
               :key="measurement.id"
-              :value="measurement.measurementName"
+              :value="measurement.measurementType"
             >
-              {{ measurement.measurementName }}
+              {{ measurement.measurementType }}
             </option>
           </select>
         </div>
@@ -234,6 +244,7 @@ export default {
       showForm: false,
       allMeasurements: [],
 
+
       userRecipeDTO: {
         recipe: {
           recipeName: "",
@@ -247,13 +258,29 @@ export default {
         ],
         ingredientIds: [],
 
-        newIngredients: []
+        ingredients:
+   [
+    {
+         "ingredientId": "",
+     "numerator": "",
+     "denominator": "",
+     "measurementType" : ""
+     }
+     
+    ]
+
       },
     };
   },
 
   created() {
     this.recipeId = this.$route.params.id;
+
+    IngredientsService.getAllMeasurements().then((response) => {
+      if (response.status === 200) {
+        this.allMeasurements = response.data;
+      }
+    });
 
     RecipeService.getRecipeByRecipeId(this.recipeId).then((response) => {
       this.userRecipeDTO.recipe = response.data;
@@ -286,7 +313,7 @@ export default {
         if (response.status === 200) {
           this.ingredients = response.data;
           this.ingredients.forEach((ingredient) => {
-            this.userRecipeDTO.ingredientIds.push(ingredient.ingredientId);
+            this.userRecipeDTO.ingredients.push(ingredient);
           });
         }
       }
@@ -417,6 +444,32 @@ button {
   cursor: pointer;
 }
 
+#editInstructionsLabel {
+  font-family: 'LibreBaskerville';
+  font-size: 30px;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#editIngredientsLabel {
+  font-family: 'LibreBaskerville';
+  font-size: 30px;
+  text-decoration: underline;
+  
+}
+#separator {
+  opacity: 0;
+}
+#show-form-button{
+  font-size: 20px;
+}
+#measurements {
+  background-color: pink;
+}
+
+
 .container {
   border: 2px solid black;
   border-radius: 25px;
@@ -470,7 +523,7 @@ button {
 
 
 textarea {
-  width: 200px;
+  width: 400px;
   height: 100px;
   font-family: "Montserrat", serif;
   font-size: 20px;

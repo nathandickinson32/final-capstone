@@ -1,9 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Ingredient;
-import com.techelevator.model.IngredientNameDTO;
-import com.techelevator.model.Recipe;
-import com.techelevator.model.RecipeInstruction;
+import com.techelevator.model.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -134,6 +131,23 @@ public class JdbcIngredientDao implements IngredientDao {
 //        }
 
         return newIngredientId;
+    }
+
+    public List<Measurement> getAllMeasurements() {
+
+        List<Measurement> measurements = new ArrayList<>();
+        String sql = "SELECT * FROM measurements;";
+
+        SqlRowSet results = template.queryForRowSet(sql);
+
+        while (results.next()) {
+            Measurement measurement = new Measurement();
+
+            measurement.setMeasurementType(results.getString("measurement_type"));
+
+            measurements.add(measurement);
+        }
+        return measurements;
     }
 
 }
