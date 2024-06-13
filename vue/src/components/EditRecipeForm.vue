@@ -6,10 +6,10 @@
 
     <!-- {{ ingredients }}
     {{ allIngredients }} -->
-    {{ this.userRecipeDTO.ingredientIds }} <br>
+    <!-- {{ this.userRecipeDTO.ingredientIds }} <br>
     {{ this.newIngredient }}
     <br> <br>
-    {{ this.ingredients }}
+    {{ this.ingredients }} -->
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -50,7 +50,8 @@
 
         <label :for="'instruction-' + index">
           Instruction
-          {{ userRecipeDTO.recipeInstructions[index].instruction }}</label
+          <!-- {{ userRecipeDTO.recipeInstructions[index].instruction }} -->
+          </label
         >
         <textarea
           class="instructionText"
