@@ -173,6 +173,7 @@ h4.ingredientName {
   border: 1px solid;
   border-color: black;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .top-btn {

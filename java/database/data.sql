@@ -510,7 +510,7 @@ VALUES
 INSERT INTO measurements
 VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce');
 
-INSERT INTO ingredients_measurements (ingredient_id, numerator, measurement_type)
-VALUES (2, 1, 'cup');
+INSERT INTO ingredients_measurements (combo_id, numerator, measurement_type)
+VALUES (1, 1, 'cup');
 
 COMMIT TRANSACTION;

@@ -41,16 +41,8 @@ export default {
 };
 </script>
 
-<style scoped>
-img {
-    max-height: auto;
-    width: 70%;
-    
-}
-#rndmImage {
-    border: 5px solid pink;
-    border-radius: 25px;
-}
+<style>
+
 
 
 </style>

@@ -37,6 +37,12 @@ public class JdbcIngredientDao implements IngredientDao {
                 Ingredient ingredient = new Ingredient();
                 ingredient.setIngredientId(results.getInt("ingredient_id"));
                 ingredient.setIngredientName(results.getString("ingredient_name"));
+
+//                int denominator = results.getInt("denominator");
+//                if (!results.wasNull()) {
+//                    ingredient.setDenominator(denominator);
+//                }
+
                 ingredients.add(ingredient);
 
             }

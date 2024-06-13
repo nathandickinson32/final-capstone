@@ -1,7 +1,5 @@
 <template>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+  
 <div>
 <div class="home">
   
@@ -180,6 +178,7 @@ mounted() {
   margin-top: auto;
   margin-bottom: auto;
   
+  
 }
 
 #categories {
@@ -225,6 +224,7 @@ nav {
   margin-right: 10px;
   position: relative;
   top: -25px;
+  cursor: pointer;
 }
 
 .ham-menu span {
