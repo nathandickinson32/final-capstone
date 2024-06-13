@@ -8,7 +8,6 @@ public class UserRecipeDTO {
     private List<RecipeInstruction> recipeInstructions;
     private List <Integer> ingredientIds;
     private List <Ingredient> ingredients;
-    private List<String> ingredientNames;
 
     public Recipe getRecipe() {
         return recipe;

@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Ingredient;
+import com.techelevator.model.IngredientNameDTO;
 import com.techelevator.model.Recipe;
 import com.techelevator.model.RecipeInstruction;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -112,6 +113,27 @@ public class JdbcIngredientDao implements IngredientDao {
         }
 
         return false;
+    }
+
+    @Override
+    public Integer addNewIngredient(IngredientNameDTO nameDTO) {
+//        INSERT INTO ingredients(ingredient_name)
+//        VALUES ('Carrots')
+        String sql = "INSERT INTO ingredients (ingredient_name) VALUES (?) RETURNING ingredient_id;";
+        int newIngredientId = -1;
+//        try {
+
+        newIngredientId = template.queryForObject(sql, Integer.class,
+                nameDTO.getIngredientName());
+
+//    }
+//        catch(CannotGetJdbcConnectionException e) {
+//            System.out.println("Problem connecting");
+//        } catch (DataIntegrityViolationException e) {
+//            System.out.println("Data problems");
+//        }
+
+        return newIngredientId;
     }
 
 }

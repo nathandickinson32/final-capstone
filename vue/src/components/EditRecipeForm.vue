@@ -6,7 +6,10 @@
 
     <!-- {{ ingredients }}
     {{ allIngredients }} -->
-    {{ this.userRecipeDTO.ingredientIds }}
+    {{ this.userRecipeDTO.ingredientIds }} <br>
+    {{ this.newIngredient }}
+    <br> <br>
+    {{ this.ingredients }}
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -184,7 +187,7 @@ export default {
       selectedIngredients: [],
       allIngredients: [],
       newIngredient: {
-        ingredientName: "",
+        ingredientName: ""
       },
       showForm: false,
 
@@ -299,12 +302,23 @@ export default {
       //   ingredientName: ""
       // }
       if(this.newIngredient.ingredientName!=""){
-        this.ingredients.push(this.newIngredient);
-      this.userRecipeDTO.newIngredients.push(this.newIngredient);
-      this.showForm = false;
-      this.newIngredient = {
-        ingredientName:""
-      };}
+        let checkId = this.allIngredients.length + 1;
+        IngredientsService.addIngredient(this.newIngredient).then(
+          (response) => {
+            if (response.status === 201) {
+              this.newIngredient.ingredientId = response.data;
+              this.ingredients.push(this.newIngredient);
+              this.userRecipeDTO.newIngredients.push(checkId);
+              this.userRecipeDTO.ingredientIds.push(this.newIngredient.ingredientId);
+              this.showForm = false;
+              this.newIngredient = {
+                ingredientName:""
+              };
+            }
+          }
+        );
+        
+      }
     },
     addIngredient(event) {
       const ingredientName = event.target.value.trim();

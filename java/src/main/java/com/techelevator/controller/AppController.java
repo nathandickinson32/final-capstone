@@ -75,6 +75,12 @@ public class AppController {
 //        return recipeDao.getRecipeInstruction(id);
 //    }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/add-ingredient", method = RequestMethod.POST)
+    public Integer addIngredient(@RequestBody IngredientNameDTO newIngredientName) {
+        return ingredientDao.addNewIngredient(newIngredientName);
+    }
+
 
 
     /* USER FUNCTIONS */
