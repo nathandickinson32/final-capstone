@@ -379,7 +379,7 @@ textarea {
 #remove {
   background-color: pink;
   border-radius: 10px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 18px;
   height: 30px;
   width: 170px;
@@ -387,14 +387,14 @@ textarea {
 }
 #allIngredients {
   background-color: pink;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 18px;
 }
 h2{
-  font-family: 'libreBaskerville';
+  font-family: 'libreBaskerville', serif;
 }
 .ingredientCard {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
   font-size: 20px;
 }
 .ingredientCard input{
