@@ -211,7 +211,7 @@ public class JdbcRecipeDao implements RecipeDao {
 
 
     @Override
-    public Recipe addNewUserRecipe(Recipe recipeToSave, List <RecipeInstruction> recipeInstructionsToSave, List <Integer> ingredientIds, int id) {
+    public Recipe addNewUserRecipe(Recipe recipeToSave, List <RecipeInstruction> recipeInstructionsToSave, List <Integer> ingredientIds, List<Ingredient> ingredients, int id) {
 
         String sql = "INSERT INTO recipe(recipe_name, description, author_id) VALUES (?, ?, ?) RETURNING recipe_id";
 
@@ -250,17 +250,21 @@ public class JdbcRecipeDao implements RecipeDao {
             }
         }
 
-        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id) VALUES (?, ?) RETURNING ingredient_id";
+        String sql3 = "INSERT INTO recipe_ingredients(recipe_id, ingredient_id, numerator,denominator,measurement_type) VALUES (?, ?, ?, ?, ?) RETURNING ingredient_id";
             int returnId=-1;
 
-        for( Integer ingredientId: ingredientIds)
+        for( Ingredient ingredient: ingredients)
             try {
 
               returnId= template.queryForObject(sql3, Integer.class,
 
 
                         newRecipeId,
-                       ingredientId
+                      ingredient.getIngredientId(),
+                      ingredient.getNumerator(),
+                      ingredient.getDenominator(),
+                      ingredient.getMeasurementType()
+
 
                 );
             } catch (CannotGetJdbcConnectionException e) {
