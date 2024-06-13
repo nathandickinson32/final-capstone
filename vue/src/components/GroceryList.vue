@@ -171,7 +171,7 @@ h4.ingredientName {
 
 #quantityNum {
   background-color: pink;
-  max-width: 40px;
+  max-width: 80px;
   font-family: 'Montserrat', serif;
   font-size: 20px;
 }
