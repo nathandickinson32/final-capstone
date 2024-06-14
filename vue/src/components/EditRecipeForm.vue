@@ -10,11 +10,11 @@
     {{ this.newIngredient }}
     <br> <br>
     {{ this.ingredients }} -->
+    
     <hr id="separator">
     <hr id="separator">
-    <label id="editInstructionsLabel">Edit Instructions</label>
+    <label id="editInstructionsLabel1">Edit Recipe</label>
     <hr id="separator">
-
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -37,6 +37,11 @@
           v-model="userRecipeDTO.recipe.description"
         ></textarea>
       </div>
+
+      <hr id="separator">
+    <hr id="separator">
+    <label id="editInstructionsLabel">Edit Instructions</label>
+    <hr id="separator">
 
       <div
         v-for="(instruction, index) in userRecipeDTO.recipeInstructions"
@@ -461,6 +466,15 @@ export default {
 }
 button {
   cursor: pointer;
+}
+
+#editInstructionsLabel1 {
+  font-family: 'LibreBaskerville';
+  font-size: 40px;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #editInstructionsLabel {
