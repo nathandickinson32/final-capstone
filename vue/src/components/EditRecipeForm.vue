@@ -101,6 +101,11 @@
         <label id="editIngredientsLabel">Edit Ingredients</label>
         <hr id="separator">
 
+        {{ this.userRecipeDTO.ingredients }} <br> <br>
+        {{ this.ingredients }} <br> <br>
+        {{ this.userRecipeDTO.ingredientIds }} <br> <br>
+        {{ this.selectedIngredients }} <br> <br>
+
         <div
           v-for="(ingredient, index) in ingredients"
           :key="ingredient.ingredientId"
@@ -141,6 +146,7 @@
           <select
             name="allMeasurements"
             id="allMeasurements"
+            v-model="ingredients[index].measurementType"
           >
             <!-- on:click needs to add ingredient to this.ingredients -->
             <option value="">-Unit of Measurement-</option>
@@ -148,8 +154,9 @@
 
             <option
               v-for="measurement in allMeasurements"
-              :key="measurement.id"
+              :key="measurement.measurementType"
               :value="measurement.measurementType"
+              
             >
               {{ measurement.measurementType }}
             </option>
@@ -210,7 +217,7 @@
           Don't see your ingredient?
         </a>
         <div v-show="showForm === true">
-          <label for="ingredientName">New Ingredient Name</label>
+          <label for="ingredientText">New Ingredient Name</label>
           <input id="ingredientText" type="text" v-model="newIngredient.ingredientName" />
           <br>
           <br>
@@ -264,16 +271,16 @@ export default {
         ],
         ingredientIds: [],
 
-        ingredients:
-   [
-    {
-         ingredientId: "",
-     numerator: "",
-     denominator: "",
-     measurementType : ""
-     }
-     
-    ]
+        ingredients: []
+          // [
+          //   {
+          //       ingredientId: "",
+          //   numerator: "",
+          //   denominator: "",
+          //   measurementType : ""
+          //   }
+            
+          // ]
 
       },
     };
@@ -329,7 +336,7 @@ export default {
 
   methods: {
     submitForms() {
-
+      this.userRecipeDTO.ingredients = this.ingredients;
       RecipeService.addCustomUserRecipe(this.userRecipeDTO)
         .then((response) => {
           if (response.status === 201) {
@@ -407,6 +414,7 @@ export default {
         let newIngredientId = ingredient.ingredientId;
 
         this.ingredients.push({ ...ingredient, quantity: "" });
+        this.userRecipeDTO.ingredients.push({ ...ingredient, quantity: "" });
 
         this.userRecipeDTO.ingredientIds.push(newIngredientId);
       }
@@ -419,6 +427,7 @@ export default {
           (ingredient) => (ingredient.ingredientId === id)
         );
         this.ingredients.splice(index, 1);
+        this.userRecipeDTO.ingredients.splice(index, 1);
         let index2 = this.userRecipeDTO.ingredientIds.findIndex(
           (ingredientId) => (ingredientId === id)
         );
