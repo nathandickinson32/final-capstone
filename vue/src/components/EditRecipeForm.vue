@@ -113,20 +113,20 @@
           />
           <input
             :id="'ingredientName-' + index + '-numerator'"
+            class='ing-text-box'
             type="text" v-model="ingredients[index].numerator"
           />
           <a
           id="show-fraction-button"
           href="#"
-          v-on:click.prevent="showFraction = true"
-          v-if="showFraction === false"
+          v-on:click.prevent="showFraction = !showFraction"
           >
             Fraction?
           </a>
           <div v-show="showFraction === true">
-            <label for="ingredientName">New Ingredient Name</label>
             <input
               :id="'ingredientName-' + index + '-denominator'"
+              class='ing-text-box'
               type="text" v-model="ingredients[index].denominator"
             />
           </div>
@@ -242,6 +242,7 @@ export default {
         ingredientName: ""
       },
       showForm: false,
+      showFraction: false,
       allMeasurements: [],
 
 
@@ -261,10 +262,10 @@ export default {
         ingredients:
    [
     {
-         "ingredientId": "",
-     "numerator": "",
-     "denominator": "",
-     "measurementType" : ""
+         ingredientId: "",
+     numerator: "",
+     denominator: "",
+     measurementType : ""
      }
      
     ]
@@ -313,6 +314,7 @@ export default {
         if (response.status === 200) {
           this.ingredients = response.data;
           this.ingredients.forEach((ingredient) => {
+            this.userRecipeDTO.ingredientIds.push(ingredient.ingredientId);
             this.userRecipeDTO.ingredients.push(ingredient);
           });
         }
@@ -322,6 +324,7 @@ export default {
 
   methods: {
     submitForms() {
+
       RecipeService.addCustomUserRecipe(this.userRecipeDTO)
         .then((response) => {
           if (response.status === 201) {
@@ -432,6 +435,13 @@ export default {
 </script>
 
 <style scoped>
+
+.ing-text-box {
+  background-color: pink;
+  font-family: "Montserrat", serif;
+  font-size: 20px;
+  max-width: 20px;
+}
 .add-btn {
   border: 1px solid black;
   border-radius: 10px;
