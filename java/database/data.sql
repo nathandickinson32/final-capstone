@@ -3,6 +3,9 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+INSERT INTO measurements
+VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce'), ('pound'), ('bag'), ('clove'), ('');
+
 INSERT INTO categories(category_type, category_name)
 VALUES
 ('Time', 'Appetizers'),
@@ -504,9 +507,6 @@ VALUES
 (2, 'Grill the swordfish steaks over high heat (as close to the heat as possible), turning once, until cooked through, 6 to 7 minutes. Transfer the fish to a platter. Prick each fish steak in several places with a fork to allow the sauce to penetrate. Using a spoon, beat the sauce, then drizzle it over the fish.', 20)
 ;
 
-;
-INSERT INTO measurements
-VALUES ('cup'), ('tablespoon'), ('teaspoon'), ('pinch'), ('ounce'), ('pound'), ('');
 
 --ingredient {
 --    ingredientName : "string",
