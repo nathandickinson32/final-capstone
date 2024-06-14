@@ -101,10 +101,10 @@
         <label id="editIngredientsLabel">Edit Ingredients</label>
         <hr id="separator">
 
-        {{ this.userRecipeDTO.ingredients }} <br> <br>
+        <!-- {{ this.userRecipeDTO.ingredients }} <br> <br>
         {{ this.ingredients }} <br> <br>
         {{ this.userRecipeDTO.ingredientIds }} <br> <br>
-        {{ this.selectedIngredients }} <br> <br>
+        {{ this.selectedIngredients }} <br> <br> -->
 
         <div
           v-for="(ingredient, index) in ingredients"
@@ -112,7 +112,7 @@
           class="ingredientCard"
         >
           <label :for="'ingredientName-' + index"
-            >Ingredient {{ ingredients[index].ingredientName }}</label
+            > {{ ingredients[index].ingredientName }}</label
           >
           <input
             :id="'ingredientName-' + index"
