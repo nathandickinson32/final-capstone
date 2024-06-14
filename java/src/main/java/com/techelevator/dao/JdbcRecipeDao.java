@@ -227,7 +227,7 @@ public class JdbcRecipeDao implements RecipeDao {
         } catch(CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting");
         } catch (DataIntegrityViolationException e) {
-            System.out.println("Data problems");
+            System.out.println("Data problems recipe");
         }
 
 
@@ -246,7 +246,7 @@ public class JdbcRecipeDao implements RecipeDao {
             } catch (CannotGetJdbcConnectionException e) {
                 System.out.println("Problem connecting");
             } catch (DataIntegrityViolationException e) {
-                System.out.println("Data problems");
+                System.out.println("Data problems recipe_instructions");
             }
         }
 
@@ -275,7 +275,7 @@ public class JdbcRecipeDao implements RecipeDao {
             } catch (CannotGetJdbcConnectionException e) {
                 System.out.println("Problem connecting");
             } catch (DataIntegrityViolationException e) {
-                System.out.println("Data problems");
+                System.out.println("Data problems recipe_ingredients");
             }
 
 
