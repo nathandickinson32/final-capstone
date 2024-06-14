@@ -260,7 +260,7 @@ VALUES
 ('Swordfish')
 ;
 
-INSERT INTO recipe_ingredients(recipe_id, ingredient_id)
+INSERT INTO recipe_ingredients(recipe_id, ingredient_id, numerator, denominator, measurement_type)
 VALUES
 (1,121),
 (1,122),
