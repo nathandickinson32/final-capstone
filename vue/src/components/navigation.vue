@@ -186,6 +186,7 @@ mounted() {
   background-color: pink;
   font-family: 'Montserrat', serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .off-screen-menu {

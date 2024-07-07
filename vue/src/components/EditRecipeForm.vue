@@ -382,10 +382,7 @@ export default {
     // add, remove, create ingredient
 
     addNewIngredient() {
-      // const newIngredient = {
-
-      //   ingredientName: ""
-      // }
+   
       if(this.newIngredient.ingredientName!=""){
         let checkId = this.allIngredients.length + 1;
         IngredientsService.addIngredient(this.newIngredient).then(
@@ -437,13 +434,7 @@ export default {
       this.selectedIngredients = [];
     },
 
-    //     addNewIngredientToRecipe(selectedIngredient) {
-    //   console.log("Selected Ingredient:", selectedIngredient);
-    //  let newIngredientId = selectedIngredient.ingredientId;
-    //   console.log("New Ingredient ID:", newIngredientId);
-    //   this.userRecipeDTO.ingredientIds.push(newIngredientId);
-    //   console.log("User Recipe DTO:", this.userRecipeDTO);
-    // },
+
   },
 };
 </script>
@@ -455,6 +446,7 @@ export default {
   font-family: "Montserrat", serif;
   font-size: 20px;
   max-width: 20px;
+  border-radius: 10px;
 }
 .add-btn {
   border: 1px solid black;
@@ -463,6 +455,7 @@ export default {
   font-family: "Montserrat", serif;
   font-size: 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
 button {
   cursor: pointer;
@@ -475,6 +468,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 #editInstructionsLabel {
@@ -500,6 +494,7 @@ button {
 }
 #measurements {
   background-color: pink;
+  
 }
 
 
@@ -512,18 +507,21 @@ button {
 }
 #ingredientText {
   background-color: pink;
+  
 }
 
 #recipeName {
   background-color: pink;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 #description {
   background-color: pink;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 #step {
@@ -531,6 +529,7 @@ button {
   max-width: 20px;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 #instruction {
@@ -538,12 +537,14 @@ button {
   padding-bottom: 20px;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .instructionText {
   background-color: pink;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .stepText {
@@ -551,6 +552,7 @@ button {
   font-family: "Montserrat", serif;
   font-size: 20px;
   max-width: 20px;
+  border-radius: 10px;
 }
 
 
@@ -560,11 +562,13 @@ textarea {
   height: 100px;
   font-family: "Montserrat", serif;
   font-size: 20px;
+  border-radius: 10px;
 }
 .dropdown option {
   background-color: pink;
   font-family: "Montserrat";
   font-size: 18px;
+  border-radius: 10px;
 }
 #remove {
   background-color: pink;
@@ -579,6 +583,7 @@ textarea {
   background-color: pink;
   font-family: 'Montserrat', serif;
   font-size: 18px;
+  border-radius: 10px;
 }
 h2{
   font-family: 'libreBaskerville', serif;
@@ -589,6 +594,7 @@ h2{
 }
 .ingredientCard input {
   background-color: pink;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {
