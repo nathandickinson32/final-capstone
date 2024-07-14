@@ -1,20 +1,19 @@
 <template>
-  
   <div class="container">
     <!-- {{ recipe }}
   {{ instructions }} -->
 
     <!-- {{ ingredients }}
     {{ allIngredients }} -->
-        <!-- {{ this.userRecipeDTO.ingredientIds }} <br>
+    <!-- {{ this.userRecipeDTO.ingredientIds }} <br>
     {{ this.newIngredient }}
     <br> <br>
     {{ this.ingredients }} -->
-    
-    <hr id="separator">
-    <hr id="separator">
+
+    <hr id="separator" />
+    <hr id="separator" />
     <label id="editInstructionsLabel1">Edit Recipe</label>
-    <hr id="separator">
+    <hr id="separator" />
 
     <form v-on:submit.prevent="submitForms" class="recipeForm">
       <div class="form-group">
@@ -38,10 +37,10 @@
         ></textarea>
       </div>
 
-      <hr id="separator">
-    <hr id="separator">
-    <label id="editInstructionsLabel">Edit Instructions</label>
-    <hr id="separator">
+      <hr id="separator" />
+      <hr id="separator" />
+      <label id="editInstructionsLabel">Edit Instructions</label>
+      <hr id="separator" />
 
       <div
         v-for="(instruction, index) in userRecipeDTO.recipeInstructions"
@@ -61,8 +60,7 @@
         <label :for="'instruction-' + index">
           Instruction
           <!-- {{ userRecipeDTO.recipeInstructions[index].instruction }} -->
-          </label
-        >
+        </label>
         <textarea
           class="instructionText"
           :id="'instruction-' + index"
@@ -95,11 +93,11 @@
         <button class="add-btn" v-on:click.prevent="addStep">
           Add Instruction
         </button>
-        <hr id="separator">
-        <hr id="separator">
-        <hr id="separator">
+        <hr id="separator" />
+        <hr id="separator" />
+        <hr id="separator" />
         <label id="editIngredientsLabel">Edit Ingredients</label>
-        <hr id="separator">
+        <hr id="separator" />
 
         <!-- {{ this.userRecipeDTO.ingredients }} <br> <br>
         {{ this.ingredients }} <br> <br>
@@ -111,8 +109,8 @@
           :key="ingredient.ingredientId"
           class="ingredientCard"
         >
-          <label :for="'ingredientName-' + index"
-            > {{ ingredients[index].ingredientName }}</label
+          <label :for="'ingredientName-' + index">
+            {{ ingredients[index].ingredientName }}</label
           >
           <input
             :id="'ingredientName-' + index"
@@ -123,66 +121,50 @@
           />
           <input
             :id="'ingredientName-' + index + '-numerator'"
-            class='ing-text-box'
-            type="text" v-model="ingredients[index].numerator"
+            class="ing-text-box"
+            type="text"
+            v-model="ingredients[index].numerator"
           />
           <a
-          id="show-fraction-button"
-          href="#"
-          v-on:click.prevent="showFraction = !showFraction"
-          >
-            Fraction?
+            id="show-fraction-button"
+            href="#"
+            v-on:click.prevent="showFraction = !showFraction"
+            ><strong>Show Fraction</strong>
           </a>
           <div v-show="showFraction === true">
             <input
               :id="'ingredientName-' + index + '-denominator'"
-              class='ing-text-box'
-              type="text" v-model="ingredients[index].denominator"
+              class="ing-text-box"
+              type="text"
+              v-model="ingredients[index].denominator"
             />
           </div>
-          
+
           <div class="dropdown">
-          <label for="allMeasurements"></label>
-          <select
-            name="allMeasurements"
-            id="allMeasurements"
-            v-model="ingredients[index].measurementType"
-          >
-            <!-- on:click needs to add ingredient to this.ingredients -->
-            <option value="">-Unit of Measurement-</option>
-            <!-- keep this value empty, select can't be selected -->
-
-            <option
-              v-for="measurement in allMeasurements"
-              :key="measurement.measurementType"
-              :value="measurement.measurementType"
-              
+            <label for="allMeasurements"></label>
+            <select
+              name="allMeasurements"
+              id="allMeasurements"
+              v-model="ingredients[index].measurementType"
             >
-              {{ measurement.measurementType }}
-            </option>
-          </select>
-        </div>
+              <!-- on:click needs to add ingredient to this.ingredients -->
+              <option value="">-Unit of Measurement-</option>
+              <!-- keep this value empty, select can't be selected -->
 
-          
+              <option
+                v-for="measurement in allMeasurements"
+                :key="measurement.measurementType"
+                :value="measurement.measurementType"
+              >
+                {{ measurement.measurementType }}
+              </option>
+            </select>
+          </div>
 
           <!-- {{ selectedIngredients}} -->
           <!-- v-model="ingredients[index].ingredientName" -->
         </div>
 
-        <!-- <td
-    v-for="ingredient in ingredients" 
-    v-bind:key="ingredient.id"
-    
-    >
-      
-            <input
-              type="checkbox"
-              v-bind:id="ingredient.id"
-              v-bind:value="ingredient.id"
-              v-model="selectedIngredientIds"
-             
-            />
-          </td> -->
         <button id="remove" v-on:click.prevent="removeSelectedIngredient">
           Remove Ingredients
         </button>
@@ -194,7 +176,6 @@
             id="allIngredients"
             v-on:change="addIngredient"
           >
-            <!-- on:click needs to add ingredient to this.ingredients -->
             <option value="">-Choose Ingredient to add-</option>
             <!-- keep this value empty, select can't be selected -->
 
@@ -213,23 +194,24 @@
           href="#"
           v-on:click.prevent="showForm = true"
           v-if="showForm === false"
-        >
-          Don't see your ingredient?
+          ><strong> Add new ingredient to list </strong>
         </a>
         <div v-show="showForm === true">
           <label for="ingredientText">New Ingredient Name</label>
-          <input id="ingredientText" type="text" v-model="newIngredient.ingredientName" />
-          <br>
-          <br>
+          <input
+            id="ingredientText"
+            type="text"
+            v-model="newIngredient.ingredientName"
+          />
+          <br />
+          <br />
           <button class="add-btn" v-on:click.prevent="addNewIngredient">
-          Add Ingredient
-        </button>
+            Add Ingredient
+          </button>
         </div>
 
-       
-
         <div>
-          <button  class="btn btn-submit">Submit</button>
+          <button class="btn btn-submit">Submit</button>
         </div>
       </div>
     </form>
@@ -251,12 +233,11 @@ export default {
       selectedIngredients: [],
       allIngredients: [],
       newIngredient: {
-        ingredientName: ""
+        ingredientName: "",
       },
       showForm: false,
       showFraction: false,
       allMeasurements: [],
-
 
       userRecipeDTO: {
         recipe: {
@@ -271,17 +252,16 @@ export default {
         ],
         ingredientIds: [],
 
-        ingredients: []
-          // [
-          //   {
-          //       ingredientId: "",
-          //   numerator: "",
-          //   denominator: "",
-          //   measurementType : ""
-          //   }
-            
-          // ]
+        ingredients: [],
+        // [
+        //   {
+        //       ingredientId: "",
+        //   numerator: "",
+        //   denominator: "",
+        //   measurementType : ""
+        //   }
 
+        // ]
       },
     };
   },
@@ -382,8 +362,7 @@ export default {
     // add, remove, create ingredient
 
     addNewIngredient() {
-   
-      if(this.newIngredient.ingredientName!=""){
+      if (this.newIngredient.ingredientName != "") {
         let checkId = this.allIngredients.length + 1;
         IngredientsService.addIngredient(this.newIngredient).then(
           (response) => {
@@ -391,15 +370,16 @@ export default {
               this.newIngredient.ingredientId = response.data;
               this.ingredients.push(this.newIngredient);
               this.userRecipeDTO.newIngredients.push(checkId);
-              this.userRecipeDTO.ingredientIds.push(this.newIngredient.ingredientId);
+              this.userRecipeDTO.ingredientIds.push(
+                this.newIngredient.ingredientId
+              );
               this.showForm = false;
               this.newIngredient = {
-                ingredientName:""
+                ingredientName: "",
               };
             }
           }
         );
-        
       }
     },
     addIngredient(event) {
@@ -421,26 +401,23 @@ export default {
     removeSelectedIngredient() {
       this.selectedIngredients.forEach((id) => {
         let index = this.ingredients.findIndex(
-          (ingredient) => (ingredient.ingredientId === id)
+          (ingredient) => ingredient.ingredientId === id
         );
         this.ingredients.splice(index, 1);
         this.userRecipeDTO.ingredients.splice(index, 1);
         let index2 = this.userRecipeDTO.ingredientIds.findIndex(
-          (ingredientId) => (ingredientId === id)
+          (ingredientId) => ingredientId === id
         );
         this.userRecipeDTO.ingredientIds.splice(index2, 1);
       });
 
       this.selectedIngredients = [];
     },
-
-
   },
 };
 </script>
 
 <style scoped>
-
 .ing-text-box {
   background-color: pink;
   font-family: "Montserrat", serif;
@@ -462,17 +439,16 @@ button {
 }
 
 #editInstructionsLabel1 {
-  font-family: 'LibreBaskerville';
+  font-family: "LibreBaskerville";
   font-size: 40px;
   text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 #editInstructionsLabel {
-  font-family: 'LibreBaskerville';
+  font-family: "LibreBaskerville";
   font-size: 30px;
   text-decoration: underline;
   display: flex;
@@ -481,22 +457,19 @@ button {
 }
 
 #editIngredientsLabel {
-  font-family: 'LibreBaskerville';
+  font-family: "LibreBaskerville";
   font-size: 30px;
   text-decoration: underline;
-  
 }
 #separator {
   opacity: 0;
 }
-#show-form-button{
+#show-form-button {
   font-size: 20px;
 }
 #measurements {
   background-color: pink;
-  
 }
-
 
 .container {
   border: 2px solid black;
@@ -507,7 +480,6 @@ button {
 }
 #ingredientText {
   background-color: pink;
-  
 }
 
 #recipeName {
@@ -555,8 +527,6 @@ button {
   border-radius: 10px;
 }
 
-
-
 textarea {
   width: 400px;
   height: 100px;
@@ -573,7 +543,7 @@ textarea {
 #remove {
   background-color: pink;
   border-radius: 10px;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 18px;
   height: 30px;
   width: 170px;
@@ -581,22 +551,36 @@ textarea {
 }
 #allIngredients {
   background-color: pink;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 18px;
   border-radius: 10px;
 }
-h2{
-  font-family: 'libreBaskerville', serif;
+h2 {
+  font-family: "libreBaskerville", serif;
 }
 .ingredientCard {
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-size: 20px;
+    border-radius: 10px;
+
+}
+.ing-text-box{
+  border-radius: 10px;
 }
 .ingredientCard input {
   background-color: pink;
   border-radius: 10px;
 }
-
+#show-fraction-button {
+  color: black;
+  margin-left: 15px;
+}
+#show-form-button {
+  color: black;
+}
+#allMeasurements{
+  border-radius: 10px;
+}
 @media only screen and (max-width: 600px) {
   .form-group {
     border-bottom: 2px dotted black;
