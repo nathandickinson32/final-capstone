@@ -15,6 +15,7 @@ import FavoriteRecipesView from '../views/FavoriteRecipesView.vue';
 import CustomRecipesView from '../views/CustomRecipesView.vue';
 import NotFoundView from '../views/NotFoundView.vue';
 import EditRecipeForm from '../components/EditRecipeForm.vue'
+import AddRecipeForm from '../components/AddRecipeForm.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -118,6 +119,14 @@ const routes = [
     path: "/editRecipe/:id",
     name: "editRecipe",
     component: EditRecipeForm,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  { 
+    path: "/addRecipe",
+    name: "addRecipe",
+    component: AddRecipeForm,
     meta: {
       requiresAuth: true
     }
